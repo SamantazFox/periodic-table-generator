@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="100%" height="100%" viewBox="0 0 96 96">
+
+
+	<style>
+		rect.background {
+			stroke: grey;
+			stroke-width: 0.8;
+		}
+
+		text {
+			font-family: sans-serif;
+		}
+		text.symbol, text.name, text.weight {
+			width: 100%;
+			text-anchor: middle;
+			text-align: center;
+		}
+
+		text.number { font-size:  7pt; }
+		text.symbol {
+			left: 50%; top: 50%;
+			font-size: 32pt;
+			font-family: serif;
+		}
+		text.name { font-size: 7.25pt; }
+		text.weight { font-size: 7.25pt; }
+	</style>
+
+	<title>Periodic element</title>
+
+	<g class="element" width="80" height="80" x="8" y="8">
+
+		<rect class="background" fill="#c0ffff" width="80" height="80"
+		  x="8" y="8" rx="4" ry="4"/>
+
+		<text class="number" fill="black" x="12.5" y="20">18</text>
+		<text class="symbol" fill="black" x="48" y="56">Ar</text>
+		<text class="name"   fill="black" x="48" y="70">Argon</text>
+		<text class="weight" fill="black" x="48" y="81.5">[39.792, 39.963]</text>
+	</g>
+</svg>
