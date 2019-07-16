@@ -24,8 +24,8 @@
 			font-size: 32pt;
 			font-family: serif;
 		}
-		text.name { font-size: 7.25pt; }
-		text.weight { font-size: 7.25pt; }
+		text.name   { font-size: 8pt; }
+		text.weight { font-size: 6pt; }
 	</style>
 
 	<title>Periodic element</title>
