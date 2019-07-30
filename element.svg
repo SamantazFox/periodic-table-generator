@@ -9,6 +9,21 @@
 			stroke-width: 0.8;
 		}
 
+		/* Metals and metalloids */
+		rect.background.alkali      { fill: #ff6666; }
+		rect.background.alkalineEM  { fill: #ffdead; }
+		rect.background.lanthanide  { fill: #ffbfff; }
+		rect.background.actinide    { fill: #ff99cc; }
+		rect.background.transitionM { fill: #ffc0c0; }
+		rect.background.post-transM { fill: #cccccc; }
+		rect.background.metalloid   { fill: #cccc99; }
+		/* Nonmetals */
+		rect.background.reactiveNM  { fill: #f0ff8f; }
+		rect.background.noble-gas   { fill: #c0ffff; }
+		/* Unknown */
+		rect.background.unknown     { fill: #e8e8e8; }
+
+
 		text {
 			font-family: sans-serif;
 		}
@@ -32,7 +47,7 @@
 
 	<g class="element" width="80" height="80" x="8" y="8">
 
-		<rect class="background" fill="#c0ffff" width="80" height="80"
+		<rect class="background noble-gas" width="80" height="80"
 		  x="8" y="8" rx="4" ry="4"/>
 
 		<text class="number" fill="black" x="12.5" y="20">18</text>
