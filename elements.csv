@@ -85,35 +85,35 @@
 84,6,16,"Polonium","Po","Solid","Post-transition metal","209"
 85,6,17,"Astatine","At","Solid","Metalloids","210"
 86,6,18,"Radon","Rn","Gas","Noble gases","222"
-87,7,1,"Francium","Fr","Solid","Alkali metals",
-88,7,2,"Radium","Ra","Solid","Alkaline earth metals",
-89,7,3,"Actinium","Ac","Solid","Actinides",
-90,A,A,"Thorium","Th","Solid","Actinides",
-91,A,A,"Protactinium","Pa","Solid","Actinides",
-92,A,A,"Uranium","U","Solid","Actinides",
-93,A,A,"Neptunium","Np","Solid","Actinides",
-94,A,A,"Plutonium","Pu","Solid","Actinides",
-95,A,A,"Americium","Am","Solid","Actinides",
-96,A,A,"Curium","Cm","Solid","Actinides",
-97,A,A,"Berkelium","Bk","Solid","Actinides",
-98,A,A,"Californium","Cf","Solid","Actinides",
-99,A,A,"Einsteinium","Es","Solid","Actinides",
-100,A,A,"Fermium","Fm","Unknown phase","Actinides",
-101,A,A,"Mendelevium","Md","Unknown phase","Actinides",
-102,A,A,"Nobelium","No","Unknown phase","Actinides",
-103,A,A,"Lawrencium","Lr","Unknown phase","Actinides",
-104,7,4,"Rutherfordium",Rf,"Unknown phase","Transition metals",
-105,7,5,"Dubnium","Db","Unknown phase","Transition metals",
-106,7,6,"Seaborgium","Sg","Unknown phase","Transition metals",
-107,7,7,"Bohrium","Bh","Unknown phase","Transition metals",
-108,7,8,"Hassium","Hs","Unknown phase","Transition metals",
-109,7,9,"Meitnerium","Mt","Unknown phase","Unknown chemical properties",
-110,7,10,"Darmstadtium","Ds","Unknown phase","Unknown chemical properties",
-111,7,11,"Roentgenium","Rg","Unknown phase","Unknown chemical properties",
-112,7,12,"Copernicium","Cn","Unknown phase","post-transition metals",
-113,7,13,"Nihonium","Nh","Unknown phase","Unknown chemical properties",
-114,7,14,"Flerovium","Fl","Unknown phase","Unknown chemical properties",
-115,7,15,"Moscovium","Mc","Unknown phase","Unknown chemical properties",
-116,7,16,"Livermorium","Lv","Unknown phase","Unknown chemical properties",
-117,7,17,"Tennessine","Ts","Unknown phase","Unknown chemical properties",
-118,7,18,"Oganesson","Og","Unknown phase","Unknown chemical properties",
+87,7,1,"Francium","Fr","Solid","Alkali metals","223"
+88,7,2,"Radium","Ra","Solid","Alkaline earth metals","226"
+89,7,3,"Actinium","Ac","Solid","Actinides","227"
+90,A,A,"Thorium","Th","Solid","Actinides","232.037 7(4)"
+91,A,A,"Protactinium","Pa","Solid","Actinides","231.035 88(1)"
+92,A,A,"Uranium","U","Solid","Actinides","238.028 91(3)"
+93,A,A,"Neptunium","Np","Solid","Actinides","237"
+94,A,A,"Plutonium","Pu","Solid","Actinides","244"
+95,A,A,"Americium","Am","Solid","Actinides","243"
+96,A,A,"Curium","Cm","Solid","Actinides","247"
+97,A,A,"Berkelium","Bk","Solid","Actinides","247"
+98,A,A,"Californium","Cf","Solid","Actinides","251"
+99,A,A,"Einsteinium","Es","Solid","Actinides","252"
+100,A,A,"Fermium","Fm","Unknown phase","Actinides","257"
+101,A,A,"Mendelevium","Md","Unknown phase","Actinides","258"
+102,A,A,"Nobelium","No","Unknown phase","Actinides","259"
+103,A,A,"Lawrencium","Lr","Unknown phase","Actinides","266"
+104,7,4,"Rutherfordium",Rf,"Unknown phase","Transition metals","267"
+105,7,5,"Dubnium","Db","Unknown phase","Transition metals","268"
+106,7,6,"Seaborgium","Sg","Unknown phase","Transition metals","269"
+107,7,7,"Bohrium","Bh","Unknown phase","Transition metals","270"
+108,7,8,"Hassium","Hs","Unknown phase","Transition metals","269"
+109,7,9,"Meitnerium","Mt","Unknown phase","Unknown chemical properties","275"
+110,7,10,"Darmstadtium","Ds","Unknown phase","Unknown chemical properties","281"
+111,7,11,"Roentgenium","Rg","Unknown phase","Unknown chemical properties","282"
+112,7,12,"Copernicium","Cn","Unknown phase","post-transition metals","285"
+113,7,13,"Nihonium","Nh","Unknown phase","Unknown chemical properties","286"
+114,7,14,"Flerovium","Fl","Unknown phase","Unknown chemical properties","289"
+115,7,15,"Moscovium","Mc","Unknown phase","Unknown chemical properties","290"
+116,7,16,"Livermorium","Lv","Unknown phase","Unknown chemical properties","293"
+117,7,17,"Tennessine","Ts","Unknown phase","Unknown chemical properties","294"
+118,7,18,"Oganesson","Og","Unknown phase","Unknown chemical properties","294"
