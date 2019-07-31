@@ -1,14 +1,14 @@
 "ID","Period","Group","Name","Symbol","Type","Subtype","Atomic weight"
 1,1,1,"Hydrogen","H","Gas","Reactive nonmetals","1.008"
 2,1,18,"Helium","He","Gas","Noble gases","4.002 602 (2)"
-3,2,1,"Lithium","Li","Solid","Alkali metals",
-4,2,2,"Beryllium","Be","Solid","Alkaline earth metals",
-5,2,13,"Boron","B","Solid","Metalloids",
-6,2,14,"Carbon","C","Solid","Reactive nonmetals",
-7,2,15,"Nitrogen","N","Gas","Reactive nonmetals",
-8,2,16,"Oxygen","O","Gas","Reactive nonmetals",
-9,2,17,"Fluorine","F","Gas","Reactive nonmetals",
-10,2,18,"Neon","Ne","Gas","Noble gases",
+3,2,1,"Lithium","Li","Solid","Alkali metals","6.94"
+4,2,2,"Beryllium","Be","Solid","Alkaline earth metals","9.012 183 1(5)"
+5,2,13,"Boron","B","Solid","Metalloids","10.81"
+6,2,14,"Carbon","C","Solid","Reactive nonmetals","12.011"
+7,2,15,"Nitrogen","N","Gas","Reactive nonmetals","14.007"
+8,2,16,"Oxygen","O","Gas","Reactive nonmetals"," 15.999"
+9,2,17,"Fluorine","F","Gas","Reactive nonmetals","18.998 403 163 (6)"
+10,2,18,"Neon","Ne","Gas","Noble gases","20.179 7(6)"
 11,3,1,"Sodium","Na",Solid,"Alkali metals",
 12,3,2,"Magnesium","Mg","Solid","Alkaline earth metals",
 13,3,13,"Aluminium","Al","Solid","Post-transition metal",
