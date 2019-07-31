@@ -1,6 +1,6 @@
 "ID","Period","Group","Name","Symbol","Type","Subtype","Atomic weight"
-1,1,1,"Hydrogen","H","Gas","Reactive nonmetals",
-2,1,18,"Helium","He","Gas","Noble gases",
+1,1,1,"Hydrogen","H","Gas","Reactive nonmetals","1.008"
+2,1,18,"Helium","He","Gas","Noble gases","4.002 602 (2)"
 3,2,1,"Lithium","Li","Solid","Alkali metals",
 4,2,2,"Beryllium","Be","Solid","Alkaline earth metals",
 5,2,13,"Boron","B","Solid","Metalloids",
