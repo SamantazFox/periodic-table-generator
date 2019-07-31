@@ -9,14 +9,14 @@
 8,2,16,"Oxygen","O","Gas","Reactive nonmetals"," 15.999"
 9,2,17,"Fluorine","F","Gas","Reactive nonmetals","18.998 403 163 (6)"
 10,2,18,"Neon","Ne","Gas","Noble gases","20.179 7(6)"
-11,3,1,"Sodium","Na",Solid,"Alkali metals",
-12,3,2,"Magnesium","Mg","Solid","Alkaline earth metals",
-13,3,13,"Aluminium","Al","Solid","Post-transition metal",
-14,3,14,"Silicon","Si",Solid,"Metalloids",
-15,3,15,"Phosphorus","P","Solid","Reactive nonmetals",
-16,3,16,"Sulfur","S","Solid","Reactive nonmetals",
-17,3,17,"Chlorine","Cl","Gas","Reactive nonmetals",
-18,3,18,"Argon","Ar","Gas","Noble gases",
+11,3,1,"Sodium","Na",Solid,"Alkali metals","22.989 769 28(2)"
+12,3,2,"Magnesium","Mg","Solid","Alkaline earth metals","24.305"
+13,3,13,"Aluminium","Al","Solid","Post-transition metal","26.981 538 4(3)"
+14,3,14,"Silicon","Si",Solid,"Metalloids","28.085"
+15,3,15,"Phosphorus","P","Solid","Reactive nonmetals","30.973 761 998 (5)"
+16,3,16,"Sulfur","S","Solid","Reactive nonmetals","32.06"
+17,3,17,"Chlorine","Cl","Gas","Reactive nonmetals","35.45"
+18,3,18,"Argon","Ar","Gas","Noble gases","39.88"
 19,4,1,"Potassium","K","Solid","Alkali metals",
 20,4,2,"Calcium","Ca","Solid","Alkaline earth metals",
 21,4,3,"Scandium","Sc","Solid","Transition metals",
