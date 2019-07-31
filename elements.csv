@@ -17,24 +17,24 @@
 16,3,16,"Sulfur","S","Solid","Reactive nonmetals","32.06"
 17,3,17,"Chlorine","Cl","Gas","Reactive nonmetals","35.45"
 18,3,18,"Argon","Ar","Gas","Noble gases","39.88"
-19,4,1,"Potassium","K","Solid","Alkali metals",
-20,4,2,"Calcium","Ca","Solid","Alkaline earth metals",
-21,4,3,"Scandium","Sc","Solid","Transition metals",
-22,4,4,"Titanium","Ti","Solid","Transition metals",
-23,4,5,"Vanadium","V","Solid","Transition metals",
-24,4,6,"Chromium","Cr","Solid","Transition metals",
-25,4,7,"Manganese","Mn","Solid","Transition metals",
-26,4,8,"Iron","Fe","Solid","Transition metals",
-27,4,9,"Cobalt","Co","Solid","Transition metals",
-28,4,10,"Nickel","Ni","Solid","Transition metals",
-29,4,11,"Copper","Cu","Solid","Transition metals",
-30,4,12,"Zinc","Zn","Solid","post-transition metals",
-31,4,13,"Gallium","Ga","Solid","Post-transition metal",
-32,4,14,"Germanium","Ge","Solid","Metalloids",
-33,4,15,"Arsenic","As","Solid","Metalloids",
-34,4,16,"Selenium","Se","Solid","Reactive nonmetals",
-35,4,17,"Bromine","Br","Liquid","Reactive nonmetals",
-36,4,18,"Krypton","Kr","Gas","Noble gases",
+19,4,1,"Potassium","K","Solid","Alkali metals","39.098 3(1)"
+20,4,2,"Calcium","Ca","Solid","Alkaline earth metals","40.078 (4)"
+21,4,3,"Scandium","Sc","Solid","Transition metals","44.955 908 (5)"
+22,4,4,"Titanium","Ti","Solid","Transition metals","47.867 (1)"
+23,4,5,"Vanadium","V","Solid","Transition metals","50.941 5(1)"
+24,4,6,"Chromium","Cr","Solid","Transition metals","51.996 1(6)"
+25,4,7,"Manganese","Mn","Solid","Transition metals","54.938 043 (2)"
+26,4,8,"Iron","Fe","Solid","Transition metals","55.845 (2)"
+27,4,9,"Cobalt","Co","Solid","Transition metals","58.933 194 (3)"
+28,4,10,"Nickel","Ni","Solid","Transition metals","58.693 4(4)"
+29,4,11,"Copper","Cu","Solid","Transition metals","63.546 (3)"
+30,4,12,"Zinc","Zn","Solid","post-transition metals","65.38(2)"
+31,4,13,"Gallium","Ga","Solid","Post-transition metal","69.723 (1)"
+32,4,14,"Germanium","Ge","Solid","Metalloids","72.630 (8)"
+33,4,15,"Arsenic","As","Solid","Metalloids","74.921 595 (6)"
+34,4,16,"Selenium","Se","Solid","Reactive nonmetals","78.971 (8)"
+35,4,17,"Bromine","Br","Liquid","Reactive nonmetals","79.904"
+36,4,18,"Krypton","Kr","Gas","Noble gases","83.798 (2)"
 37,5,1,"Rubidium","Rb","Solid","Alkali metals",
 38,5,2,"Strontium","Sr","Solid","Alkaline earth metals",
 39,5,3,"Yttrium","Y","Solid","Transition metals",
