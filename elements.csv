@@ -35,24 +35,24 @@
 34,4,16,"Selenium","Se","Solid","Reactive nonmetals","78.971 (8)"
 35,4,17,"Bromine","Br","Liquid","Reactive nonmetals","79.904"
 36,4,18,"Krypton","Kr","Gas","Noble gases","83.798 (2)"
-37,5,1,"Rubidium","Rb","Solid","Alkali metals",
-38,5,2,"Strontium","Sr","Solid","Alkaline earth metals",
-39,5,3,"Yttrium","Y","Solid","Transition metals",
-40,5,4,"Zirconium","Zr","Solid","Transition metals",
-41,5,5,"Niobium","Nb","Solid","Transition metals",
-42,5,6,"Molybdenum","Mo","Solid","Transition metals",
-43,5,7,"Technetium","Tc","Solid","Transition metals",
-44,5,8,"Ruthenium","Ru","Solid","Transition metals",
-45,5,9,"Rhodium","Rh","Solid","Transition metals",
-46,5,10,"Palladium","Pd","Solid","Transition metals",
-47,5,11,"Silver","Ag","Solid","Transition metals",
-48,5,12,"Cadmium","Cd","Solid","post-transition metals",
-49,5,13,"Indium","In","Solid","Post-transition metal",
-50,5,14,"Tin","Sn","Solid","Post-transition metal",
-51,5,15,"Antimony","Sb","Solid","Metalloids",
-52,5,16,"Tellurium","Te","Solid","Metalloids",
-53,5,17,"Iodine","I","Solid","Reactive nonmetals",
-54,5,18,"Xenon","Xe","Gas","Noble gases",
+37,5,1,"Rubidium","Rb","Solid","Alkali metals","85.467 8(3)"
+38,5,2,"Strontium","Sr","Solid","Alkaline earth metals","87.62(1)"
+39,5,3,"Yttrium","Y","Solid","Transition metals","88.905 84(1)"
+40,5,4,"Zirconium","Zr","Solid","Transition metals","91.224 (2)"
+41,5,5,"Niobium","Nb","Solid","Transition metals","92.90637(1)"
+42,5,6,"Molybdenum","Mo","Solid","Transition metals","95.95(1)"
+43,5,7,"Technetium","Tc","Solid","Transition metals","97"
+44,5,8,"Ruthenium","Ru","Solid","Transition metals","101.07(2)"
+45,5,9,"Rhodium","Rh","Solid","Transition metals","102.905 49(2)"
+46,5,10,"Palladium","Pd","Solid","Transition metals","106.42(1)"
+47,5,11,"Silver","Ag","Solid","Transition metals","107.868 2(2)"
+48,5,12,"Cadmium","Cd","Solid","post-transition metals","112.414 (4)"
+49,5,13,"Indium","In","Solid","Post-transition metal","114.818 (1)"
+50,5,14,"Tin","Sn","Solid","Post-transition metal","118.710 (7)"
+51,5,15,"Antimony","Sb","Solid","Metalloids","121.760 (1)"
+52,5,16,"Tellurium","Te","Solid","Metalloids","127.60(3)"
+53,5,17,"Iodine","I","Solid","Reactive nonmetals","126.904 47(3)"
+54,5,18,"Xenon","Xe","Gas","Noble gases","131.293 (6)"
 55,6,1,"Caesium","Cs","Solid","Alkali metals",
 56,6,2,"Barium","Ba","Solid","Alkaline earth metals",
 57,6,3,"Lanthanum","La","Solid","Lanthanides",
