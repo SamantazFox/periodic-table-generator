@@ -1,4 +1,4 @@
-"Element","Period","Group","Name","Symbol","Type","Subtype","Atomic weight"
+"ID","Period","Group","Name","Symbol","Type","Subtype","Atomic weight"
 1,1,1,"Hydrogen","H","Gas","Reactive nonmetals",
 2,1,18,"Helium","He","Gas","Noble gases",
 3,2,1,"Lithium","Li","Solid","Alkali metals",
