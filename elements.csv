@@ -53,38 +53,38 @@
 52,5,16,"Tellurium","Te","Solid","Metalloids","127.60(3)"
 53,5,17,"Iodine","I","Solid","Reactive nonmetals","126.904 47(3)"
 54,5,18,"Xenon","Xe","Gas","Noble gases","131.293 (6)"
-55,6,1,"Caesium","Cs","Solid","Alkali metals",
-56,6,2,"Barium","Ba","Solid","Alkaline earth metals",
-57,6,3,"Lanthanum","La","Solid","Lanthanides",
-58,L,L,"Cerium","Ce","Solid","Lanthanides",
-59,L,L,"Praseodymium","Pr","Solid","Lanthanides",
-60,L,L,"Neodymium","Nd","Solid","Lanthanides",
-61,L,L,"Promethium","Pm","Solid","Lanthanides",
-62,L,L,"Samarium","Sm","Solid","Lanthanides",
-63,L,L,"Europium","Eu","Solid","Lanthanides",
-64,L,L,"Gadolinium","Gd","Solid","Lanthanides",
-65,L,L,"Terbium","Tb","Solid","Lanthanides",
-66,L,L,"Dysprosium","Dy","Solid","Lanthanides",
-67,L,L,"Holmium","Ho","Solid","Lanthanides",
-68,L,L,"Erbium","Er","Solid","Lanthanides",
-69,L,L,"Thulium","Tm","Solid","Lanthanides",
-70,L,L,"Ytterbium","Yb","Solid","Lanthanides",
-71,L,L,"Lutetium","Lu","Solid","Lanthanides",
-72,6,4,"Hafnium","Hf","Solid","Transition metals",
-73,6,5,"Tantalum","Ta","Solid","Transition metals",
-74,6,6,"Tungsten","W","Solid","Transition metals",
-75,6,7,"Rhenium","Re","Solid","Transition metals",
-76,6,8,"Osmium","Os","Solid","Transition metals",
-77,6,9,"Iridium","Ir","Solid","Transition metals",
-78,6,10,"Platinum","Pt","Solid","Transition metals",
-79,6,11,"Gold","Au","Solid","Transition metals",
-80,6,12,"Mercury","Hg","Liquid","post-transition metals",
-81,6,13,"Thallium","Tl","Solid","Post-transition metal",
-82,6,14,"Lead","Pb","Solid","Post-transition metal",
-83,6,15,"Bismuth","Bi","Solid","Post-transition metal",
-84,6,16,"Polonium","Po","Solid","Post-transition metal",
-85,6,17,"Astatine","At","Solid","Metalloids",
-86,6,18,"Radon","Rn","Gas","Noble gases",
+55,6,1,"Caesium","Cs","Solid","Alkali metals","132.905 451 96(6)"
+56,6,2,"Barium","Ba","Solid","Alkaline earth metals","137.327 (7)"
+57,6,3,"Lanthanum","La","Solid","Lanthanides","138.905 47(7)"
+58,L,L,"Cerium","Ce","Solid","Lanthanides","140.116 (1)"
+59,L,L,"Praseodymium","Pr","Solid","Lanthanides","140.907 66(1)"
+60,L,L,"Neodymium","Nd","Solid","Lanthanides","144.242 (3)"
+61,L,L,"Promethium","Pm","Solid","Lanthanides","145"
+62,L,L,"Samarium","Sm","Solid","Lanthanides","150.36(2)"
+63,L,L,"Europium","Eu","Solid","Lanthanides","151.964 (1)"
+64,L,L,"Gadolinium","Gd","Solid","Lanthanides","157.25(3)"
+65,L,L,"Terbium","Tb","Solid","Lanthanides","158.925 354 (8)"
+66,L,L,"Dysprosium","Dy","Solid","Lanthanides","162.500 (1)"
+67,L,L,"Holmium","Ho","Solid","Lanthanides","164.930 32 8(7)"
+68,L,L,"Erbium","Er","Solid","Lanthanides","167.259 (3)"
+69,L,L,"Thulium","Tm","Solid","Lanthanides","168.934 218 (6)"
+70,L,L,"Ytterbium","Yb","Solid","Lanthanides","173.045(10)"
+71,L,L,"Lutetium","Lu","Solid","Lanthanides","174.966 8(1)"
+72,6,4,"Hafnium","Hf","Solid","Transition metals","178.49(2)"
+73,6,5,"Tantalum","Ta","Solid","Transition metals","180.947 88(2)"
+74,6,6,"Tungsten","W","Solid","Transition metals","183.84(1)"
+75,6,7,"Rhenium","Re","Solid","Transition metals","186.207(1)"
+76,6,8,"Osmium","Os","Solid","Transition metals","190.23(3)"
+77,6,9,"Iridium","Ir","Solid","Transition metals","192.217(2)"
+78,6,10,"Platinum","Pt","Solid","Transition metals","195.084(9)"
+79,6,11,"Gold","Au","Solid","Transition metals","196.966 570(4)"
+80,6,12,"Mercury","Hg","Liquid","post-transition metals","200.592(3)"
+81,6,13,"Thallium","Tl","Solid","Post-transition metal","[204.382, 204.385]"
+82,6,14,"Lead","Pb","Solid","Post-transition metal","207.2(1)"
+83,6,15,"Bismuth","Bi","Solid","Post-transition metal","208.980 40(1)"
+84,6,16,"Polonium","Po","Solid","Post-transition metal","209"
+85,6,17,"Astatine","At","Solid","Metalloids","210"
+86,6,18,"Radon","Rn","Gas","Noble gases","222"
 87,7,1,"Francium","Fr","Solid","Alkali metals",
 88,7,2,"Radium","Ra","Solid","Alkaline earth metals",
 89,7,3,"Actinium","Ac","Solid","Actinides",
