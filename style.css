@@ -1,0 +1,37 @@
+rect.background {
+	stroke: grey;
+	stroke-width: 0.8;
+}
+
+/* Metals and metalloids */
+rect.background.alkali      { fill: #ff6666; }
+rect.background.alkalineEM  { fill: #ffdead; }
+rect.background.lanthanide  { fill: #ffbfff; }
+rect.background.actinide    { fill: #ff99cc; }
+rect.background.transitionM { fill: #ffc0c0; }
+rect.background.post-transM { fill: #cccccc; }
+rect.background.metalloid   { fill: #cccc99; }
+/* Nonmetals */
+rect.background.reactiveNM  { fill: #f0ff8f; }
+rect.background.noble-gas   { fill: #c0ffff; }
+/* Unknown */
+rect.background.unknown     { fill: #e8e8e8; }
+
+
+text {
+	font-family: sans-serif;
+}
+text.symbol, text.name, text.weight {
+	width: 100%;
+	text-anchor: middle;
+	text-align: center;
+}
+
+text.number { font-size:  7pt; }
+text.symbol {
+	left: 50%; top: 50%;
+	font-size: 32pt;
+	font-family: serif;
+}
+text.name   { font-size: 8pt; }
+text.weight { font-size: 6pt; }
