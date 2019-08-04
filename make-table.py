@@ -104,7 +104,7 @@ for i in range(len(periods)):
 			'\t\t<rect class="background {css}" width="80" height="80"\n'
 			'\t\t  x="8" y="8" rx="4" ry="4"/>\n'
 			'\t\t<text class="number" fill="black" x="12.5" y="20">{id}</text>\n'
-			'\t\t<text class="symbol" fill="black" x="48" y="56">{sym}</text>\n'
+			'\t\t<text class="symbol" fill="black" x="48" y="50">{sym}</text>\n'
 			'\t\t<text class="name"   fill="black" x="48" y="70">{name}</text>\n'
 			'\t\t<text class="weight" fill="black" x="48" y="81.5">{weight}</text>\n'
 			'\t</g>\n'

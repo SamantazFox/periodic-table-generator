@@ -30,7 +30,7 @@ text.symbol, text.name, text.weight {
 text.number { font-size:  7pt; }
 text.symbol {
 	left: 50%; top: 50%;
-	font-size: 32pt;
+	font-size: 24pt;
 	font-family: serif;
 }
 text.name   { font-size: 8pt; }
