@@ -1,3 +1,19 @@
+/*
+ * Group and Periods headers
+*/
+
+.headers-text > text {
+	text-anchor: middle;
+	text-align: center;
+	font-size: 22pt;
+	font-family: monospace;
+}
+
+
+/*
+ * Elements
+*/
+
 rect.background {
 	stroke: grey;
 	stroke-width: 0.8;

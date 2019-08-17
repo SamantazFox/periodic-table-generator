@@ -5,6 +5,10 @@ import csv
 # List of rows
 periods = ['1','2','3','4','5','6','7','L','A']
 
+# Some constants
+CONST_GROUP4_OFFSET = 20
+CONST_LANACT_OFFSET = 20
+
 
 # =======================================
 #  Load list of elements
@@ -26,7 +30,7 @@ fd = open("periodic.svg", 'w')
 fd.write(
 	'<?xml version="1.0" encoding="UTF-8"?>\n'
 	'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"\n'
-	'  width="100%" height="100%" viewBox="0 0 1824 960">\n\n'
+	'  width="100%" height="100%" viewBox="0 0 1824 1000">\n\n'
 )
 
 
@@ -41,20 +45,45 @@ fd.write('\t</style>\n\n')
 fd.write('\t<title>Periodic table</title>\n\n')
 
 
+# Create the periods & groups headers
+fd.write('\t<g class="headers-text">\n')
+fd.write('\t\t<!-- Groups header -->\n')
+
+for i in range(1,19):
+	# Add a space between group 3/4
+	xpos = (i*96 + 48)
+	if i >= 4: xpos += CONST_GROUP4_OFFSET
+
+	fd.write(
+		'\t\t<text width="96" x="{x}" y="{y}">{grp}</text>\n'
+		.format(x = xpos, y = 64, grp = i)
+	)
+
+fd.write('\t\t<!-- Periods header -->\n')
+
+for i in range(1,8):
+	fd.write(
+		'\t\t<text width="96" x="{x}" y="{y}">{per}</text>\n'
+		.format(x = 48, y =(i*96 + 58), per = i)
+	)
+
+fd.write('\t</g>\n\n')
+
+
 # Create elements
 for i in range(len(periods)):
 
 	# Compute period position
-	yoff = i * 96
+	yoff = (i+1) * 96
 
 	# Treat Lanthanides and Actinides as separate "periods" (i.e rows)
 	if periods[i] == 'L':
 		fd.write('\n\n\t<!-- Lanthanides -->\n\n')
-		yoff += 20
+		yoff += CONST_LANACT_OFFSET
 
 	elif periods[i] == 'A':
 		fd.write('\n\n\t<!-- Actinides -->\n\n')
-		yoff += 20
+		yoff += CONST_LANACT_OFFSET
 
 	else:
 		fd.write('\n\n\t<!-- Period {} -->\n\n'.format(periods[i]))
@@ -80,7 +109,7 @@ for i in range(len(periods)):
 
 		# Add offset if group is >= 4
 		xoff = column * 96
-		if column >= 4: xoff += 20
+		if column >= 4: xoff += CONST_GROUP4_OFFSET
 
 
 		# Determine CSS class for background
