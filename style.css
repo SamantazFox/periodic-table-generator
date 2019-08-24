@@ -9,6 +9,23 @@
 	font-family: monospace;
 }
 
+#periodic-table.dark .headers-text > text {
+	fill: #cdcdcd;
+	text-shadow:
+		 2px  0   .125em rgba(69, 69, 69, 128),
+		-2px  0   .125em rgba(69, 69, 69, 128),
+		 0    2px .125em rgba(69, 69, 69, 128),
+		 0   -2px .125em rgba(69, 69, 69, 128);
+}
+#periodic-table.light .headers-text > text {
+	fill: #424242;
+	text-shadow:
+		 2px  0   .125em rgba(220, 220, 220, 128),
+		-2px  0   .125em rgba(220, 220, 220, 128),
+		 0    2px .125em rgba(220, 220, 220, 128),
+		 0   -2px .125em rgba(220, 220, 220, 128);
+}
+
 
 /*
  * Elements
