@@ -114,20 +114,6 @@ for i in range(len(periods)):
 		if column >= 4: xoff += CONST_GROUP4_OFFSET
 
 
-		# Determine CSS class for background
-		# TODO: put CSS class in CSV
-		if   element['Subtype'] == "Alkali metals":         css_class = "alkali"
-		elif element['Subtype'] == "Alkaline earth metals": css_class = "alkalineEM"
-		elif element['Subtype'] == "Lanthanides":           css_class = "lanthanide"
-		elif element['Subtype'] == "Actinides":             css_class = "actinide"
-		elif element['Subtype'] == "Transition metals":     css_class = "transitionM"
-		elif element['Subtype'] == "Post-transition metal": css_class = "post-transM"
-		elif element['Subtype'] == "Metalloids":            css_class = "metalloid"
-		elif element['Subtype'] == "Reactive nonmetals":    css_class = "reactiveNM"
-		elif element['Subtype'] == "Noble gases":           css_class = "noble-gas"
-		elif element['Subtype'] == "Unknown chemical properties": css_class = "unknown"
-
-
 		# Write element's data
 		fd.write(
 			'\t<g transform="translate({x} {y})" class="element"\n'
@@ -145,7 +131,7 @@ for i in range(len(periods)):
 				sym = element['Symbol'],
 				name = element['Name'],
 				weight = element['Atomic weight'],
-				css = css_class
+				css = element['Class']
 			)
 		)
 
