@@ -1,4 +1,5 @@
-#!/usr/bin/python
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 
 import xml.etree.ElementTree as etree
 
@@ -144,23 +145,23 @@ for i in range(1,8):
 		.format(x = 48, y =(i*96 + 58), per = i)
 	)
 
-fd.write('\t</g>\n\n')
+fd.write('\t</g>\n')
 
 
 # Create elements
-for i in range(1-7):
+for i in range(1, 8):
 
 	# Compute period position
-	yoff = (i+1) * 96
+	yoff = (i * 96)
 
-	fd.write('\n\n\t<!-- Period {} -->\n\n'.format(periods[i]))
+	fd.write('\n\n\t<!-- Period {} -->\n\n'.format(i))
 
 
 	# TODO: Period Indicator
 
 	for element in xml_data[1:]:
 		# Skip elements not on this row
-		if element['Period'] != periods[i]:
+		if element['Period'] != str(i):
 			continue
 
 		# Properly align groups
