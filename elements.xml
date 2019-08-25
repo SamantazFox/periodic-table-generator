@@ -353,6 +353,12 @@
 		<class>noble-gas</class>
 		<name>Xenon</name>
 	</element>
+
+	<!--
+	  ==========================================
+		 PERIOD 6
+	  ==========================================
+	-->
 	<element id="55" symbol="Cs" period="6" group="1">
 		<weight>132.905 451 96(6)</weight>
 		<stpPhase>Solid</stpPhase>
@@ -455,12 +461,6 @@
 		<class>lanthanide</class>
 		<name>Lutetium</name>
 	</element>
-
-	<!--
-	  ==========================================
-		 PERIOD 6
-	  ==========================================
-	-->
 	<element id="72" symbol="Hf" period="6" group="4">
 		<weight>178.49(2)</weight>
 		<stpPhase>Solid</stpPhase>
@@ -551,6 +551,12 @@
 		<class>noble-gas</class>
 		<name>Radon</name>
 	</element>
+
+	<!--
+	  ==========================================
+		 PERIOD 7
+	  ==========================================
+	-->
 	<element id="87" symbol="Fr" period="7" group="1">
 		<weight>223</weight>
 		<stpPhase>Solid</stpPhase>
@@ -653,12 +659,6 @@
 		<class>actinide</class>
 		<name>Lawrencium</name>
 	</element>
-
-	<!--
-	  ==========================================
-		 PERIOD 7
-	  ==========================================
-	-->
 	<element id="104" symbol="Rf" period="7" group="4">
 		<weight>267</weight>
 		<stpPhase>Unknown phase</stpPhase>
