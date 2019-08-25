@@ -35,6 +35,33 @@ for elem in treelist:
 
 
 # =======================================
+#  function definition
+# =======================================
+
+def elementDataToSVG(indent, element, xoff, yoff):
+	return (
+		'{tabs}<g transform="translate({x} {y})" class="element"\n'
+		'{tabs}  width="80" height="80" x="8" y="8">\n'
+		'{tabs}\t<rect class="background {css}" width="80" height="80"\n'
+		'{tabs}\t  x="8" y="8" rx="4" ry="4"/>\n'
+		'{tabs}\t<text class="number" fill="black" x="12.5" y="20">{id}</text>\n'
+		'{tabs}\t<text class="symbol" fill="black" x="48" y="50">{sym}</text>\n'
+		'{tabs}\t<text class="name"   fill="black" x="48" y="70">{name}</text>\n'
+		'{tabs}\t<text class="weight" fill="black" x="48" y="81.5">{weight}</text>\n'
+		'{tabs}</g>\n'
+		.format(
+			tabs = (indent * '\t'),
+			x = xoff, y = yoff,
+			id = element['ID'],
+			sym = element['Symbol'],
+			name = element['Name'],
+			weight = element['Weight'],
+			css = element['Class']
+		)
+	)
+
+
+# =======================================
 #  Write to SVG file
 # =======================================
 
@@ -129,25 +156,7 @@ for i in range(len(periods)):
 
 
 		# Write element's data
-		fd.write(
-			'\t<g transform="translate({x} {y})" class="element"\n'
-			'\t  width="80" height="80" x="8" y="8">\n'
-			'\t\t<rect class="background {css}" width="80" height="80"\n'
-			'\t\t  x="8" y="8" rx="4" ry="4"/>\n'
-			'\t\t<text class="number" fill="black" x="12.5" y="20">{id}</text>\n'
-			'\t\t<text class="symbol" fill="black" x="48" y="50">{sym}</text>\n'
-			'\t\t<text class="name"   fill="black" x="48" y="70">{name}</text>\n'
-			'\t\t<text class="weight" fill="black" x="48" y="81.5">{weight}</text>\n'
-			'\t</g>\n'
-			.format(
-				x = xoff, y = yoff,
-				id = element['ID'],
-				sym = element['Symbol'],
-				name = element['Name'],
-				weight = element['Weight'],
-				css = element['Class']
-			)
-		)
+		fd.write( elementDataToSVG(1, element, xoff, yoff) )
 
 
 # End of file (closing tag)
