@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elementsList xmlns='http://www.w3.org/1999/xml'>
+	<!--
+	  ==========================================
+		 PERIOD 1
+	  ==========================================
+	-->
+	<element id="1" symbol="H" period="1" group="1">
+		<weight>1.008</weight>
+		<stpPhase>Gas</stpPhase>
+		<class>reactiveNM</class>
+		<name>Hydrogen</name>
+	</element>
+	<element id="2" symbol="He" period="1" group="18">
+		<weight>4.002 602 (2)</weight>
+		<stpPhase>Gas</stpPhase>
+		<class>noble-gas</class>
+		<name>Helium</name>
+	</element>
+
+	<!--
+	  ==========================================
+		 PERIOD 2
+	  ==========================================
+	-->
+	<element id="3" symbol="Li" period="2" group="1">
+		<weight>6.94</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>alkali</class>
+		<name>Lithium</name>
+	</element>
+	<element id="4" symbol="Be" period="2" group="2">
+		<weight>9.012 183 1(5)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>alkalineEM</class>
+		<name>Beryllium</name>
+	</element>
+	<element id="5" symbol="B" period="2" group="13">
+		<weight>10.81</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>metalloid</class>
+		<name>Boron</name>
+	</element>
+	<element id="6" symbol="C" period="2" group="14">
+		<weight>12.011</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>reactiveNM</class>
+		<name>Carbon</name>
+	</element>
+	<element id="7" symbol="N" period="2" group="15">
+		<weight>14.007</weight>
+		<stpPhase>Gas</stpPhase>
+		<class>reactiveNM</class>
+		<name>Nitrogen</name>
+	</element>
+	<element id="8" symbol="O" period="2" group="16">
+		<weight>15.999</weight>
+		<stpPhase>Gas</stpPhase>
+		<class>reactiveNM</class>
+		<name>Oxygen</name>
+	</element>
+	<element id="9" symbol="F" period="2" group="17">
+		<weight>18.998 403 163 (6)</weight>
+		<stpPhase>Gas</stpPhase>
+		<class>reactiveNM</class>
+		<name>Fluorine</name>
+	</element>
+	<element id="10" symbol="Ne" period="2" group="18">
+		<weight>20.179 7(6)</weight>
+		<stpPhase>Gas</stpPhase>
+		<class>noble-gas</class>
+		<name>Neon</name>
+	</element>
+
+	<!--
+	  ==========================================
+		 PERIOD 3
+	  ==========================================
+	-->
+	<element id="11" symbol="Na" period="3" group="1">
+		<weight>22.989 769 28(2)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>alkali</class>
+		<name>Sodium</name>
+	</element>
+	<element id="12" symbol="Mg" period="3" group="2">
+		<weight>24.305</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>alkalineEM</class>
+		<name>Magnesium</name>
+	</element>
+	<element id="13" symbol="Al" period="3" group="13">
+		<weight>26.981 538 4(3)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>post-transM</class>
+		<name>Aluminium</name>
+	</element>
+	<element id="14" symbol="Si" period="3" group="14">
+		<weight>28.085</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>metalloid</class>
+		<name>Silicon</name>
+	</element>
+	<element id="15" symbol="P" period="3" group="15">
+		<weight>30.973 761 998 (5)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>reactiveNM</class>
+		<name>Phosphorus</name>
+	</element>
+	<element id="16" symbol="S" period="3" group="16">
+		<weight>32.06</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>reactiveNM</class>
+		<name>Sulfur</name>
+	</element>
+	<element id="17" symbol="Cl" period="3" group="17">
+		<weight>35.45</weight>
+		<stpPhase>Gas</stpPhase>
+		<class>reactiveNM</class>
+		<name>Chlorine</name>
+	</element>
+	<element id="18" symbol="Ar" period="3" group="18">
+		<weight>39.88</weight>
+		<stpPhase>Gas</stpPhase>
+		<class>noble-gas</class>
+		<name>Argon</name>
+	</element>
+
+	<!--
+	  ==========================================
+		 PERIOD 4
+	  ==========================================
+	-->
+	<element id="19" symbol="K" period="4" group="1">
+		<weight>39.098 3(1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>alkali</class>
+		<name>Potassium</name>
+	</element>
+	<element id="20" symbol="Ca" period="4" group="2">
+		<weight>40.078 (4)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>alkalineEM</class>
+		<name>Calcium</name>
+	</element>
+	<element id="21" symbol="Sc" period="4" group="3">
+		<weight>44.955 908 (5)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Scandium</name>
+	</element>
+	<element id="22" symbol="Ti" period="4" group="4">
+		<weight>47.867 (1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Titanium</name>
+	</element>
+	<element id="23" symbol="V" period="4" group="5">
+		<weight>50.941 5(1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Vanadium</name>
+	</element>
+	<element id="24" symbol="Cr" period="4" group="6">
+		<weight>51.996 1(6)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Chromium</name>
+	</element>
+	<element id="25" symbol="Mn" period="4" group="7">
+		<weight>54.938 043 (2)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Manganese</name>
+	</element>
+	<element id="26" symbol="Fe" period="4" group="8">
+		<weight>55.845 (2)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Iron</name>
+	</element>
+	<element id="27" symbol="Co" period="4" group="9">
+		<weight>58.933 194 (3)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Cobalt</name>
+	</element>
+	<element id="28" symbol="Ni" period="4" group="10">
+		<weight>58.693 4(4)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Nickel</name>
+	</element>
+	<element id="29" symbol="Cu" period="4" group="11">
+		<weight>63.546 (3)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Copper</name>
+	</element>
+	<element id="30" symbol="Zn" period="4" group="12">
+		<weight>65.38(2)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>post-transM</class>
+		<name>Zinc</name>
+	</element>
+	<element id="31" symbol="Ga" period="4" group="13">
+		<weight>69.723 (1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>post-transM</class>
+		<name>Gallium</name>
+	</element>
+	<element id="32" symbol="Ge" period="4" group="14">
+		<weight>72.630 (8)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>metalloid</class>
+		<name>Germanium</name>
+	</element>
+	<element id="33" symbol="As" period="4" group="15">
+		<weight>74.921 595 (6)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>metalloid</class>
+		<name>Arsenic</name>
+	</element>
+	<element id="34" symbol="Se" period="4" group="16">
+		<weight>78.971 (8)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>reactiveNM</class>
+		<name>Selenium</name>
+	</element>
+	<element id="35" symbol="Br" period="4" group="17">
+		<weight>79.904</weight>
+		<stpPhase>Liquid</stpPhase>
+		<class>reactiveNM</class>
+		<name>Bromine</name>
+	</element>
+	<element id="36" symbol="Kr" period="4" group="18">
+		<weight>83.798 (2)</weight>
+		<stpPhase>Gas</stpPhase>
+		<class>noble-gas</class>
+		<name>Krypton</name>
+	</element>
+
+	<!--
+	  ==========================================
+		 PERIOD 5
+	  ==========================================
+	-->
+	<element id="37" symbol="Rb" period="5" group="1">
+		<weight>85.467 8(3)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>alkali</class>
+		<name>Rubidium</name>
+	</element>
+	<element id="38" symbol="Sr" period="5" group="2">
+		<weight>87.62(1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>alkalineEM</class>
+		<name>Strontium</name>
+	</element>
+	<element id="39" symbol="Y" period="5" group="3">
+		<weight>88.905 84(1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Yttrium</name>
+	</element>
+	<element id="40" symbol="Zr" period="5" group="4">
+		<weight>91.224 (2)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Zirconium</name>
+	</element>
+	<element id="41" symbol="Nb" period="5" group="5">
+		<weight>92.90637(1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Niobium</name>
+	</element>
+	<element id="42" symbol="Mo" period="5" group="6">
+		<weight>95.95(1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Molybdenum</name>
+	</element>
+	<element id="43" symbol="Tc" period="5" group="7">
+		<weight>97</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Technetium</name>
+	</element>
+	<element id="44" symbol="Ru" period="5" group="8">
+		<weight>101.07(2)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Ruthenium</name>
+	</element>
+	<element id="45" symbol="Rh" period="5" group="9">
+		<weight>102.905 49(2)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Rhodium</name>
+	</element>
+	<element id="46" symbol="Pd" period="5" group="10">
+		<weight>106.42(1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Palladium</name>
+	</element>
+	<element id="47" symbol="Ag" period="5" group="11">
+		<weight>107.868 2(2)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Silver</name>
+	</element>
+	<element id="48" symbol="Cd" period="5" group="12">
+		<weight>112.414 (4)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>post-transM</class>
+		<name>Cadmium</name>
+	</element>
+	<element id="49" symbol="In" period="5" group="13">
+		<weight>114.818 (1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>post-transM</class>
+		<name>Indium</name>
+	</element>
+	<element id="50" symbol="Sn" period="5" group="14">
+		<weight>118.710 (7)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>post-transM</class>
+		<name>Tin</name>
+	</element>
+	<element id="51" symbol="Sb" period="5" group="15">
+		<weight>121.760 (1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>metalloid</class>
+		<name>Antimony</name>
+	</element>
+	<element id="52" symbol="Te" period="5" group="16">
+		<weight>127.60(3)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>metalloid</class>
+		<name>Tellurium</name>
+	</element>
+	<element id="53" symbol="I" period="5" group="17">
+		<weight>126.904 47(3)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>reactiveNM</class>
+		<name>Iodine</name>
+	</element>
+	<element id="54" symbol="Xe" period="5" group="18">
+		<weight>131.293 (6)</weight>
+		<stpPhase>Gas</stpPhase>
+		<class>noble-gas</class>
+		<name>Xenon</name>
+	</element>
+	<element id="55" symbol="Cs" period="6" group="1">
+		<weight>132.905 451 96(6)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>alkali</class>
+		<name>Caesium</name>
+	</element>
+	<element id="56" symbol="Ba" period="6" group="2">
+		<weight>137.327 (7)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>alkalineEM</class>
+		<name>Barium</name>
+	</element>
+	<element id="57" symbol="La" period="6" group="3">
+		<weight>138.905 47(7)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>lanthanide</class>
+		<name>Lanthanum</name>
+	</element>
+	<element id="58" symbol="Ce" period="L" group="L">
+		<weight>140.116 (1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>lanthanide</class>
+		<name>Cerium</name>
+	</element>
+	<element id="59" symbol="Pr" period="L" group="L">
+		<weight>140.907 66(1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>lanthanide</class>
+		<name>Praseodymium</name>
+	</element>
+	<element id="60" symbol="Nd" period="L" group="L">
+		<weight>144.242 (3)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>lanthanide</class>
+		<name>Neodymium</name>
+	</element>
+	<element id="61" symbol="Pm" period="L" group="L">
+		<weight>145</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>lanthanide</class>
+		<name>Promethium</name>
+	</element>
+	<element id="62" symbol="Sm" period="L" group="L">
+		<weight>150.36(2)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>lanthanide</class>
+		<name>Samarium</name>
+	</element>
+	<element id="63" symbol="Eu" period="L" group="L">
+		<weight>151.964 (1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>lanthanide</class>
+		<name>Europium</name>
+	</element>
+	<element id="64" symbol="Gd" period="L" group="L">
+		<weight>157.25(3)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>lanthanide</class>
+		<name>Gadolinium</name>
+	</element>
+	<element id="65" symbol="Tb" period="L" group="L">
+		<weight>158.925 354 (8)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>lanthanide</class>
+		<name>Terbium</name>
+	</element>
+	<element id="66" symbol="Dy" period="L" group="L">
+		<weight>162.500 (1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>lanthanide</class>
+		<name>Dysprosium</name>
+	</element>
+	<element id="67" symbol="Ho" period="L" group="L">
+		<weight>164.930 32 8(7)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>lanthanide</class>
+		<name>Holmium</name>
+	</element>
+	<element id="68" symbol="Er" period="L" group="L">
+		<weight>167.259 (3)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>lanthanide</class>
+		<name>Erbium</name>
+	</element>
+	<element id="69" symbol="Tm" period="L" group="L">
+		<weight>168.934 218 (6)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>lanthanide</class>
+		<name>Thulium</name>
+	</element>
+	<element id="70" symbol="Yb" period="L" group="L">
+		<weight>173.045(10)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>lanthanide</class>
+		<name>Ytterbium</name>
+	</element>
+	<element id="71" symbol="Lu" period="L" group="L">
+		<weight>174.966 8(1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>lanthanide</class>
+		<name>Lutetium</name>
+	</element>
+
+	<!--
+	  ==========================================
+		 PERIOD 6
+	  ==========================================
+	-->
+	<element id="72" symbol="Hf" period="6" group="4">
+		<weight>178.49(2)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Hafnium</name>
+	</element>
+	<element id="73" symbol="Ta" period="6" group="5">
+		<weight>180.947 88(2)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Tantalum</name>
+	</element>
+	<element id="74" symbol="W" period="6" group="6">
+		<weight>183.84(1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Tungsten</name>
+	</element>
+	<element id="75" symbol="Re" period="6" group="7">
+		<weight>186.207(1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Rhenium</name>
+	</element>
+	<element id="76" symbol="Os" period="6" group="8">
+		<weight>190.23(3)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Osmium</name>
+	</element>
+	<element id="77" symbol="Ir" period="6" group="9">
+		<weight>192.217(2)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Iridium</name>
+	</element>
+	<element id="78" symbol="Pt" period="6" group="10">
+		<weight>195.084(9)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Platinum</name>
+	</element>
+	<element id="79" symbol="Au" period="6" group="11">
+		<weight>196.966 570(4)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>transitionM</class>
+		<name>Gold</name>
+	</element>
+	<element id="80" symbol="Hg" period="6" group="12">
+		<weight>200.592(3)</weight>
+		<stpPhase>Liquid</stpPhase>
+		<class>post-transM</class>
+		<name>Mercury</name>
+	</element>
+	<element id="81" symbol="Tl" period="6" group="13">
+		<weight>[204.382, 204.385]</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>post-transM</class>
+		<name>Thallium</name>
+	</element>
+	<element id="82" symbol="Pb" period="6" group="14">
+		<weight>207.2(1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>post-transM</class>
+		<name>Lead</name>
+	</element>
+	<element id="83" symbol="Bi" period="6" group="15">
+		<weight>208.980 40(1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>post-transM</class>
+		<name>Bismuth</name>
+	</element>
+	<element id="84" symbol="Po" period="6" group="16">
+		<weight>209</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>post-transM</class>
+		<name>Polonium</name>
+	</element>
+	<element id="85" symbol="At" period="6" group="17">
+		<weight>210</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>metalloid</class>
+		<name>Astatine</name>
+	</element>
+	<element id="86" symbol="Rn" period="6" group="18">
+		<weight>222</weight>
+		<stpPhase>Gas</stpPhase>
+		<class>noble-gas</class>
+		<name>Radon</name>
+	</element>
+	<element id="87" symbol="Fr" period="7" group="1">
+		<weight>223</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>alkali</class>
+		<name>Francium</name>
+	</element>
+	<element id="88" symbol="Ra" period="7" group="2">
+		<weight>226</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>alkalineEM</class>
+		<name>Radium</name>
+	</element>
+	<element id="89" symbol="Ac" period="7" group="3">
+		<weight>227</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>actinide</class>
+		<name>Actinium</name>
+	</element>
+	<element id="90" symbol="Th" period="A" group="A">
+		<weight>232.037 7(4)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>actinide</class>
+		<name>Thorium</name>
+	</element>
+	<element id="91" symbol="Pa" period="A" group="A">
+		<weight>231.035 88(1)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>actinide</class>
+		<name>Protactinium</name>
+	</element>
+	<element id="92" symbol="U" period="A" group="A">
+		<weight>238.028 91(3)</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>actinide</class>
+		<name>Uranium</name>
+	</element>
+	<element id="93" symbol="Np" period="A" group="A">
+		<weight>237</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>actinide</class>
+		<name>Neptunium</name>
+	</element>
+	<element id="94" symbol="Pu" period="A" group="A">
+		<weight>244</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>actinide</class>
+		<name>Plutonium</name>
+	</element>
+	<element id="95" symbol="Am" period="A" group="A">
+		<weight>243</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>actinide</class>
+		<name>Americium</name>
+	</element>
+	<element id="96" symbol="Cm" period="A" group="A">
+		<weight>247</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>actinide</class>
+		<name>Curium</name>
+	</element>
+	<element id="97" symbol="Bk" period="A" group="A">
+		<weight>247</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>actinide</class>
+		<name>Berkelium</name>
+	</element>
+	<element id="98" symbol="Cf" period="A" group="A">
+		<weight>251</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>actinide</class>
+		<name>Californium</name>
+	</element>
+	<element id="99" symbol="Es" period="A" group="A">
+		<weight>252</weight>
+		<stpPhase>Solid</stpPhase>
+		<class>actinide</class>
+		<name>Einsteinium</name>
+	</element>
+	<element id="100" symbol="Fm" period="A" group="A">
+		<weight>257</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>actinide</class>
+		<name>Fermium</name>
+	</element>
+	<element id="101" symbol="Md" period="A" group="A">
+		<weight>258</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>actinide</class>
+		<name>Mendelevium</name>
+	</element>
+	<element id="102" symbol="No" period="A" group="A">
+		<weight>259</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>actinide</class>
+		<name>Nobelium</name>
+	</element>
+	<element id="103" symbol="Lr" period="A" group="A">
+		<weight>266</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>actinide</class>
+		<name>Lawrencium</name>
+	</element>
+
+	<!--
+	  ==========================================
+		 PERIOD 7
+	  ==========================================
+	-->
+	<element id="104" symbol="Rf" period="7" group="4">
+		<weight>267</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>transitionM</class>
+		<name>Rutherfordium</name>
+	</element>
+	<element id="105" symbol="Db" period="7" group="5">
+		<weight>268</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>transitionM</class>
+		<name>Dubnium</name>
+	</element>
+	<element id="106" symbol="Sg" period="7" group="6">
+		<weight>269</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>transitionM</class>
+		<name>Seaborgium</name>
+	</element>
+	<element id="107" symbol="Bh" period="7" group="7">
+		<weight>270</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>transitionM</class>
+		<name>Bohrium</name>
+	</element>
+	<element id="108" symbol="Hs" period="7" group="8">
+		<weight>269</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>transitionM</class>
+		<name>Hassium</name>
+	</element>
+	<element id="109" symbol="Mt" period="7" group="9">
+		<weight>275</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>unknown</class>
+		<name>Meitnerium</name>
+	</element>
+	<element id="110" symbol="Ds" period="7" group="10">
+		<weight>281</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>unknown</class>
+		<name>Darmstadtium</name>
+	</element>
+	<element id="111" symbol="Rg" period="7" group="11">
+		<weight>282</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>unknown</class>
+		<name>Roentgenium</name>
+	</element>
+	<element id="112" symbol="Cn" period="7" group="12">
+		<weight>285</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>post-transM</class>
+		<name>Copernicium</name>
+	</element>
+	<element id="113" symbol="Nh" period="7" group="13">
+		<weight>286</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>unknown</class>
+		<name>Nihonium</name>
+	</element>
+	<element id="114" symbol="Fl" period="7" group="14">
+		<weight>289</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>unknown</class>
+		<name>Flerovium</name>
+	</element>
+	<element id="115" symbol="Mc" period="7" group="15">
+		<weight>290</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>unknown</class>
+		<name>Moscovium</name>
+	</element>
+	<element id="116" symbol="Lv" period="7" group="16">
+		<weight>293</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>unknown</class>
+		<name>Livermorium</name>
+	</element>
+	<element id="117" symbol="Ts" period="7" group="17">
+		<weight>294</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>unknown</class>
+		<name>Tennessine</name>
+	</element>
+	<element id="118" symbol="Og" period="7" group="18">
+		<weight>294</weight>
+		<stpPhase>Unknown phase</stpPhase>
+		<class>unknown</class>
+		<name>Oganesson</name>
+	</element>
+</elementsList>

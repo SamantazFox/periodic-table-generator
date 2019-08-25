@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import csv
+import xml.etree.ElementTree as etree
 
 # List of rows
 periods = ['1','2','3','4','5','6','7','L','A']
@@ -14,10 +14,24 @@ CONST_LANACT_OFFSET = 20
 #  Load list of elements
 # =======================================
 
-csv_fd = open("elements.csv", 'rb')
-csv_reader = csv.DictReader(csv_fd)
-csv_data = [row for row in csv_reader]
-csv_fd.close()
+docroot = etree.parse('elements.xml').getroot()
+treelist = docroot.findall('element')
+
+xml_data = [0]
+
+for elem in treelist:
+	element = {
+		'ID'    : elem.get('id'),
+		'Symbol': elem.get('symbol'),
+		'Period': elem.get('period'),
+		'Group' : elem.get('group'),
+		'Weight': elem.findtext('weight'),
+		'Class' : elem.findtext('class'),
+		'Name'  : elem.findtext('name')
+	}
+
+	# Sort elements by id in data
+	xml_data.insert( int(element['ID']), element )
 
 
 # =======================================
@@ -96,7 +110,7 @@ for i in range(len(periods)):
 	# Elements for this "period"
 	col_num = 0
 
-	for element in csv_data:
+	for element in xml_data[1:]:
 		# Skip elements not on this row
 		if element['Period'] != periods[i]:
 			continue
@@ -130,7 +144,7 @@ for i in range(len(periods)):
 				id = element['ID'],
 				sym = element['Symbol'],
 				name = element['Name'],
-				weight = element['Atomic weight'],
+				weight = element['Weight'],
 				css = element['Class']
 			)
 		)
