@@ -2,8 +2,6 @@
 
 import xml.etree.ElementTree as etree
 
-# List of rows
-periods = ['1','2','3','4','5','6','7','L','A']
 
 # Some constants
 CONST_GROUP4_OFFSET = 20
@@ -59,6 +57,38 @@ def elementDataToSVG(indent, element, xoff, yoff):
 			css = element['Class']
 		)
 	)
+
+
+def generateLanthanides(file, row):
+	file.write('\n\n\t<!-- Lanthanides -->\n\n')
+	yoff = (row * 96) + CONST_LANACT_OFFSET
+
+	for element in xml_data[1:]:
+		# Skip elements not on this row
+		if element['Period'] != 'L': continue
+
+		# Properly align groups
+		column = 3 + int(element['ID']) - 57
+		xoff = column * 96 + CONST_GROUP4_OFFSET
+
+		# Write element's data
+		file.write( elementDataToSVG(1, element, xoff, yoff) )
+
+
+def generateActinides(file, row):
+	file.write('\n\n\t<!-- Actinides -->\n\n')
+	yoff = (row * 96) + CONST_LANACT_OFFSET
+
+	for element in xml_data[1:]:
+		# Skip elements not on this row
+		if element['Period'] != 'A': continue
+
+		# Properly align groups
+		column = 3 + int(element['ID']) - 89
+		xoff = column * 96 + CONST_GROUP4_OFFSET
+
+		# Write element's data
+		file.write( elementDataToSVG(1, element, xoff, yoff) )
 
 
 # =======================================
@@ -118,28 +148,15 @@ fd.write('\t</g>\n\n')
 
 
 # Create elements
-for i in range(len(periods)):
+for i in range(1-7):
 
 	# Compute period position
 	yoff = (i+1) * 96
 
-	# Treat Lanthanides and Actinides as separate "periods" (i.e rows)
-	if periods[i] == 'L':
-		fd.write('\n\n\t<!-- Lanthanides -->\n\n')
-		yoff += CONST_LANACT_OFFSET
-
-	elif periods[i] == 'A':
-		fd.write('\n\n\t<!-- Actinides -->\n\n')
-		yoff += CONST_LANACT_OFFSET
-
-	else:
-		fd.write('\n\n\t<!-- Period {} -->\n\n'.format(periods[i]))
+	fd.write('\n\n\t<!-- Period {} -->\n\n'.format(periods[i]))
 
 
 	# TODO: Period Indicator
-
-	# Elements for this "period"
-	col_num = 0
 
 	for element in xml_data[1:]:
 		# Skip elements not on this row
@@ -147,20 +164,19 @@ for i in range(len(periods)):
 			continue
 
 		# Properly align groups
-		if element['Group'] == 'L':
-			column = 3 + int(element['ID']) - 57
-		elif element['Group'] == 'A':
-			column = 3 + int(element['ID']) - 89
-		else:
-			column = int(element['Group'])
+		column = int(element['Group'])
 
 		# Add offset if group is >= 4
 		xoff = column * 96
 		if column >= 4: xoff += CONST_GROUP4_OFFSET
 
-
 		# Write element's data
 		fd.write( elementDataToSVG(1, element, xoff, yoff) )
+
+
+# Put Lanthanides on row 8 and actinides on row 9 (with some offset)
+generateLanthanides (fd, 8)
+generateActinides   (fd, 9)
 
 
 # End of file (closing tag)
