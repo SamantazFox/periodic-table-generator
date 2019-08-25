@@ -71,9 +71,13 @@ fd = open("periodic.svg", 'w')
 fd.write(
 	'<?xml version="1.0" encoding="UTF-8"?>\n'
 	'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"\n'
-	'  width="100%" height="100%" viewBox="0 0 1824 1000"\n'
+	'  width="100%" height="100%" viewBox="0 0 {w} {h}"\n'
 	'  class="dark" id="periodic-table"\n'
 	'>\n\n'
+	.format(
+		w = (19*96) + CONST_GROUP4_OFFSET + 10,
+		h = (10*96) + CONST_LANACT_OFFSET + 10
+	)
 )
 
 
