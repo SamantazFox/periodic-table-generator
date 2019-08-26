@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+import os
 import xml.etree.ElementTree as etree
 
 
@@ -217,3 +218,7 @@ generateActinides   (fd, 9)
 # End of file (closing tag)
 fd.write('</svg>\n')
 fd.close()
+
+
+# Compress the SVG file when we're done
+os.system('gzip -c periodic.svg > periodic.svgz')
