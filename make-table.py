@@ -26,7 +26,8 @@ for elem in treelist:
 		'Group' : elem.get('group'),
 		'Weight': elem.findtext('weight'),
 		'Class' : elem.findtext('class'),
-		'Name'  : elem.findtext('name')
+		'Name'  : elem.findtext('name'),
+		'isRadioactive': (elem.findtext('radioactive') != None)
 	}
 
 	# Sort elements by id in data
@@ -38,11 +39,25 @@ for elem in treelist:
 # =======================================
 
 def elementDataToSVG(indent, element, xoff, yoff):
-	return (
+	strbuffer = (
 		'{tabs}<g transform="translate({x} {y})" class="element"\n'
 		'{tabs}  width="80" height="80" x="8" y="8">\n'
 		'{tabs}\t<rect class="background {css}" width="80" height="80"\n'
 		'{tabs}\t  x="8" y="8" rx="4" ry="4"/>\n'
+		.format(
+			tabs = (indent * '\t'),
+			x = xoff, y = yoff,
+			css = element['Class']
+		)
+	)
+
+	if element['isRadioactive']:
+		strbuffer += (
+			'{tabs}\t<use xlink:href="#radioactive-logo" />'
+			.format(tabs = (indent * '\t'))
+		)
+
+	strbuffer += (
 		'{tabs}\t<text class="number" fill="black" x="12.5" y="20">{id}</text>\n'
 		'{tabs}\t<text class="symbol" fill="black" x="48" y="50">{sym}</text>\n'
 		'{tabs}\t<text class="name"   fill="black" x="48" y="70">{name}</text>\n'
@@ -50,14 +65,14 @@ def elementDataToSVG(indent, element, xoff, yoff):
 		'{tabs}</g>\n'
 		.format(
 			tabs = (indent * '\t'),
-			x = xoff, y = yoff,
 			id = element['ID'],
 			sym = element['Symbol'],
 			name = element['Name'],
 			weight = element['Weight'],
-			css = element['Class']
 		)
 	)
+
+	return strbuffer
 
 
 def generateLanthanides(file, row):
@@ -109,6 +124,25 @@ fd.write(
 		w = (19*96) + CONST_GROUP4_OFFSET + 10,
 		h = (10*96) + CONST_LANACT_OFFSET + 10
 	)
+)
+
+
+# Reference elements
+# For the radioactive logo:
+#   * scale(0.16) => border:   0
+#   * scale(0.13) => border:  8x8
+#   * scale(0.12) => border: 12x12
+#
+fd.write(
+	'\t<defs>\n'
+	'\t\t<svg id="radioactive-logo" width="96" height="96">\n'
+	'\t\t\t<g transform="translate(12 12) scale(0.12)">\n'
+	'\t\t\t\t<circle cx="300" cy="300" r="50"  opacity="0.15" />\n'
+	'\t\t\t\t<path stroke="#000" stroke-width="175" fill="none" opacity="0.15"\n'
+	'\t\t\t\t  stroke-dasharray="171.74" d="M382,158a164,164 0 1,1-164,0" />\n'
+	'\t\t\t</g>\n'
+	'\t\t</svg>\n'
+	'\t</defs>\n\n'
 )
 
 

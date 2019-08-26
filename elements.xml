@@ -286,6 +286,7 @@
 		<stpPhase>Solid</stpPhase>
 		<class>transitionM</class>
 		<name>Technetium</name>
+		<radioactive/>
 	</element>
 	<element id="44" symbol="Ru" period="5" group="8">
 		<weight>101.07(2)</weight>
@@ -532,24 +533,28 @@
 		<stpPhase>Solid</stpPhase>
 		<class>post-transM</class>
 		<name>Bismuth</name>
+		<radioactive/>
 	</element>
 	<element id="84" symbol="Po" period="6" group="16">
 		<weight>209</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>post-transM</class>
 		<name>Polonium</name>
+		<radioactive/>
 	</element>
 	<element id="85" symbol="At" period="6" group="17">
 		<weight>210</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>metalloid</class>
 		<name>Astatine</name>
+		<radioactive/>
 	</element>
 	<element id="86" symbol="Rn" period="6" group="18">
 		<weight>222</weight>
 		<stpPhase>Gas</stpPhase>
 		<class>noble-gas</class>
 		<name>Radon</name>
+		<radioactive/>
 	</element>
 
 	<!--
@@ -562,191 +567,223 @@
 		<stpPhase>Solid</stpPhase>
 		<class>alkali</class>
 		<name>Francium</name>
+		<radioactive/>
 	</element>
 	<element id="88" symbol="Ra" period="7" group="2">
 		<weight>226</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>alkalineEM</class>
 		<name>Radium</name>
+		<radioactive/>
 	</element>
 	<element id="89" symbol="Ac" period="7" group="3">
 		<weight>227</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>actinide</class>
 		<name>Actinium</name>
+		<radioactive/>
 	</element>
 	<element id="90" symbol="Th" period="A" group="A">
 		<weight>232.037 7(4)</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>actinide</class>
 		<name>Thorium</name>
+		<radioactive/>
 	</element>
 	<element id="91" symbol="Pa" period="A" group="A">
 		<weight>231.035 88(1)</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>actinide</class>
 		<name>Protactinium</name>
+		<radioactive/>
 	</element>
 	<element id="92" symbol="U" period="A" group="A">
 		<weight>238.028 91(3)</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>actinide</class>
 		<name>Uranium</name>
+		<radioactive/>
 	</element>
 	<element id="93" symbol="Np" period="A" group="A">
 		<weight>237</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>actinide</class>
 		<name>Neptunium</name>
+		<radioactive/>
 	</element>
 	<element id="94" symbol="Pu" period="A" group="A">
 		<weight>244</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>actinide</class>
 		<name>Plutonium</name>
+		<radioactive/>
 	</element>
 	<element id="95" symbol="Am" period="A" group="A">
 		<weight>243</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>actinide</class>
 		<name>Americium</name>
+		<radioactive/>
 	</element>
 	<element id="96" symbol="Cm" period="A" group="A">
 		<weight>247</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>actinide</class>
 		<name>Curium</name>
+		<radioactive/>
 	</element>
 	<element id="97" symbol="Bk" period="A" group="A">
 		<weight>247</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>actinide</class>
 		<name>Berkelium</name>
+		<radioactive/>
 	</element>
 	<element id="98" symbol="Cf" period="A" group="A">
 		<weight>251</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>actinide</class>
 		<name>Californium</name>
+		<radioactive/>
 	</element>
 	<element id="99" symbol="Es" period="A" group="A">
 		<weight>252</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>actinide</class>
 		<name>Einsteinium</name>
+		<radioactive/>
 	</element>
 	<element id="100" symbol="Fm" period="A" group="A">
 		<weight>257</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>actinide</class>
 		<name>Fermium</name>
+		<radioactive/>
 	</element>
 	<element id="101" symbol="Md" period="A" group="A">
 		<weight>258</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>actinide</class>
 		<name>Mendelevium</name>
+		<radioactive/>
 	</element>
 	<element id="102" symbol="No" period="A" group="A">
 		<weight>259</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>actinide</class>
 		<name>Nobelium</name>
+		<radioactive/>
 	</element>
 	<element id="103" symbol="Lr" period="A" group="A">
 		<weight>266</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>actinide</class>
 		<name>Lawrencium</name>
+		<radioactive/>
 	</element>
 	<element id="104" symbol="Rf" period="7" group="4">
 		<weight>267</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>transitionM</class>
 		<name>Rutherfordium</name>
+		<radioactive/>
 	</element>
 	<element id="105" symbol="Db" period="7" group="5">
 		<weight>268</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>transitionM</class>
 		<name>Dubnium</name>
+		<radioactive/>
 	</element>
 	<element id="106" symbol="Sg" period="7" group="6">
 		<weight>269</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>transitionM</class>
 		<name>Seaborgium</name>
+		<radioactive/>
 	</element>
 	<element id="107" symbol="Bh" period="7" group="7">
 		<weight>270</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>transitionM</class>
 		<name>Bohrium</name>
+		<radioactive/>
 	</element>
 	<element id="108" symbol="Hs" period="7" group="8">
 		<weight>269</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>transitionM</class>
 		<name>Hassium</name>
+		<radioactive/>
 	</element>
 	<element id="109" symbol="Mt" period="7" group="9">
 		<weight>275</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>unknown</class>
 		<name>Meitnerium</name>
+		<radioactive/>
 	</element>
 	<element id="110" symbol="Ds" period="7" group="10">
 		<weight>281</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>unknown</class>
 		<name>Darmstadtium</name>
+		<radioactive/>
 	</element>
 	<element id="111" symbol="Rg" period="7" group="11">
 		<weight>282</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>unknown</class>
 		<name>Roentgenium</name>
+		<radioactive/>
 	</element>
 	<element id="112" symbol="Cn" period="7" group="12">
 		<weight>285</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>post-transM</class>
 		<name>Copernicium</name>
+		<radioactive/>
 	</element>
 	<element id="113" symbol="Nh" period="7" group="13">
 		<weight>286</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>unknown</class>
 		<name>Nihonium</name>
+		<radioactive/>
 	</element>
 	<element id="114" symbol="Fl" period="7" group="14">
 		<weight>289</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>unknown</class>
 		<name>Flerovium</name>
+		<radioactive/>
 	</element>
 	<element id="115" symbol="Mc" period="7" group="15">
 		<weight>290</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>unknown</class>
 		<name>Moscovium</name>
+		<radioactive/>
 	</element>
 	<element id="116" symbol="Lv" period="7" group="16">
 		<weight>293</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>unknown</class>
 		<name>Livermorium</name>
+		<radioactive/>
 	</element>
 	<element id="117" symbol="Ts" period="7" group="17">
 		<weight>294</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>unknown</class>
 		<name>Tennessine</name>
+		<radioactive/>
 	</element>
 	<element id="118" symbol="Og" period="7" group="18">
 		<weight>294</weight>
 		<stpPhase>Unknown phase</stpPhase>
 		<class>unknown</class>
 		<name>Oganesson</name>
+		<radioactive/>
 	</element>
 </elementsList>
