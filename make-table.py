@@ -1,13 +1,40 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-import os
+import os, sys
 import xml.etree.ElementTree as etree
 
 
-# Some constants
-CONST_GROUP4_OFFSET = 20
-CONST_LANACT_OFFSET = 20
+# =======================================
+#  Parse arguments
+# =======================================
+
+# Init
+largeTable = False
+
+# Loop in arguments
+if len(sys.argv) > 1:
+	for arg in sys.argv[1:]:
+
+		if arg == '--large':
+			largeTable = True
+
+
+# 32-columns
+if largeTable:
+	CONST_GROUP4_OFFSET = 0
+	CONST_LANACT_OFFSET = 0
+
+	CONST_COL_COUNT = 33
+	CONST_ROW_COUNT =  8
+
+# 18-columns
+else:
+	CONST_GROUP4_OFFSET = 20
+	CONST_LANACT_OFFSET = 20
+
+	CONST_COL_COUNT = 19
+	CONST_ROW_COUNT = 10
 
 
 # =======================================
@@ -122,8 +149,8 @@ fd.write(
 	'  class="dark" id="periodic-table"\n'
 	'>\n\n'
 	.format(
-		w = (19*96) + CONST_GROUP4_OFFSET + 10,
-		h = (10*96) + CONST_LANACT_OFFSET + 10
+		w = (CONST_COL_COUNT * 96) + CONST_GROUP4_OFFSET + 10,
+		h = (CONST_ROW_COUNT * 96) + CONST_LANACT_OFFSET + 10
 	)
 )
 
@@ -164,7 +191,9 @@ fd.write('\t<!-- Groups header -->\n\n' '\t<g>\n')
 for i in range(1,19):
 	# Add a space between group 3/4
 	xpos = (i*96 + 48)
-	if i >= 4: xpos += CONST_GROUP4_OFFSET
+	if i >= 4:
+		xpos += CONST_GROUP4_OFFSET
+		if largeTable: xpos += 14 * 96
 
 	fd.write(
 		'\t\t<text class="headers-text" x="{x}" y="{y}">{grp}</text>\n'
@@ -193,18 +222,25 @@ for i in range(1, 8):
 
 		# Properly align groups
 		column = int(element['Group'])
+		xoff = (column * 96)
 
-		# Add offset if group is >= 4
-		xoff = column * 96
-		if column >= 4: xoff += CONST_GROUP4_OFFSET
+		if column >= 4:
+			xoff += CONST_GROUP4_OFFSET
+			if largeTable: xoff += 14*96
 
 		# Write element's data
 		fd.write( elementDataToSVG(1, element, xoff, yoff) )
 
 
-# Put Lanthanides on row 8 and actinides on row 9 (with some offset)
-generateLanthanides (fd, 8)
-generateActinides   (fd, 9)
+# Lanthanides and Actinides
+if largeTable:
+	# Generate inline with period 6 & 7
+	generateLanthanides (fd, 6)
+	generateActinides   (fd, 7)
+else:
+	# Put lanthanides and actinides on sparate rows (8 & 9, respectively)
+	generateLanthanides (fd, 8)
+	generateActinides   (fd, 9)
 
 
 # End of file (closing tag)
