@@ -2,14 +2,14 @@
  * Group and Periods headers
 */
 
-.headers-text > text {
+text.headers-text {
 	text-anchor: middle;
 	text-align: center;
 	font-size: 22pt;
 	font-family: monospace;
 }
 
-#periodic-table.dark .headers-text > text {
+#periodic-table.dark text.headers-text {
 	fill: #cdcdcd;
 	text-shadow:
 		 2px  0   .125em rgba(69, 69, 69, 128),
@@ -17,7 +17,7 @@
 		 0    2px .125em rgba(69, 69, 69, 128),
 		 0   -2px .125em rgba(69, 69, 69, 128);
 }
-#periodic-table.light .headers-text > text {
+#periodic-table.light text.headers-text {
 	fill: #424242;
 	text-shadow:
 		 2px  0   .125em rgba(220, 220, 220, 128),

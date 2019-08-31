@@ -159,8 +159,7 @@ fd.write('\t<title>Periodic table</title>\n\n')
 
 
 # Create the periods & groups headers
-fd.write('\t<g class="headers-text">\n')
-fd.write('\t\t<!-- Groups header -->\n')
+fd.write('\t<!-- Groups header -->\n\n' '\t<g>\n')
 
 for i in range(1,19):
 	# Add a space between group 3/4
@@ -168,16 +167,8 @@ for i in range(1,19):
 	if i >= 4: xpos += CONST_GROUP4_OFFSET
 
 	fd.write(
-		'\t\t<text width="96" x="{x}" y="{y}">{grp}</text>\n'
+		'\t\t<text class="headers-text" x="{x}" y="{y}">{grp}</text>\n'
 		.format(x = xpos, y = 64, grp = i)
-	)
-
-fd.write('\t\t<!-- Periods header -->\n')
-
-for i in range(1,8):
-	fd.write(
-		'\t\t<text width="96" x="{x}" y="{y}">{per}</text>\n'
-		.format(x = 48, y =(i*96 + 58), per = i)
 	)
 
 fd.write('\t</g>\n')
@@ -189,10 +180,11 @@ for i in range(1, 8):
 	# Compute period position
 	yoff = (i * 96)
 
-	fd.write('\n\n\t<!-- Period {} -->\n\n'.format(i))
-
-
-	# TODO: Period Indicator
+	fd.write(
+		'\n\n\t<!-- Period {per} -->\n\n'
+		'\t<text class="headers-text" x="{x}" y="{y}">{per}</text>\n\n'
+		.format(x = 48, y = (yoff + 58), per = i)
+	)
 
 	for element in xml_data[1:]:
 		# Skip elements not on this row
