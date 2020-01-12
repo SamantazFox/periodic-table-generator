@@ -11,6 +11,7 @@ import xml.etree.ElementTree as etree
 
 # Init
 largeTable = False
+colorblind = False
 
 # Loop in arguments
 if len(sys.argv) > 1:
@@ -18,6 +19,9 @@ if len(sys.argv) > 1:
 
 		if arg == '--large':
 			largeTable = True
+
+		if arg == '--colorblind' or arg == '--high-contrast':
+			colorblind = True
 
 
 # 32-columns
@@ -35,6 +39,10 @@ else:
 
 	CONST_COL_COUNT = 19
 	CONST_ROW_COUNT = 10
+
+
+# Colorblind/high-contrast mode
+colorblind_tag = " colorblind" if colorblind else ""
 
 
 # =======================================
@@ -146,11 +154,12 @@ fd.write(
 	'<?xml version="1.0" encoding="UTF-8"?>\n'
 	'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"\n'
 	'  width="100%" height="100%" viewBox="0 0 {w} {h}"\n'
-	'  class="dark" id="periodic-table"\n'
+	'  class="dark{cbtag}" id="periodic-table"\n'
 	'>\n\n'
 	.format(
 		w = (CONST_COL_COUNT * 96) + CONST_GROUP4_OFFSET + 10,
-		h = (CONST_ROW_COUNT * 96) + CONST_LANACT_OFFSET + 10
+		h = (CONST_ROW_COUNT * 96) + CONST_LANACT_OFFSET + 10,
+		cbtag = colorblind_tag
 	)
 )
 

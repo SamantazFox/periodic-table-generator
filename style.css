@@ -51,6 +51,21 @@ rect.background.noble-gas   { fill: #c0ffff; }
 rect.background.unknown     { fill: #e8e8e8; }
 
 
+/* Metals and metalloids - colorblind mode */
+.colorblind rect.background.alkali      { fill: #ff4b4b; }
+.colorblind rect.background.alkalineEM  { fill: #ffdead; }
+.colorblind rect.background.lanthanide  { fill: #ffa2ff; }
+.colorblind rect.background.actinide    { fill: #ff3399; }
+.colorblind rect.background.transitionM { fill: #ffa0a0; }
+.colorblind rect.background.post-transM { fill: #b2b2b2; }
+.colorblind rect.background.metalloid   { fill: #d2855c; }
+/* Nonmetals  - colorblind mode */
+.colorblind rect.background.reactiveNM  { fill: #eaff61; }
+.colorblind rect.background.noble-gas   { fill: #7affff; }
+/* Unknown  - colorblind mode */
+.colorblind rect.background.unknown     { fill: #e8e8e8; }
+
+
 text {
 	font-family: sans-serif;
 }
