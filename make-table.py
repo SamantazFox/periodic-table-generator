@@ -159,7 +159,7 @@ def generateSVGHeader(file):
 
 	# Include a stylesheet, the XML way
 	if not embed_css:
-		strbuffer += '<?xml-stylesheet type="text/css" href="style.css"?>\n'
+		strbuffer += '<?xml-stylesheet type="text/css" href="periodic.css"?>\n'
 
 	# Open SVG tag
 	strbuffer += (
@@ -206,7 +206,7 @@ def generateEmbeddedCSS(file):
 	strbuffer = '\t<style>\n'
 
 	# Copy/Past lines, with added indentation
-	with open("style.css", 'r') as style_fd:
+	with open("periodic.css", 'r') as style_fd:
 		for line in style_fd:
 			strbuffer += '\t\t' + line
 

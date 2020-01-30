@@ -8,9 +8,9 @@ Usage: python3 make-table.py [OPTIONS]
 Options:
   --large            Generate a 32-column version of the periodic table
                       (The default is to generate a 18-column version)
-  --embedded-css     Include the contents of style.css to the generated SVG,
+  --embedded-css     Include the contents of periodic.css to the generated SVG,
                       in a <style></style> tag (this is the default)
-  --no-embedded-css  Define style.css as an XML stylesheet
+  --no-embedded-css  Define periodic.css as an XML stylesheet
   --high-contrast    Use a high contrast color scheme
   --colorblind       Same as --high-contrast
 ```
