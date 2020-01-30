@@ -144,54 +144,76 @@ def generateActinides(file, row):
 
 
 # =======================================
+#  Main parts of the SVG file
+# =======================================
+
+def generateSVGHeader(file):
+	# XML/encoding declaration
+	strbuffer = '<?xml version="1.0" encoding="UTF-8"?>\n'
+
+	# Open SVG tag
+	strbuffer += (
+		'<svg class="dark{cbtag}" id="periodic-table"\n'
+		'  width="100%" height="100%" viewBox="0 0 {w} {h}"\n'
+		'  xmlns="http://www.w3.org/2000/svg"\n'
+		'  xmlns:xlink="http://www.w3.org/1999/xlink"\n'
+		'>\n\n'
+		.format(
+			w = (CONST_COL_COUNT * 96) + CONST_GROUP4_OFFSET + 10,
+			h = (CONST_ROW_COUNT * 96) + CONST_LANACT_OFFSET + 10,
+			cbtag = colorblind_tag
+		)
+	)
+
+	# Write to file
+	file.write(strbuffer)
+
+
+def generateDocTitle(file):
+	file.write('\t<title>Periodic table</title>\n\n')
+
+
+def generateDefs(file):
+	# For the radioactive logo:
+	#   * scale(0.16) => border:   0
+	#   * scale(0.13) => border:  8x8
+	#   * scale(0.12) => border: 12x12
+	#
+	file.write(
+		'\t<defs>\n'
+		'\t\t<svg id="radioactive-logo" width="96" height="96">\n'
+		'\t\t\t<g transform="translate(12 12) scale(0.12)">\n'
+		'\t\t\t\t<circle cx="300" cy="300" r="50"  opacity="0.15" />\n'
+		'\t\t\t\t<path stroke="#000" stroke-width="175" fill="none" opacity="0.15"\n'
+		'\t\t\t\t  stroke-dasharray="171.74" d="M382,158a164,164 0 1,1-164,0" />\n'
+		'\t\t\t</g>\n'
+		'\t\t</svg>\n'
+		'\t</defs>\n\n'
+	)
+
+
+def generateEmbeddedCSS(file):
+	strbuffer = '\t<style>\n'
+
+	# Copy/Past lines, with added indentation
+	with open("style.css", 'r') as style_fd:
+		for line in style_fd:
+			strbuffer += '\t\t' + line
+
+	file.write(strbuffer + '\t</style>\n\n')
+
+
+# =======================================
 #  Write to SVG file
 # =======================================
 
 fd = open("periodic.svg", 'w')
 
 # Header
-fd.write(
-	'<?xml version="1.0" encoding="UTF-8"?>\n'
-	'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"\n'
-	'  width="100%" height="100%" viewBox="0 0 {w} {h}"\n'
-	'  class="dark{cbtag}" id="periodic-table"\n'
-	'>\n\n'
-	.format(
-		w = (CONST_COL_COUNT * 96) + CONST_GROUP4_OFFSET + 10,
-		h = (CONST_ROW_COUNT * 96) + CONST_LANACT_OFFSET + 10,
-		cbtag = colorblind_tag
-	)
-)
-
-
-# Reference elements
-# For the radioactive logo:
-#   * scale(0.16) => border:   0
-#   * scale(0.13) => border:  8x8
-#   * scale(0.12) => border: 12x12
-#
-fd.write(
-	'\t<defs>\n'
-	'\t\t<svg id="radioactive-logo" width="96" height="96">\n'
-	'\t\t\t<g transform="translate(12 12) scale(0.12)">\n'
-	'\t\t\t\t<circle cx="300" cy="300" r="50"  opacity="0.15" />\n'
-	'\t\t\t\t<path stroke="#000" stroke-width="175" fill="none" opacity="0.15"\n'
-	'\t\t\t\t  stroke-dasharray="171.74" d="M382,158a164,164 0 1,1-164,0" />\n'
-	'\t\t\t</g>\n'
-	'\t\t</svg>\n'
-	'\t</defs>\n\n'
-)
-
-
-# Embedded CSS
-fd.write('\t<style>\n')
-with open("style.css", 'r') as style_fd:
-	[fd.write('\t\t' + l) for l in style_fd]
-fd.write('\t</style>\n\n')
-
-
-# Image title
-fd.write('\t<title>Periodic table</title>\n\n')
+generateSVGHeader(fd)
+generateDocTitle(fd)
+generateDefs(fd)
+generateEmbeddedCSS(fd)
 
 
 # Create the periods & groups headers
