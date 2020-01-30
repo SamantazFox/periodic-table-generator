@@ -12,6 +12,7 @@ import xml.etree.ElementTree as etree
 # Init
 largeTable = False
 colorblind = False
+embed_css = True
 
 # Loop in arguments
 if len(sys.argv) > 1:
@@ -22,6 +23,11 @@ if len(sys.argv) > 1:
 
 		if arg == '--colorblind' or arg == '--high-contrast':
 			colorblind = True
+
+		if arg == '--no-embedded-css':
+			embed_css = False
+		elif arg == '--embedded-css':
+			embed_css = True
 
 
 # 32-columns
@@ -151,6 +157,10 @@ def generateSVGHeader(file):
 	# XML/encoding declaration
 	strbuffer = '<?xml version="1.0" encoding="UTF-8"?>\n'
 
+	# Include a stylesheet, the XML way
+	if not embed_css:
+		strbuffer += '<?xml-stylesheet type="text/css" href="style.css"?>\n'
+
 	# Open SVG tag
 	strbuffer += (
 		'<svg class="dark{cbtag}" id="periodic-table"\n'
@@ -213,7 +223,9 @@ fd = open("periodic.svg", 'w')
 generateSVGHeader(fd)
 generateDocTitle(fd)
 generateDefs(fd)
-generateEmbeddedCSS(fd)
+
+if embed_css:
+	generateEmbeddedCSS(fd)
 
 
 # Create the periods & groups headers
