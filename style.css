@@ -37,33 +37,33 @@ rect.background {
 }
 
 /* Metals and metalloids */
-rect.background.alkali      { fill: #ff6666; }
-rect.background.alkalineEM  { fill: #ffdead; }
-rect.background.lanthanide  { fill: #ffbfff; }
-rect.background.actinide    { fill: #ff99cc; }
-rect.background.transitionM { fill: #ffc0c0; }
-rect.background.post-transM { fill: #cccccc; }
-rect.background.metalloid   { fill: #cccc99; }
+rect.alkali      { fill: #ff6666; }
+rect.alkalineEM  { fill: #ffdead; }
+rect.lanthanide  { fill: #ffbfff; }
+rect.actinide    { fill: #ff99cc; }
+rect.transitionM { fill: #ffc0c0; }
+rect.post-transM { fill: #cccccc; }
+rect.metalloid   { fill: #cccc99; }
 /* Nonmetals */
-rect.background.reactiveNM  { fill: #f0ff8f; }
-rect.background.noble-gas   { fill: #c0ffff; }
+rect.reactiveNM  { fill: #f0ff8f; }
+rect.noble-gas   { fill: #c0ffff; }
 /* Unknown */
-rect.background.unknown     { fill: #e8e8e8; }
+rect.unknown     { fill: #e8e8e8; }
 
 
 /* Metals and metalloids - colorblind mode */
-.colorblind rect.background.alkali      { fill: #ff4b4b; }
-.colorblind rect.background.alkalineEM  { fill: #ffdead; }
-.colorblind rect.background.lanthanide  { fill: #ffa2ff; }
-.colorblind rect.background.actinide    { fill: #ff3399; }
-.colorblind rect.background.transitionM { fill: #ffa0a0; }
-.colorblind rect.background.post-transM { fill: #b2b2b2; }
-.colorblind rect.background.metalloid   { fill: #d2855c; }
+.colorblind rect.alkali      { fill: #ff4b4b; }
+.colorblind rect.alkalineEM  { fill: #ffdead; }
+.colorblind rect.lanthanide  { fill: #ffa2ff; }
+.colorblind rect.actinide    { fill: #ff3399; }
+.colorblind rect.transitionM { fill: #ffa0a0; }
+.colorblind rect.post-transM { fill: #b2b2b2; }
+.colorblind rect.metalloid   { fill: #d2855c; }
 /* Nonmetals  - colorblind mode */
-.colorblind rect.background.reactiveNM  { fill: #eaff61; }
-.colorblind rect.background.noble-gas   { fill: #7affff; }
+.colorblind rect.reactiveNM  { fill: #eaff61; }
+.colorblind rect.noble-gas   { fill: #7affff; }
 /* Unknown  - colorblind mode */
-.colorblind rect.background.unknown     { fill: #e8e8e8; }
+.colorblind rect.unknown     { fill: #e8e8e8; }
 
 
 text {
