@@ -119,7 +119,7 @@ def elementDataToSVG(indent, element, xoff, yoff):
 
 	if element['isRadioactive']:
 		strbuffer += (
-			'{tabs}\t<use xlink:href="#radioactive-logo" />'
+			'{tabs}\t<use xlink:href="#radioactive-logo" />\n'
 			.format(tabs = (indent * '\t'))
 		)
 
