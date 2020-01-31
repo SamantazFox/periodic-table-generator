@@ -6,6 +6,26 @@ import xml.etree.ElementTree as etree
 
 
 # =======================================
+#  Help functiion
+# =======================================
+
+def printUsage():
+	print(
+		'Usage: python3 {0} [OPTIONS]\n'
+		'Usage: ./{0} [OPTIONS]\n\n'
+		'Options:\n'
+		'  --help             Displays this help message and exits\n'
+		'  --large            Generate a 32-column version of the periodic table\n'
+		'                      (The default is to generate a 18-column version)\n'
+		'  --embedded-css     Include the contents of periodic.css to the generated SVG,\n'
+		'                      in a <style></style> tag (this is the default)\n'
+		'  --no-embedded-css  Define periodic.css as an XML stylesheet\n'
+		'  --high-contrast    Use a high contrast color scheme\n'
+		'  --colorblind       Same as --high-contrast\n'
+		.format(os.path.basename(sys.argv[0]))
+	)
+
+# =======================================
 #  Parse arguments
 # =======================================
 
@@ -17,6 +37,10 @@ embed_css = True
 # Loop in arguments
 if len(sys.argv) > 1:
 	for arg in sys.argv[1:]:
+
+		if arg == '--help':
+			printUsage()
+			quit()
 
 		if arg == '--large':
 			largeTable = True

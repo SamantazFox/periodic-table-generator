@@ -5,6 +5,8 @@ Generates a SVG version of the perdiodic table of elements.
 
 ```
 Usage: python3 make-table.py [OPTIONS]
+Usage: ./make-table.py [OPTIONS]
+
 Options:
   --large            Generate a 32-column version of the periodic table
                       (The default is to generate a 18-column version)
