@@ -1,4 +1,12 @@
 /*
+ * Background
+*/
+
+svg#periodic-table.dark  { background-color: #222222; }
+svg#periodic-table.light { background-color: #E4E4E4; }
+
+
+/*
  * Legends
 */
 

@@ -22,6 +22,8 @@ def printUsage():
 		'  --no-embedded-css  Define periodic.css as an XML stylesheet\n'
 		'  --legends          Generate the legends (this is the default)'
 		'  --no-legends       Do not generate the legends'
+		'  --dark             Use a dark background theme (this is the default)\n'
+		'  --light            Use a light background theme\n'
 		'  --high-contrast    Use a high contrast color scheme\n'
 		'  --colorblind       Same as --high-contrast\n'
 		.format(os.path.basename(sys.argv[0]))
@@ -32,10 +34,14 @@ def printUsage():
 # =======================================
 
 # Init
+tableTheme = 'dark'
+
 largeTable = False
 colorblind = False
+
 embed_css = True
 addLegends = True
+
 
 # Loop in arguments
 if len(sys.argv) > 1:
@@ -44,6 +50,11 @@ if len(sys.argv) > 1:
 		if arg == '--help':
 			printUsage()
 			quit()
+
+		if arg == '--light':
+			tableTheme = 'light'
+		elif arg == '--dark':
+			tableTheme = 'dark'
 
 		if arg == '--large':
 			largeTable = True
@@ -318,7 +329,7 @@ def generateSVGHeader(file):
 
 	# Open SVG tag
 	strbuffer += (
-		'<svg class="dark{cbtag}" id="periodic-table"\n'
+		'<svg class="{theme}{cbtag}" id="periodic-table"\n'
 		'  width="100%" height="100%" viewBox="0 0 {w} {h}"\n'
 		'  xmlns="http://www.w3.org/2000/svg"\n'
 		'  xmlns:xlink="http://www.w3.org/1999/xlink"\n'
@@ -326,6 +337,7 @@ def generateSVGHeader(file):
 		.format(
 			w = (CONST_COL_COUNT * 96) + CONST_GROUP4_OFFSET + 10,
 			h = (CONST_ROW_COUNT * 96) + CONST_LANACT_OFFSET + 10 + legend_H,
+			theme = tableTheme,
 			cbtag = colorblind_tag
 		)
 	)
