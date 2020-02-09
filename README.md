@@ -13,6 +13,8 @@ Options:
   --embedded-css     Include the contents of periodic.css to the generated SVG,
                       in a <style></style> tag (this is the default)
   --no-embedded-css  Define periodic.css as an XML stylesheet
+  --legends          Generate the legends (this is the default)'
+  --no-legends       Do not generate the legends'
   --high-contrast    Use a high contrast color scheme
   --colorblind       Same as --high-contrast
 ```

@@ -1,4 +1,33 @@
 /*
+ * Legends
+*/
+
+g.legend-class rect {
+	stroke: #242424;
+	stroke-width: 0.8;
+}
+
+g.super-class text,
+g.sub-class text,
+g.sub-class tspan {
+	font-size: 9.5pt;
+	text-align: middle;
+	text-anchor: middle;
+}
+
+g.super-class rect {
+	fill: #CCCCCC;
+	stroke: 0.5;
+	/*stroke: none;*/
+}
+
+g.super-class path {
+	stroke: #4488BB;
+	stroke-width: 1.5;
+}
+
+
+/*
  * Group and Periods headers
 */
 
@@ -28,7 +57,7 @@ text.headers-text {
 
 
 /*
- * Elements
+ * Elements - background
 */
 
 rect.background {
@@ -65,6 +94,10 @@ rect.unknown     { fill: #e8e8e8; }
 /* Unknown  - colorblind mode */
 .colorblind rect.unknown     { fill: #e8e8e8; }
 
+
+/*
+ * Elements - text
+*/
 
 text {
 	font-family: sans-serif;

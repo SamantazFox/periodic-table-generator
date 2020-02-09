@@ -20,6 +20,8 @@ def printUsage():
 		'  --embedded-css     Include the contents of periodic.css to the generated SVG,\n'
 		'                      in a <style></style> tag (this is the default)\n'
 		'  --no-embedded-css  Define periodic.css as an XML stylesheet\n'
+		'  --legends          Generate the legends (this is the default)'
+		'  --no-legends       Do not generate the legends'
 		'  --high-contrast    Use a high contrast color scheme\n'
 		'  --colorblind       Same as --high-contrast\n'
 		.format(os.path.basename(sys.argv[0]))
@@ -33,6 +35,7 @@ def printUsage():
 largeTable = False
 colorblind = False
 embed_css = True
+addLegends = True
 
 # Loop in arguments
 if len(sys.argv) > 1:
@@ -53,6 +56,11 @@ if len(sys.argv) > 1:
 		elif arg == '--embedded-css':
 			embed_css = True
 
+		if arg == '--no-legends':
+			addLegends = False
+		elif arg == '--legends':
+			addLegends = True
+
 
 # 32-columns
 if largeTable:
@@ -70,6 +78,13 @@ else:
 	CONST_COL_COUNT = 19
 	CONST_ROW_COUNT = 10
 
+
+# Compute the "element" and "classes" legends positions
+CONST_LEG_ELEMS_XPOS = (7*96) + 48  #(7*96) + 72
+CONST_LEG_ELEMS_YPOS = 160
+
+CONST_LEG_CLASS_XPOS = 96
+CONST_LEG_CLASS_YPOS = (96*CONST_ROW_COUNT) + CONST_LANACT_OFFSET + 35
 
 # Colorblind/high-contrast mode
 colorblind_tag = " colorblind" if colorblind else ""
@@ -174,6 +189,119 @@ def generateActinides(file, row):
 
 
 # =======================================
+#  Legends
+# =======================================
+
+def generateLegendElement(file):
+	# Based on Oxygen (aka element 8)
+	strbuffer = (
+		'\t<g transform="translate({x} {y}) scale(1.2)" class="legend-elem">\n'
+		'\t\t<rect fill="#ADADAD" stroke="#424242" stroke-width="1.2"\n'
+		'\t\t  width="340" height="116" x="0" y="0" rx="4" ry="4"/>\n'
+		'\t\t<g transform="translate(30 0)">\n'
+		'{element}'
+		.format(
+			x = CONST_LEG_ELEMS_XPOS,
+			y = CONST_LEG_ELEMS_YPOS,
+			element = elementDataToSVG(3, xml_data[8], 110, 10)
+		)
+	)
+
+	strbuffer += (
+		'\t\t\t<text x="110" y="30" text-anchor="end">Atomic number</text>\n'
+		'\t\t\t<path stroke="#000" d="M113 27 l8 0"/>\n'
+		'\t\t\t<text x="110" y="91" text-anchor="end">Atomic standard weight</text>\n'
+		'\t\t\t<path stroke="#000" d="M113 88.5 l20 0"/>\n'
+		'\t\t\t<text x="205" y="52" text-anchor="start">Symbol</text>\n'
+		'\t\t\t<path stroke="#000" d="M202 48.8 l-29 0"/>\n'
+		'\t\t\t<text x="205" y="80" text-anchor="start">Element name</text>\n'
+		'\t\t\t<path stroke="#000" d="M202 76.6 l-21 0"/>\n'
+	)
+
+	# End of group & write to file
+	strbuffer += '\t\t</g>\n'
+	strbuffer += '\t</g>\n'
+	file.write(strbuffer)
+
+
+def generateLegendClasses(file):
+	# List of classes, and their corresponding display text
+	classes_list = [
+		("alkali",      "Alkali|metal"                ),
+		("alkalineEM",  "Alkaline|earth|metal"        ),
+		("lanthanide",  "Lanthanide"                  ),
+		("actinide",    "Actinide"                    ),
+		("transitionM", "Transition|metal"            ),
+		("post-transM", "Post-|transition|metal"      ),
+		("metalloid",   "Metalloid"                   ),
+		("reactiveNM",  "Reactive|nonmetal"           ),
+		("noble-gas",   "Noble gas"                   ),
+		("unknown",     "Unknown|chemical|properties" )
+	]
+
+	# Group start
+	# NB: Position of this legend depends on the "large table" option
+	strbuffer = (
+		'\t<g transform="translate({x} {y})" class="legend-class">\n'
+		'\t\t<rect fill="#ADADAD" stroke="#424242" stroke-width="1.2"\n'
+		'\t\t  width="915" height="110" x="0" y="0" rx="4" ry="4"/>\n'
+		.format(x = CONST_LEG_CLASS_XPOS, y = CONST_LEG_CLASS_YPOS)
+	)
+
+	# Main class: metals
+	strbuffer += (
+		'\t\t<g class="super-class" transform="translate(10 10)">\n'
+		'\t\t\t<rect width="540" height="90" x="0" y="0"/>\n'
+		'\t\t\t<text x="270" y="13.5">Metals</text>\n'
+		'\t\t\t<path d="M5 18 L535 18"/>\n'
+		'\t\t</g>\n'
+	)
+
+	# Main class: nonmetals
+	strbuffer += (
+		'\t\t<g class="super-class" transform="translate(640 10)">\n'
+		'\t\t\t<rect width="180" height="90" x="0" y="0"/>\n'
+		'\t\t\t<text x="90" y="13.5">Nonmetals</text>\n'
+		'\t\t\t<path d="M5 18 L175 18"/>\n'
+		'\t\t</g>\n'
+	)
+
+
+	# Display each class, with it's associated background
+	for i in range(0,len(classes_list)):
+
+		# Split the text as needed
+		text_lines = classes_list[i][1].split('|')
+		line_count = len(text_lines)
+
+		# Use one "<tspan>" per line
+		if line_count == 1:
+			outText = text_lines[0]
+		elif line_count == 2:
+			outText  = '<tspan x="40" dy="-0.5em">' + text_lines[0] + '</tspan>'
+			outText += '<tspan x="40" dy="1.1em">' + text_lines[1] + '</tspan>'
+		elif line_count == 3:
+			outText  = '<tspan x="40" dy="-1.1em">' + text_lines[0] + '</tspan>'
+			outText += '<tspan x="40" y="35">' + text_lines[1] + '</tspan>'
+			outText += '<tspan x="40" dy="1.1em">' + text_lines[2] + '</tspan>'
+
+		# Append formatted data to buffer
+		strbuffer += (
+			'\t\t<g class="sub-class" transform="translate({pos_X} {pos_Y})">\n'
+			'\t\t\t<rect class="{css}" width="80" height="60" x="0" y="0"/>\n'
+			'\t\t\t<text x="40" y="35">{text}</text>\n'
+			'\t\t</g>\n'
+			.format(
+				pos_X = (i*90) + 15, pos_Y = 35,
+				css = classes_list[i][0], text = outText)
+		)
+
+	# End of group & write to file
+	strbuffer += '\t</g>\n'
+	file.write(strbuffer)
+
+
+# =======================================
 #  Main parts of the SVG file
 # =======================================
 
@@ -185,6 +313,9 @@ def generateSVGHeader(file):
 	if not embed_css:
 		strbuffer += '<?xml-stylesheet type="text/css" href="periodic.css"?>\n'
 
+	# Take into account the legends in the viewbox
+	legend_H = 150 if addLegends else 0
+
 	# Open SVG tag
 	strbuffer += (
 		'<svg class="dark{cbtag}" id="periodic-table"\n'
@@ -194,7 +325,7 @@ def generateSVGHeader(file):
 		'>\n\n'
 		.format(
 			w = (CONST_COL_COUNT * 96) + CONST_GROUP4_OFFSET + 10,
-			h = (CONST_ROW_COUNT * 96) + CONST_LANACT_OFFSET + 10,
+			h = (CONST_ROW_COUNT * 96) + CONST_LANACT_OFFSET + 10 + legend_H,
 			cbtag = colorblind_tag
 		)
 	)
@@ -250,6 +381,14 @@ generateDefs(fd)
 
 if embed_css:
 	generateEmbeddedCSS(fd)
+
+
+# Legends
+if addLegends:
+	fd.write('\t<!-- Legends -->\n\n')
+	generateLegendClasses(fd)
+	generateLegendElement(fd)
+	fd.write('\n\n')
 
 
 # Create the periods & groups headers
