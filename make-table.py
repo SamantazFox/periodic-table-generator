@@ -3,6 +3,7 @@
 
 import os, sys
 import xml.etree.ElementTree as etree
+import gzip
 
 
 # =======================================
@@ -466,5 +467,11 @@ fd.write('</svg>\n')
 fd.close()
 
 
-# Compress the SVG file when we're done
-os.system('gzip -c periodic.svg > periodic.svgz')
+# =======================================
+#  Compress SVG to SVGZ
+# =======================================
+
+with gzip.open("periodic.svgz", 'wb') as f_out:
+	with  open("periodic.svg",  'rb') as f_in:
+		compressed_data = gzip.compress(f_in.read())
+		f_out.write(compressed_data)
