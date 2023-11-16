@@ -142,10 +142,10 @@ def elementDataToSVG(indent, element, xoff, yoff):
 		)
 
 	strbuffer += (
-		'{tabs}\t<text class="number" fill="black" x="12.5" y="20">{id}</text>\n'
-		'{tabs}\t<text class="symbol" fill="black" x="48" y="50">{sym}</text>\n'
-		'{tabs}\t<text class="name"   fill="black" x="48" y="70">{name}</text>\n'
-		'{tabs}\t<text class="weight" fill="black" x="48" y="81.5">{weight}</text>\n'
+		'{tabs}\t<text class="number" x="12.5" y="20">{id}</text>\n'
+		'{tabs}\t<text class="symbol" x="48" y="50">{sym}</text>\n'
+		'{tabs}\t<text class="name"   x="48" y="70">{name}</text>\n'
+		'{tabs}\t<text class="weight" x="48" y="81.5">{weight}</text>\n'
 		'{tabs}</g>\n'
 		.format(
 			tabs = (indent * '\t'),
@@ -296,7 +296,9 @@ def generateLegendClasses(file):
 			'\t\t</g>\n'
 			.format(
 				pos_X = (i*90) + 15, pos_Y = 35,
-				css = classes_list[i][0], text = outText)
+				css = classes_list[i][0],
+				text = outText
+			)
 		)
 
 	# End of group & write to file
@@ -317,7 +319,7 @@ def generateSVGHeader(file):
 
 	# Open SVG tag
 	strbuffer += (
-		'<svg class="{theme}{cbtag}" id="periodic-table"\n'
+		'<svg class="{theme} {cbtag}" id="periodic-table"\n'
 		'  width="100%" height="100%" viewBox="0 0 {w} {h}"\n'
 		'  xmlns="http://www.w3.org/2000/svg"\n'
 		'  xmlns:xlink="http://www.w3.org/1999/xlink"\n'

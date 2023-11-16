@@ -2,8 +2,8 @@
  * Background
 */
 
-svg#periodic-table.dark  { background-color: #222222; }
-svg#periodic-table.light { background-color: #E4E4E4; }
+#periodic-table.dark  { background-color: #222222; }
+#periodic-table.light { background-color: #E4E4E4; }
 
 
 /*
@@ -108,17 +108,22 @@ rect.unknown     { fill: #e8e8e8; }
 */
 
 text {
+	fill: black;
 	font-family: sans-serif;
 }
+
+text.number {
+	font-size:  7pt;
+	text-anchor: start;
+	text-align: start;
+}
+
 text.symbol, text.name, text.weight {
-	width: 100%;
 	text-anchor: middle;
 	text-align: center;
 }
 
-text.number { font-size:  7pt; }
 text.symbol {
-	left: 50%; top: 50%;
 	font-size: 24pt;
 	font-family: serif;
 }
