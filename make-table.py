@@ -360,10 +360,22 @@ def generateDefs(file):
 def generateEmbeddedCSS(file):
 	strbuffer = '\t<style>\n'
 
+	# We have to remove comments, as Inkscape doesn't seem to like them.
+	comment_flag = False
+
 	# Copy/Past lines, with added indentation
 	with open("periodic.css", 'r') as style_fd:
 		for line in style_fd:
-			strbuffer += '\t\t' + line
+			# Detect start of comment
+			if "/*" in line: comment_flag = True
+
+			# Copy line (except for comments and empty lines)
+			if not (comment_flag or line == "\n" or line == "\r\n"):
+				strbuffer += '\t\t' + line
+
+			# Detect end of comment
+			# Done after everything to easily skip one-liners
+			if "*/" in line: comment_flag = False
 
 	file.write(strbuffer + '\t</style>\n\n')
 
