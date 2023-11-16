@@ -18,9 +18,6 @@ def printUsage():
 		'  --help             Displays this help message and exits\n\n'
 		'  --large            Generate a 32-column version of the periodic table\n'
 		'                      (The default is to generate a 18-column version)\n\n'
-		'  --embedded-css     Include the contents of periodic.css to the generated SVG,\n'
-		'                      in a <style></style> tag (this is the default)\n'
-		'  --no-embedded-css  Define periodic.css as an XML stylesheet\n\n'
 		'  --legends          Generate the legends (this is the default)\n'
 		'  --no-legends       Do not generate the legends\n\n'
 		'  --dark             Use a dark background theme (this is the default)\n'
@@ -40,7 +37,6 @@ tableTheme = 'dark'
 largeTable = False
 colorblind = False
 
-embed_css = True
 addLegends = True
 
 
@@ -62,11 +58,6 @@ if len(sys.argv) > 1:
 
 		if arg == '--colorblind' or arg == '--high-contrast':
 			colorblind = True
-
-		if arg == '--no-embedded-css':
-			embed_css = False
-		elif arg == '--embedded-css':
-			embed_css = True
 
 		if arg == '--no-legends':
 			addLegends = False
@@ -321,10 +312,6 @@ def generateSVGHeader(file):
 	# XML/encoding declaration
 	strbuffer = '<?xml version="1.0" encoding="UTF-8"?>\n'
 
-	# Include a stylesheet, the XML way
-	if not embed_css:
-		strbuffer += '<?xml-stylesheet type="text/css" href="periodic.css"?>\n'
-
 	# Take into account the legends in the viewbox
 	legend_H = 150 if addLegends else 0
 
@@ -392,8 +379,7 @@ generateSVGHeader(fd)
 generateDocTitle(fd)
 generateDefs(fd)
 
-if embed_css:
-	generateEmbeddedCSS(fd)
+generateEmbeddedCSS(fd)
 
 
 # Legends
