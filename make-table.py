@@ -122,14 +122,20 @@ for elem in treelist:
 #  function definition
 # =======================================
 
-def elementDataToSVG(indent, element, xoff, yoff):
+def elementDataToSVG(indent, element, xoff, yoff, element_id = None):
+	# Unique identifier for the element (useful in Inkscape e.g)
+	# This is also used as a prefix for sub-nodes (like text)
+	if element_id is None:
+		element_id = "elem{:03d}".format(int(element['ID']))
+
 	strbuffer = (
-		'{tabs}<g transform="translate({x} {y})" class="element"\n'
+		'{tabs}<g transform="translate({x} {y})" class="element" id="{id}"\n'
 		'{tabs}  width="80" height="80" x="8" y="8">\n'
-		'{tabs}\t<rect class="background {css}" width="80" height="80"\n'
+		'{tabs}\t<rect class="background {css}" id="{id}_bg" width="80" height="80"\n'
 		'{tabs}\t  x="8" y="8" rx="4" ry="4"/>\n'
 		.format(
 			tabs = (indent * '\t'),
+			id = element_id,
 			x = xoff, y = yoff,
 			css = element['Class']
 		)
@@ -142,14 +148,15 @@ def elementDataToSVG(indent, element, xoff, yoff):
 		)
 
 	strbuffer += (
-		'{tabs}\t<text class="number" x="12.5" y="20">{id}</text>\n'
-		'{tabs}\t<text class="symbol" x="48" y="50">{sym}</text>\n'
-		'{tabs}\t<text class="name"   x="48" y="70">{name}</text>\n'
-		'{tabs}\t<text class="weight" x="48" y="81.5">{weight}</text>\n'
+		'{tabs}\t<text class="number" id="{id}_txt-num" x="12.5" y="20">{number}</text>\n'
+		'{tabs}\t<text class="symbol" id="{id}_txt-sym" x="48" y="50">{sym}</text>\n'
+		'{tabs}\t<text class="name"   id="{id}_txt-lbl" x="48" y="70">{name}</text>\n'
+		'{tabs}\t<text class="weight" id="{id}_txt-saw" x="48" y="81.5">{weight}</text>\n'
 		'{tabs}</g>\n'
 		.format(
 			tabs = (indent * '\t'),
-			id = element['ID'],
+			id = element_id,
+			number = element['ID'],
 			sym = element['Symbol'],
 			name = element['Name'],
 			weight = element['Weight'],
@@ -161,6 +168,7 @@ def elementDataToSVG(indent, element, xoff, yoff):
 
 def generateLanthanides(file, row):
 	file.write('\n\n\t<!-- Lanthanides -->\n\n')
+	file.write('\t<g id="lanthanides">\n')
 	yoff = (row * 96) + CONST_LANACT_OFFSET
 
 	for element in xml_data[1:]:
@@ -174,9 +182,11 @@ def generateLanthanides(file, row):
 		# Write element's data
 		file.write( elementDataToSVG(1, element, xoff, yoff) )
 
+	file.write('\t</g>\n')
 
 def generateActinides(file, row):
 	file.write('\n\n\t<!-- Actinides -->\n\n')
+	file.write('\t<g id="actinides">\n')
 	yoff = (row * 96) + CONST_LANACT_OFFSET
 
 	for element in xml_data[1:]:
@@ -190,6 +200,8 @@ def generateActinides(file, row):
 		# Write element's data
 		file.write( elementDataToSVG(1, element, xoff, yoff) )
 
+	file.write('\t</g>\n')
+
 
 # =======================================
 #  Legends
@@ -198,7 +210,7 @@ def generateActinides(file, row):
 def generateLegendElement(file):
 	# Based on Oxygen (aka element 8)
 	strbuffer = (
-		'\t<g transform="translate({x} {y}) scale(1.2)" class="legend-elem">\n'
+		'\t<g transform="translate({x} {y}) scale(1.2)" id="legend_elem">\n'
 		'\t\t<rect fill="#ADADAD" stroke="#424242" stroke-width="1.2"\n'
 		'\t\t  width="340" height="116" x="0" y="0" rx="4" ry="4"/>\n'
 		'\t\t<g transform="translate(30 0)">\n'
@@ -206,7 +218,7 @@ def generateLegendElement(file):
 		.format(
 			x = CONST_LEG_ELEMS_XPOS,
 			y = CONST_LEG_ELEMS_YPOS,
-			element = elementDataToSVG(3, xml_data[8], 110, 10)
+			element = elementDataToSVG(3, xml_data[8], 110, 10, "elem_example")
 		)
 	)
 
@@ -245,7 +257,7 @@ def generateLegendClasses(file):
 	# Group start
 	# NB: Position of this legend depends on the "large table" option
 	strbuffer = (
-		'\t<g transform="translate({x} {y})" class="legend-class">\n'
+		'\t<g transform="translate({x} {y})" class="legend-class" id="legend_classes">\n'
 		'\t\t<rect fill="#ADADAD" stroke="#424242" stroke-width="1.2"\n'
 		'\t\t  width="915" height="110" x="0" y="0" rx="4" ry="4"/>\n'
 		.format(x = CONST_LEG_CLASS_XPOS, y = CONST_LEG_CLASS_YPOS)
@@ -253,7 +265,7 @@ def generateLegendClasses(file):
 
 	# Main class: metals
 	strbuffer += (
-		'\t\t<g class="super-class" transform="translate(10 10)">\n'
+		'\t\t<g class="super-class" id="legend_superclass_Metals" transform="translate(10 10)">\n'
 		'\t\t\t<rect width="540" height="90" x="0" y="0"/>\n'
 		'\t\t\t<text x="270" y="13.5">Metals</text>\n'
 		'\t\t\t<path d="M5 18 L535 18"/>\n'
@@ -262,7 +274,7 @@ def generateLegendClasses(file):
 
 	# Main class: nonmetals
 	strbuffer += (
-		'\t\t<g class="super-class" transform="translate(640 10)">\n'
+		'\t\t<g class="super-class" id="legend_superclass_Nonmetals" transform="translate(640 10)">\n'
 		'\t\t\t<rect width="180" height="90" x="0" y="0"/>\n'
 		'\t\t\t<text x="90" y="13.5">Nonmetals</text>\n'
 		'\t\t\t<path d="M5 18 L175 18"/>\n'
@@ -291,7 +303,7 @@ def generateLegendClasses(file):
 		# Append formatted data to buffer
 		strbuffer += (
 			'\t\t<g class="sub-class" transform="translate({pos_X} {pos_Y})">\n'
-			'\t\t\t<rect class="{css}" width="80" height="60" x="0" y="0"/>\n'
+			'\t\t\t<rect id="legend_class_{css}" class="{css}" width="80" height="60" x="0" y="0"/>\n'
 			'\t\t\t<text x="40" y="35">{text}</text>\n'
 			'\t\t</g>\n'
 			.format(
@@ -404,8 +416,11 @@ if addLegends:
 	fd.write('\n\n')
 
 
-# Create the periods & groups headers
-fd.write('\t<!-- Groups header -->\n\n' '\t<g>\n')
+# Create the groups headers
+fd.write(
+	'\t<!-- Groups header -->\n\n'
+	'\t<g id="groups_header">\n'
+)
 
 for i in range(1,19):
 	# Add a space between group 3/4
@@ -415,8 +430,23 @@ for i in range(1,19):
 		if largeTable: xpos += 14 * 96
 
 	fd.write(
-		'\t\t<text class="headers-text" x="{x}" y="{y}">{grp}</text>\n'
+		'\t\t<text class="headers-text" id="group{grp:02d}_header" x="{x}" y="{y}">{grp}</text>\n'
 		.format(x = xpos, y = 64, grp = i)
+	)
+
+fd.write('\t</g>\n')
+
+
+# Create the periods header
+fd.write(
+	'\t<!-- Periods header -->\n\n'
+	'\t<g id="periods_header">\n'
+)
+
+for i in range(1, 8):
+	fd.write(
+		'\t<text class="headers-text" id="period{per}_header" x="{x}" y="{y}">{per}</text>\n\n'
+		.format(x = 48, y = (i*96 + 58), per = i)
 	)
 
 fd.write('\t</g>\n')
@@ -430,8 +460,8 @@ for i in range(1, 8):
 
 	fd.write(
 		'\n\n\t<!-- Period {per} -->\n\n'
-		'\t<text class="headers-text" x="{x}" y="{y}">{per}</text>\n\n'
-		.format(x = 48, y = (yoff + 58), per = i)
+		'\t<g id="period{per}">\n'
+		.format(per = i)
 	)
 
 	for element in xml_data[1:]:
@@ -448,7 +478,9 @@ for i in range(1, 8):
 			if largeTable: xoff += 14*96
 
 		# Write element's data
-		fd.write( elementDataToSVG(1, element, xoff, yoff) )
+		fd.write( elementDataToSVG(2, element, xoff, yoff) )
+
+	fd.write('\t</g>\n')
 
 
 # Lanthanides and Actinides
