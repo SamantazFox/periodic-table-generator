@@ -26,6 +26,11 @@ Options:
 ```
 
 
+Links
+-----
+
+http://www.ciaaw.org/atomic-weights.htm
+
 
 Licensing
 ---------
