@@ -826,6 +826,9 @@
 		<class>alkali</class>
 		<name>Francium</name>
 		<radioactive/>
+		<eConfig>[Rn] 7s^1</eConfig>
+		<ePerShell>2;8;18;32;18;8;1</ePerShell>
+		<eValence>1</eValence>
 	</element>
 	<element id="88" symbol="Ra" period="7" group="2">
 		<weight>226</weight>
@@ -833,6 +836,9 @@
 		<class>alkalineEM</class>
 		<name>Radium</name>
 		<radioactive/>
+		<eConfig>[Rn] 7s^2</eConfig>
+		<ePerShell>2;8;18;32;18;8;2</ePerShell>
+		<eValence>2</eValence>
 	</element>
 	<element id="89" symbol="Ac" period="7" group="3">
 		<weight>227</weight>
@@ -840,6 +846,9 @@
 		<class>actinide</class>
 		<name>Actinium</name>
 		<radioactive/>
+		<eConfig>[Rn] 6d^1 7s^2</eConfig>
+		<ePerShell>2;8;18;32;18;9;2</ePerShell>
+		<eValence>3</eValence>
 	</element>
 	<element id="90" symbol="Th" period="A" group="A">
 		<weight>232.037 7(4)</weight>
@@ -847,6 +856,9 @@
 		<class>actinide</class>
 		<name>Thorium</name>
 		<radioactive/>
+		<eConfig>[Rn] 6d^2 7s^2</eConfig>
+		<ePerShell>2;8;18;32;18;10;2</ePerShell>
+		<eValence>4</eValence>
 	</element>
 	<element id="91" symbol="Pa" period="A" group="A">
 		<weight>231.035 88(1)</weight>
@@ -854,6 +866,9 @@
 		<class>actinide</class>
 		<name>Protactinium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^2 6d^1 7s^2</eConfig>
+		<ePerShell>2;8;18;32;20;9;2</ePerShell>
+		<eValence>5</eValence>
 	</element>
 	<element id="92" symbol="U" period="A" group="A">
 		<weight>238.028 91(3)</weight>
@@ -861,6 +876,9 @@
 		<class>actinide</class>
 		<name>Uranium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^3 6d^1 7s^2</eConfig>
+		<ePerShell>2;8;18;32;21;9;2</ePerShell>
+		<eValence>6</eValence>
 	</element>
 	<element id="93" symbol="Np" period="A" group="A">
 		<weight>237</weight>
@@ -868,6 +886,9 @@
 		<class>actinide</class>
 		<name>Neptunium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^4 6d^1 7s^2</eConfig>
+		<ePerShell>2;8;18;32;22;9;2</ePerShell>
+		<eValence>7</eValence>
 	</element>
 	<element id="94" symbol="Pu" period="A" group="A">
 		<weight>244</weight>
@@ -875,6 +896,9 @@
 		<class>actinide</class>
 		<name>Plutonium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^6 7s^2</eConfig>
+		<ePerShell>2;8;18;32;24;8;2</ePerShell>
+		<eValence>8</eValence>
 	</element>
 	<element id="95" symbol="Am" period="A" group="A">
 		<weight>243</weight>
@@ -882,6 +906,9 @@
 		<class>actinide</class>
 		<name>Americium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^7 7s^2</eConfig>
+		<ePerShell>2;8;18;32;25;8;2</ePerShell>
+		<eValence>9</eValence>
 	</element>
 	<element id="96" symbol="Cm" period="A" group="A">
 		<weight>247</weight>
@@ -889,6 +916,9 @@
 		<class>actinide</class>
 		<name>Curium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^7 6d^1 7s^2</eConfig>
+		<ePerShell>2;8;18;32;25;9;2</ePerShell>
+		<eValence>10</eValence>
 	</element>
 	<element id="97" symbol="Bk" period="A" group="A">
 		<weight>247</weight>
@@ -896,6 +926,9 @@
 		<class>actinide</class>
 		<name>Berkelium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^9 7s^2</eConfig>
+		<ePerShell>2;8;18;32;27;8;2</ePerShell>
+		<eValence>11</eValence>
 	</element>
 	<element id="98" symbol="Cf" period="A" group="A">
 		<weight>251</weight>
@@ -903,6 +936,9 @@
 		<class>actinide</class>
 		<name>Californium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^10 7s^2</eConfig>
+		<ePerShell>2;8;18;32;28;8;2</ePerShell>
+		<eValence>12</eValence>
 	</element>
 	<element id="99" symbol="Es" period="A" group="A">
 		<weight>252</weight>
@@ -910,6 +946,9 @@
 		<class>actinide</class>
 		<name>Einsteinium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^11 7s^2</eConfig>
+		<ePerShell>2;8;18;32;29;8;2</ePerShell>
+		<eValence>13</eValence>
 	</element>
 	<element id="100" symbol="Fm" period="A" group="A">
 		<weight>257</weight>
@@ -917,6 +956,9 @@
 		<class>actinide</class>
 		<name>Fermium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^12 7s^2</eConfig>
+		<ePerShell>2;8;18;32;30;8;2</ePerShell>
+		<eValence>14</eValence>
 	</element>
 	<element id="101" symbol="Md" period="A" group="A">
 		<weight>258</weight>
@@ -924,6 +966,9 @@
 		<class>actinide</class>
 		<name>Mendelevium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^13 7s^2</eConfig>
+		<ePerShell>2;8;18;32;31;8;2</ePerShell>
+		<eValence>15</eValence>
 	</element>
 	<element id="102" symbol="No" period="A" group="A">
 		<weight>259</weight>
@@ -931,6 +976,9 @@
 		<class>actinide</class>
 		<name>Nobelium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 7s^2</eConfig>
+		<ePerShell>2;8;18;32;32;8;2</ePerShell>
+		<eValence>16</eValence>
 	</element>
 	<element id="103" symbol="Lr" period="A" group="A">
 		<weight>266</weight>
@@ -938,6 +986,9 @@
 		<class>actinide</class>
 		<name>Lawrencium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 7s^2 7p^1</eConfig>
+		<ePerShell>2;8;18;32;32;8;3</ePerShell>
+		<eValence>3</eValence>
 	</element>
 	<element id="104" symbol="Rf" period="7" group="4">
 		<weight>267</weight>
@@ -945,6 +996,9 @@
 		<class>transitionM</class>
 		<name>Rutherfordium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 6d^2 7s^2</eConfig>
+		<ePerShell>2;8;18;32;32;10;2</ePerShell>
+		<eValence>4</eValence>
 	</element>
 	<element id="105" symbol="Db" period="7" group="5">
 		<weight>268</weight>
@@ -952,6 +1006,9 @@
 		<class>transitionM</class>
 		<name>Dubnium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 6d^3 7s^2</eConfig>
+		<ePerShell>2;8;18;32;32;11;2</ePerShell>
+		<eValence>5</eValence>
 	</element>
 	<element id="106" symbol="Sg" period="7" group="6">
 		<weight>269</weight>
@@ -959,6 +1016,9 @@
 		<class>transitionM</class>
 		<name>Seaborgium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 6d^4 7s^2</eConfig>
+		<ePerShell>2;8;18;32;32;12;2</ePerShell>
+		<eValence>6</eValence>
 	</element>
 	<element id="107" symbol="Bh" period="7" group="7">
 		<weight>270</weight>
@@ -966,6 +1026,9 @@
 		<class>transitionM</class>
 		<name>Bohrium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 6d^5 7s^2</eConfig>
+		<ePerShell>2;8;18;32;32;13;2</ePerShell>
+		<eValence>7</eValence>
 	</element>
 	<element id="108" symbol="Hs" period="7" group="8">
 		<weight>269</weight>
@@ -973,6 +1036,9 @@
 		<class>transitionM</class>
 		<name>Hassium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 6d^6 7s^2</eConfig>
+		<ePerShell>2;8;18;32;32;14;2</ePerShell>
+		<eValence>8</eValence>
 	</element>
 	<element id="109" symbol="Mt" period="7" group="9">
 		<weight>275</weight>
@@ -980,6 +1046,9 @@
 		<class>unknown</class>
 		<name>Meitnerium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 6d^7 7s^2 [*]</eConfig>
+		<ePerShell>2;8;18;32;32;15;2</ePerShell>
+		<eValence>9</eValence>
 	</element>
 	<element id="110" symbol="Ds" period="7" group="10">
 		<weight>281</weight>
@@ -987,6 +1056,9 @@
 		<class>unknown</class>
 		<name>Darmstadtium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 6d^8 7s^2 [*]</eConfig>
+		<ePerShell>2;8;18;32;32;16;2</ePerShell>
+		<eValence>10</eValence>
 	</element>
 	<element id="111" symbol="Rg" period="7" group="11">
 		<weight>282</weight>
@@ -994,6 +1066,9 @@
 		<class>unknown</class>
 		<name>Roentgenium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 6d^9 7s^2 [*]</eConfig>
+		<ePerShell>2;8;18;32;32;17;2</ePerShell>
+		<eValence>11</eValence>
 	</element>
 	<element id="112" symbol="Cn" period="7" group="12">
 		<weight>285</weight>
@@ -1001,6 +1076,9 @@
 		<class>post-transM</class>
 		<name>Copernicium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 6d^10 7s^2 [*]</eConfig>
+		<ePerShell>2;8;18;32;32;18;2</ePerShell>
+		<eValence>12</eValence>
 	</element>
 	<element id="113" symbol="Nh" period="7" group="13">
 		<weight>286</weight>
@@ -1008,6 +1086,9 @@
 		<class>unknown</class>
 		<name>Nihonium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 6d^10 7s^2 7p^1 [*]</eConfig>
+		<ePerShell>2;8;18;32;32;18;3</ePerShell>
+		<eValence>3</eValence>
 	</element>
 	<element id="114" symbol="Fl" period="7" group="14">
 		<weight>289</weight>
@@ -1015,6 +1096,9 @@
 		<class>unknown</class>
 		<name>Flerovium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 6d^10 7s^2 7p^2 [*]</eConfig>
+		<ePerShell>2;8;18;32;32;18;4</ePerShell>
+		<eValence>4</eValence>
 	</element>
 	<element id="115" symbol="Mc" period="7" group="15">
 		<weight>290</weight>
@@ -1022,6 +1106,9 @@
 		<class>unknown</class>
 		<name>Moscovium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 6d^10 7s^2 7p^3 [*]</eConfig>
+		<ePerShell>2;8;18;32;32;18;5</ePerShell>
+		<eValence>5</eValence>
 	</element>
 	<element id="116" symbol="Lv" period="7" group="16">
 		<weight>293</weight>
@@ -1029,6 +1116,9 @@
 		<class>unknown</class>
 		<name>Livermorium</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 6d^10 7s^2 7p^4 [*]</eConfig>
+		<ePerShell>2;8;18;32;32;18;6</ePerShell>
+		<eValence>6</eValence>
 	</element>
 	<element id="117" symbol="Ts" period="7" group="17">
 		<weight>294</weight>
@@ -1036,6 +1126,9 @@
 		<class>unknown</class>
 		<name>Tennessine</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 6d^10 7s^2 7p^5 [*]</eConfig>
+		<ePerShell>2;8;18;32;32;18;7</ePerShell>
+		<eValence>7</eValence>
 	</element>
 	<element id="118" symbol="Og" period="7" group="18">
 		<weight>294</weight>
@@ -1043,5 +1136,8 @@
 		<class>unknown</class>
 		<name>Oganesson</name>
 		<radioactive/>
+		<eConfig>[Rn] 5f^14 6d^10 7s^2 7p^6 [*]</eConfig>
+		<ePerShell>2;8;18;32;32;18;8</ePerShell>
+		<eValence>8</eValence>
 	</element>
 </elementsList>
