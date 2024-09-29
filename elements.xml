@@ -10,12 +10,18 @@
 		<stpPhase>Gas</stpPhase>
 		<class>reactiveNM</class>
 		<name>Hydrogen</name>
+		<eConfig>1s^1</eConfig>
+		<ePerShell>1</ePerShell>
+		<eValence>1</eValence>
 	</element>
 	<element id="2" symbol="He" period="1" group="18">
 		<weight>4.002 602 (2)</weight>
 		<stpPhase>Gas</stpPhase>
 		<class>noble-gas</class>
 		<name>Helium</name>
+		<eConfig>1s^2</eConfig>
+		<ePerShell>2</ePerShell>
+		<eValence>2</eValence>
 	</element>
 
 	<!--
@@ -28,48 +34,72 @@
 		<stpPhase>Solid</stpPhase>
 		<class>alkali</class>
 		<name>Lithium</name>
+		<eConfig>[He] 2s^1</eConfig>
+		<ePerShell>2;1</ePerShell>
+		<eValence>1</eValence>
 	</element>
 	<element id="4" symbol="Be" period="2" group="2">
 		<weight>9.012 183 1(5)</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>alkalineEM</class>
 		<name>Beryllium</name>
+		<eConfig>[He] 2s^2</eConfig>
+		<ePerShell>2;2</ePerShell>
+		<eValence>2</eValence>
 	</element>
 	<element id="5" symbol="B" period="2" group="13">
 		<weight>10.81</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>metalloid</class>
 		<name>Boron</name>
+		<eConfig>[He] 2s^2 2p^1</eConfig>
+		<ePerShell>2;3</ePerShell>
+		<eValence>3</eValence>
 	</element>
 	<element id="6" symbol="C" period="2" group="14">
 		<weight>12.011</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>reactiveNM</class>
 		<name>Carbon</name>
+		<eConfig>[He] 2s^2 2p^2</eConfig>
+		<ePerShell>2;4</ePerShell>
+		<eValence>4</eValence>
 	</element>
 	<element id="7" symbol="N" period="2" group="15">
 		<weight>14.007</weight>
 		<stpPhase>Gas</stpPhase>
 		<class>reactiveNM</class>
 		<name>Nitrogen</name>
+		<eConfig>[He] 2s^2 2p^3</eConfig>
+		<ePerShell>2;5</ePerShell>
+		<eValence>5</eValence>
 	</element>
 	<element id="8" symbol="O" period="2" group="16">
 		<weight>15.999</weight>
 		<stpPhase>Gas</stpPhase>
 		<class>reactiveNM</class>
 		<name>Oxygen</name>
+		<eConfig>[He] 2s^2 2p^4</eConfig>
+		<ePerShell>2;6</ePerShell>
+		<eValence>6</eValence>
 	</element>
 	<element id="9" symbol="F" period="2" group="17">
 		<weight>18.998 403 163 (6)</weight>
 		<stpPhase>Gas</stpPhase>
 		<class>reactiveNM</class>
 		<name>Fluorine</name>
+		<eConfig>[He] 2s^2 2p^5</eConfig>
+		<ePerShell>2;7</ePerShell>
+		<eValence>7</eValence>
 	</element>
 	<element id="10" symbol="Ne" period="2" group="18">
 		<weight>20.179 7(6)</weight>
 		<stpPhase>Gas</stpPhase>
 		<class>noble-gas</class>
 		<name>Neon</name>
+		<eConfig>[He] 2s^2 2p^6</eConfig>
+		<ePerShell>2;8</ePerShell>
+		<eValence>8</eValence>
 	</element>
 
 	<!--
@@ -82,48 +112,72 @@
 		<stpPhase>Solid</stpPhase>
 		<class>alkali</class>
 		<name>Sodium</name>
+		<eConfig>[Ne] 3s^1</eConfig>
+		<ePerShell>2;8;1</ePerShell>
+		<eValence>1</eValence>
 	</element>
 	<element id="12" symbol="Mg" period="3" group="2">
 		<weight>24.305</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>alkalineEM</class>
 		<name>Magnesium</name>
+		<eConfig>[Ne] 3s^2</eConfig>
+		<ePerShell>2;8;2</ePerShell>
+		<eValence>2</eValence>
 	</element>
 	<element id="13" symbol="Al" period="3" group="13">
 		<weight>26.981 538 4(3)</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>post-transM</class>
 		<name>Aluminium</name>
+		<eConfig>[Ne] 3s^2 3p^1</eConfig>
+		<ePerShell>2;8;3</ePerShell>
+		<eValence>3</eValence>
 	</element>
 	<element id="14" symbol="Si" period="3" group="14">
 		<weight>28.085</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>metalloid</class>
 		<name>Silicon</name>
+		<eConfig>[Ne] 3s^2 3p^2</eConfig>
+		<ePerShell>2;8;4</ePerShell>
+		<eValence>4</eValence>
 	</element>
 	<element id="15" symbol="P" period="3" group="15">
 		<weight>30.973 761 998 (5)</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>reactiveNM</class>
 		<name>Phosphorus</name>
+		<eConfig>[Ne] 3s^2 3p^3</eConfig>
+		<ePerShell>2;8;5</ePerShell>
+		<eValence>5</eValence>
 	</element>
 	<element id="16" symbol="S" period="3" group="16">
 		<weight>32.06</weight>
 		<stpPhase>Solid</stpPhase>
 		<class>reactiveNM</class>
 		<name>Sulfur</name>
+		<eConfig>[Ne] 3s^2 3p^4</eConfig>
+		<ePerShell>2;8;6</ePerShell>
+		<eValence>6</eValence>
 	</element>
 	<element id="17" symbol="Cl" period="3" group="17">
 		<weight>35.45</weight>
 		<stpPhase>Gas</stpPhase>
 		<class>reactiveNM</class>
 		<name>Chlorine</name>
+		<eConfig>[Ne] 3s^2 3p^5</eConfig>
+		<ePerShell>2;8;7</ePerShell>
+		<eValence>7</eValence>
 	</element>
 	<element id="18" symbol="Ar" period="3" group="18">
 		<weight>39.88</weight>
 		<stpPhase>Gas</stpPhase>
 		<class>noble-gas</class>
 		<name>Argon</name>
+		<eConfig>[Ne] 3s^2 3p^6</eConfig>
+		<ePerShell>2;8;8</ePerShell>
+		<eValence>8</eValence>
 	</element>
 
 	<!--
