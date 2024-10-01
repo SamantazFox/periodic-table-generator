@@ -7,66 +7,89 @@ import gzip
 
 
 # =======================================
+#  Config options class definition
+# =======================================
+
+class TableConfig:
+	def __init__(self):
+		self.theme = 'dark'
+		self.large_table = False
+		self.colorblind = False
+		self.legends = True
+
+# Init defaults
+config = TableConfig()
+
+
+# =======================================
 #  Help functiion
 # =======================================
 
-def printUsage():
+def printUsage(cfg : TableConfig):
 	print(
 		'Usage: python3 {0} [OPTIONS]\n'
 		'Usage: ./{0} [OPTIONS]\n\n'
+		.format(os.path.basename(sys.argv[0]))
+	)
+
+	print(
 		'Options:\n'
 		'  --help             Displays this help message and exits\n\n'
 		'  --large            Generate a 32-column version of the periodic table\n'
-		'                      (The default is to generate a 18-column version)\n\n'
-		'  --legends          Generate the legends (this is the default)\n'
+		'  --legends          Generate the legends\n'
 		'  --no-legends       Do not generate the legends\n\n'
-		'  --dark             Use a dark background theme (this is the default)\n'
+		'  --dark             Use a dark background theme\n'
 		'  --light            Use a light background theme\n\n'
 		'  --high-contrast    Use a high contrast color scheme\n'
-		'  --colorblind       Alias for --high-contrast\n'
-		.format(os.path.basename(sys.argv[0]))
+		'  --colorblind       Alias for --high-contrast\n\n'
 	)
+
+	print(
+		'Defaults:\n'
+		'  * theme = {theme}\n'
+		'  * width = {width}\n'
+		'  * legends = {legends}\n'
+		'  * high-contrast = {high_contrast}\n'
+		.format(
+			theme = cfg.theme,
+			width = '32 (large)' if cfg.large_table else '18 (narrow)',
+			legends = 'Yes' if cfg.legends else 'No',
+			high_contrast = 'Yes' if cfg.colorblind else 'No',
+		)
+	)
+
 
 # =======================================
 #  Parse arguments
 # =======================================
-
-# Init
-tableTheme = 'dark'
-
-largeTable = False
-colorblind = False
-
-addLegends = True
-
 
 # Loop in arguments
 if len(sys.argv) > 1:
 	for arg in sys.argv[1:]:
 
 		if arg == '--help':
-			printUsage()
+			printUsage(config)
 			quit()
 
 		if arg == '--light':
-			tableTheme = 'light'
+			config.theme = 'light'
 		elif arg == '--dark':
-			tableTheme = 'dark'
+			config.theme = 'dark'
 
 		if arg == '--large':
-			largeTable = True
-
-		if arg == '--colorblind' or arg == '--high-contrast':
-			colorblind = True
+			config.large_table = True
 
 		if arg == '--no-legends':
-			addLegends = False
+			config.legends = False
 		elif arg == '--legends':
-			addLegends = True
+			config.legends = True
+
+		if arg == '--colorblind' or arg == '--high-contrast':
+			config.colorblind = True
 
 
 # 32-columns
-if largeTable:
+if config.large_table:
 	CONST_GROUP4_OFFSET = 0
 	CONST_LANACT_OFFSET = 0
 
@@ -88,9 +111,6 @@ CONST_LEG_ELEMS_YPOS = 160
 
 CONST_LEG_CLASS_XPOS = 96
 CONST_LEG_CLASS_YPOS = (96*CONST_ROW_COUNT) + CONST_LANACT_OFFSET + 35
-
-# Colorblind/high-contrast mode
-colorblind_tag = " colorblind" if colorblind else ""
 
 
 # =======================================
@@ -119,7 +139,7 @@ for elem in treelist:
 
 
 # =======================================
-#  function definition
+#  Elements
 # =======================================
 
 def elementDataToSVG(indent, element, xoff, yoff, element_id = None):
@@ -319,19 +339,23 @@ def generateLegendClasses(file):
 
 
 # =======================================
-#  Main parts of the SVG file
+#  Main sections of the SVG file
 # =======================================
 
-def generateSVGHeader(file):
+def generateSVGHeader(cfg : TableConfig, file):
 	# XML/encoding declaration
 	strbuffer = '<?xml version="1.0" encoding="UTF-8"?>\n'
 
 	# Take into account the legends in the viewbox
-	legend_H = 150 if addLegends else 0
+	legend_H = 150 if cfg.legends else 0
+
+	# CSS classes
+	classes = cfg.theme
+	if cfg.colorblind: classes += " colorblind"
 
 	# Open SVG tag
 	strbuffer += (
-		'<svg class="{theme} {cbtag}" id="periodic-table"\n'
+		'<svg class="{classes}" id="periodic-table"\n'
 		'  width="100%" height="100%" viewBox="0 0 {w} {h}"\n'
 		'  xmlns="http://www.w3.org/2000/svg"\n'
 		'  xmlns:xlink="http://www.w3.org/1999/xlink"\n'
@@ -339,8 +363,7 @@ def generateSVGHeader(file):
 		.format(
 			w = (CONST_COL_COUNT * 96) + CONST_GROUP4_OFFSET + 10,
 			h = (CONST_ROW_COUNT * 96) + CONST_LANACT_OFFSET + 10 + legend_H,
-			theme = tableTheme,
-			cbtag = colorblind_tag
+			classes = classes,
 		)
 	)
 
@@ -401,7 +424,7 @@ def generateEmbeddedCSS(file):
 fd = open("periodic.svg", 'w')
 
 # Header
-generateSVGHeader(fd)
+generateSVGHeader(config, fd)
 generateDocTitle(fd)
 generateDefs(fd)
 
@@ -409,7 +432,7 @@ generateEmbeddedCSS(fd)
 
 
 # Legends
-if addLegends:
+if config.legends:
 	fd.write('\t<!-- Legends -->\n\n')
 	generateLegendClasses(fd)
 	generateLegendElement(fd)
@@ -427,7 +450,7 @@ for i in range(1,19):
 	xpos = (i*96 + 48)
 	if i >= 4:
 		xpos += CONST_GROUP4_OFFSET
-		if largeTable: xpos += 14 * 96
+		if config.large_table: xpos += 14 * 96
 
 	fd.write(
 		'\t\t<text class="headers-text" id="group{grp:02d}_header" x="{x}" y="{y}">{grp}</text>\n'
@@ -475,7 +498,7 @@ for i in range(1, 8):
 
 		if column >= 4:
 			xoff += CONST_GROUP4_OFFSET
-			if largeTable: xoff += 14*96
+			if config.large_table: xoff += 14*96
 
 		# Write element's data
 		fd.write( elementDataToSVG(2, element, xoff, yoff) )
@@ -484,7 +507,7 @@ for i in range(1, 8):
 
 
 # Lanthanides and Actinides
-if largeTable:
+if config.large_table:
 	# Generate inline with period 6 & 7
 	generateLanthanides (fd, 6)
 	generateActinides   (fd, 7)
