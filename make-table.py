@@ -35,7 +35,8 @@ def printUsage(cfg : TableConfig):
 	print(
 		'Options:\n'
 		'  --help             Displays this help message and exits\n\n'
-		'  --large            Generate a 32-column version of the periodic table\n'
+		'  --large            Generate the 32-column version of the periodic table\n'
+		'  --narrow           Generate the 18-column version of the periodic table\n\n'
 		'  --legends          Generate the legends\n'
 		'  --no-legends       Do not generate the legends\n\n'
 		'  --dark             Use a dark background theme\n'
@@ -78,6 +79,8 @@ if len(sys.argv) > 1:
 
 		if arg == '--large':
 			config.large_table = True
+		elif arg == '--narrow':
+			config.large_table = False
 
 		if arg == '--no-legends':
 			config.legends = False
