@@ -16,6 +16,7 @@ class TableConfig:
 		self.large_table = False
 		self.colorblind = False
 		self.legends = True
+		self.show_econfig = False
 
 # Init defaults
 config = TableConfig()
@@ -39,6 +40,8 @@ def printUsage(cfg : TableConfig):
 		'  --narrow           Generate the 18-column version of the periodic table\n\n'
 		'  --legends          Generate the legends\n'
 		'  --no-legends       Do not generate the legends\n\n'
+		'  --econfig          Show the atom\'s electronic configuration (e.g: [Ne] 3s²)\n',
+		'  --no-econfig       Do not show the electronic configuration\n\n',
 		'  --dark             Use a dark background theme\n'
 		'  --light            Use a light background theme\n\n'
 		'  --high-contrast    Use a high contrast color scheme\n'
@@ -50,11 +53,13 @@ def printUsage(cfg : TableConfig):
 		'  * theme = {theme}\n'
 		'  * width = {width}\n'
 		'  * legends = {legends}\n'
+		'  * econfig = {econfig}\n'
 		'  * high-contrast = {high_contrast}\n'
 		.format(
 			theme = cfg.theme,
 			width = '32 (large)' if cfg.large_table else '18 (narrow)',
 			legends = 'Yes' if cfg.legends else 'No',
+			econfig = 'Yes' if cfg.show_econfig else 'No',
 			high_contrast = 'Yes' if cfg.colorblind else 'No',
 		)
 	)
@@ -90,6 +95,11 @@ if len(sys.argv) > 1:
 		if arg == '--colorblind' or arg == '--high-contrast':
 			config.colorblind = True
 
+		if arg == '--no-econfig':
+			config.show_econfig = False
+		elif arg == '--econfig':
+			config.show_econfig = True
+
 
 # 32-columns
 if config.large_table:
@@ -108,12 +118,36 @@ else:
 	CONST_ROW_COUNT = 10
 
 
-# Compute the "element" and "classes" legends positions
-CONST_LEG_ELEMS_XPOS = (7*96) + 48  #(7*96) + 72
+# The "element" legend positions
+CONST_LEG_ELEMS_XPOS = (6*96)
 CONST_LEG_ELEMS_YPOS = 160
 
+# The "classes" legend positions
 CONST_LEG_CLASS_XPOS = 96
 CONST_LEG_CLASS_YPOS = (96*CONST_ROW_COUNT) + CONST_LANACT_OFFSET + 35
+
+
+# =======================================
+#  Utility functions
+# =======================================
+
+def number_to_super(number):
+	table = str.maketrans('0123456789', '⁰¹²³⁴⁵⁶⁷⁸⁹')
+	return str(number).translate(table)
+
+
+def format_electron_config(value):
+	original = value.split()
+	new = []
+
+	for part in original:
+		if '^' in part:
+			subshell, count = part.split('^')
+			part = subshell + number_to_super(count)
+
+		new.append(part)
+
+	return ' '.join(new)
 
 
 # =======================================
@@ -134,7 +168,10 @@ for elem in treelist:
 		'Weight': elem.findtext('weight'),
 		'Class' : elem.findtext('class'),
 		'Name'  : elem.findtext('name'),
-		'isRadioactive': (elem.findtext('radioactive') != None)
+		'isRadioactive': (elem.findtext('radioactive') != None),
+		'eConfig'  : format_electron_config(elem.findtext('eConfig')),
+		'ePerShell': elem.findtext('ePerShell'),
+		'eValence' : elem.findtext('eValence'),
 	}
 
 	# Sort elements by id in data
@@ -145,51 +182,49 @@ for elem in treelist:
 #  Elements
 # =======================================
 
-def elementDataToSVG(indent, element, xoff, yoff, element_id = None):
+def elementDataToSVG(cfg : TableConfig, indent, element, xoff, yoff, xml_id = None):
 	# Unique identifier for the element (useful in Inkscape e.g)
 	# This is also used as a prefix for sub-nodes (like text)
-	if element_id is None:
-		element_id = "elem{:03d}".format(int(element['ID']))
+	if xml_id is None:
+		xml_id = "elem{:03d}".format(int(element['ID']))
 
 	strbuffer = (
-		'{tabs}<g transform="translate({x} {y})" class="element" id="{id}"\n'
+		'{tabs}<g transform="translate({x} {y})" class="element" id="{xml_id}"\n'
 		'{tabs}  width="80" height="80" x="8" y="8">\n'
-		'{tabs}\t<rect class="background {css}" id="{id}_bg" width="80" height="80"\n'
+		'{tabs}\t<rect class="background {Class}" id="{xml_id}_bg" width="80" height="80"\n'
 		'{tabs}\t  x="8" y="8" rx="4" ry="4"/>\n'
-		.format(
-			tabs = (indent * '\t'),
-			id = element_id,
-			x = xoff, y = yoff,
-			css = element['Class']
-		)
 	)
 
 	if element['isRadioactive']:
+		strbuffer += '{tabs}\t<use xlink:href="#radioactive-logo" />\n'
+
+	if cfg.show_econfig:
 		strbuffer += (
-			'{tabs}\t<use xlink:href="#radioactive-logo" />\n'
-			.format(tabs = (indent * '\t'))
+			'{tabs}\t<text class="number"    id="{xml_id}_txt-num" x="12.5" y="20">{ID}</text>\n'
+			'{tabs}\t<text class="symbol sm" id="{xml_id}_txt-sym" x="48" y="46">{Symbol}</text>\n'
+			'{tabs}\t<text class="name"      id="{xml_id}_txt-lbl" x="48" y="63">{Name}</text>\n'
+			'{tabs}\t<text class="weight"    id="{xml_id}_txt-saw" x="48" y="73">{Weight}</text>\n'
+			'{tabs}\t<text class="econf"     id="{xml_id}_txt-ecf" x="48" y="84">{eConfig}</text>\n'
 		)
 
-	strbuffer += (
-		'{tabs}\t<text class="number" id="{id}_txt-num" x="12.5" y="20">{number}</text>\n'
-		'{tabs}\t<text class="symbol" id="{id}_txt-sym" x="48" y="50">{sym}</text>\n'
-		'{tabs}\t<text class="name"   id="{id}_txt-lbl" x="48" y="70">{name}</text>\n'
-		'{tabs}\t<text class="weight" id="{id}_txt-saw" x="48" y="81.5">{weight}</text>\n'
-		'{tabs}</g>\n'
-		.format(
-			tabs = (indent * '\t'),
-			id = element_id,
-			number = element['ID'],
-			sym = element['Symbol'],
-			name = element['Name'],
-			weight = element['Weight'],
+	else:
+		strbuffer += (
+			'{tabs}\t<text class="number" id="{xml_id}_txt-num" x="12.5" y="20">{ID}</text>\n'
+			'{tabs}\t<text class="symbol" id="{xml_id}_txt-sym" x="48" y="50">{Symbol}</text>\n'
+			'{tabs}\t<text class="name"   id="{xml_id}_txt-lbl" x="48" y="70">{Name}</text>\n'
+			'{tabs}\t<text class="weight" id="{xml_id}_txt-saw" x="48" y="81.5">{Weight}</text>\n'
 		)
+
+	strbuffer += '{tabs}</g>\n'
+
+	return strbuffer.format(
+		tabs = (indent * '\t'), xml_id = xml_id,
+		x = xoff, y = yoff,
+		**element, # Use element fields directly
 	)
 
-	return strbuffer
 
-
-def generateLanthanides(file, row):
+def generateLanthanides(cfg : TableConfig, file, row):
 	file.write('\n\n\t<!-- Lanthanides -->\n\n')
 	file.write('\t<g id="lanthanides">\n')
 	yoff = (row * 96) + CONST_LANACT_OFFSET
@@ -203,11 +238,11 @@ def generateLanthanides(file, row):
 		xoff = column * 96 + CONST_GROUP4_OFFSET
 
 		# Write element's data
-		file.write( elementDataToSVG(1, element, xoff, yoff) )
+		file.write( elementDataToSVG(cfg, 1, element, xoff, yoff) )
 
 	file.write('\t</g>\n')
 
-def generateActinides(file, row):
+def generateActinides(cfg : TableConfig, file, row):
 	file.write('\n\n\t<!-- Actinides -->\n\n')
 	file.write('\t<g id="actinides">\n')
 	yoff = (row * 96) + CONST_LANACT_OFFSET
@@ -221,7 +256,7 @@ def generateActinides(file, row):
 		xoff = column * 96 + CONST_GROUP4_OFFSET
 
 		# Write element's data
-		file.write( elementDataToSVG(1, element, xoff, yoff) )
+		file.write( elementDataToSVG(cfg, 1, element, xoff, yoff) )
 
 	file.write('\t</g>\n')
 
@@ -230,31 +265,47 @@ def generateActinides(file, row):
 #  Legends
 # =======================================
 
-def generateLegendElement(file):
+def generateLegendElement(cfg : TableConfig, file):
 	# Based on Oxygen (aka element 8)
 	strbuffer = (
 		'\t<g transform="translate({x} {y}) scale(1.2)" id="legend_elem">\n'
 		'\t\t<rect fill="#ADADAD" stroke="#424242" stroke-width="1.2"\n'
-		'\t\t  width="340" height="116" x="0" y="0" rx="4" ry="4"/>\n'
+		'\t\t  width="380" height="116" x="0" y="0" rx="4" ry="4"/>\n'
 		'\t\t<g transform="translate(30 0)">\n'
 		'{element}'
 		.format(
 			x = CONST_LEG_ELEMS_XPOS,
 			y = CONST_LEG_ELEMS_YPOS,
-			element = elementDataToSVG(3, xml_data[8], 110, 10, "elem_example")
+			element = elementDataToSVG(cfg, 3, xml_data[8], 110, 10, "elem_example")
 		)
 	)
 
+	# The atomic number never moves
 	strbuffer += (
-		'\t\t\t<text x="110" y="30" text-anchor="end">Atomic number</text>\n'
+		'\t\t\t<text class="legend-elem left" x="110" y="27">Atomic number</text>\n'
 		'\t\t\t<path stroke="#000" d="M113 27 l8 0"/>\n'
-		'\t\t\t<text x="110" y="91" text-anchor="end">Atomic standard weight</text>\n'
-		'\t\t\t<path stroke="#000" d="M113 88.5 l20 0"/>\n'
-		'\t\t\t<text x="205" y="52" text-anchor="start">Symbol</text>\n'
-		'\t\t\t<path stroke="#000" d="M202 48.8 l-29 0"/>\n'
-		'\t\t\t<text x="205" y="80" text-anchor="start">Element name</text>\n'
-		'\t\t\t<path stroke="#000" d="M202 76.6 l-21 0"/>\n'
 	)
+
+	if cfg.show_econfig:
+		strbuffer += (
+			'\t\t\t<text class="legend-elem right" x="205" y="45">Symbol</text>\n'
+			'\t\t\t<path stroke="#000" d="M202 45 l-29 0"/>\n'
+			'\t\t\t<text class="legend-elem left" x="110" y="80">Atomic standard weight</text>\n'
+			'\t\t\t<path stroke="#000" d="M113 80 l26 0"/>\n'
+			'\t\t\t<text class="legend-elem right" x="205" y="70">Element name</text>\n'
+			'\t\t\t<path stroke="#000" d="M202 70 l-21 0"/>\n'
+			'\t\t\t<text class="legend-elem right" x="205" y="92">Electronic configuration</text>\n'
+			'\t\t\t<path stroke="#000" d="M202 92 l-22 0"/>\n'
+		)
+	else:
+			strbuffer += (
+			'\t\t\t<text class="legend-elem right" x="205" y="48.8">Symbol</text>\n'
+			'\t\t\t<path stroke="#000" d="M202 48.8 l-29 0"/>\n'
+			'\t\t\t<text class="legend-elem left" x="110" y="88.5">Atomic standard weight</text>\n'
+			'\t\t\t<path stroke="#000" d="M113 88.5 l26 0"/>\n'
+			'\t\t\t<text class="legend-elem right" x="205" y="76.6">Element name</text>\n'
+			'\t\t\t<path stroke="#000" d="M202 76.6 l-21 0"/>\n'
+		)
 
 	# End of group & write to file
 	strbuffer += '\t\t</g>\n'
@@ -438,7 +489,7 @@ generateEmbeddedCSS(fd)
 if config.legends:
 	fd.write('\t<!-- Legends -->\n\n')
 	generateLegendClasses(fd)
-	generateLegendElement(fd)
+	generateLegendElement(config, fd)
 	fd.write('\n\n')
 
 
@@ -504,7 +555,7 @@ for i in range(1, 8):
 			if config.large_table: xoff += 14*96
 
 		# Write element's data
-		fd.write( elementDataToSVG(2, element, xoff, yoff) )
+		fd.write( elementDataToSVG(config, 2, element, xoff, yoff) )
 
 	fd.write('\t</g>\n')
 
@@ -512,12 +563,12 @@ for i in range(1, 8):
 # Lanthanides and Actinides
 if config.large_table:
 	# Generate inline with period 6 & 7
-	generateLanthanides (fd, 6)
-	generateActinides   (fd, 7)
+	generateLanthanides (config, fd, 6)
+	generateActinides   (config, fd, 7)
 else:
 	# Put lanthanides and actinides on sparate rows (8 & 9, respectively)
-	generateLanthanides (fd, 8)
-	generateActinides   (fd, 9)
+	generateLanthanides (config, fd, 8)
+	generateActinides   (config, fd, 9)
 
 
 # End of file (closing tag)

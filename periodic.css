@@ -118,7 +118,7 @@ text.number {
 	text-align: start;
 }
 
-text.symbol, text.name, text.weight {
+text.symbol, text.name, text.weight, text.econf {
 	text-anchor: middle;
 	text-align: center;
 }
@@ -127,5 +127,20 @@ text.symbol {
 	font-size: 24pt;
 	font-family: serif;
 }
+text.symbol.sm { font-size: 21pt; }
 text.name   { font-size: 8pt; }
 text.weight { font-size: 6pt; }
+text.econf  { font-size: 4.5pt; }
+
+
+/*
+ * Legends - text
+*/
+
+text.legend-elem {
+	dominant-baseline: middle;
+	font-size: 8pt;
+}
+
+text.legend-elem.left  { text-anchor: end;  }
+text.legend-elem.right { text-anchor: start; }
