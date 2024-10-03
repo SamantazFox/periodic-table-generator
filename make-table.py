@@ -238,7 +238,7 @@ def generateLanthanides(cfg : TableConfig, file, row):
 		xoff = column * 96 + CONST_GROUP4_OFFSET
 
 		# Write element's data
-		file.write( elementDataToSVG(cfg, 1, element, xoff, yoff) )
+		file.write( elementDataToSVG(cfg, 2, element, xoff, yoff) )
 
 	file.write('\t</g>\n')
 
@@ -256,7 +256,7 @@ def generateActinides(cfg : TableConfig, file, row):
 		xoff = column * 96 + CONST_GROUP4_OFFSET
 
 		# Write element's data
-		file.write( elementDataToSVG(cfg, 1, element, xoff, yoff) )
+		file.write( elementDataToSVG(cfg, 2, element, xoff, yoff) )
 
 	file.write('\t</g>\n')
 
@@ -468,7 +468,7 @@ def generateEmbeddedCSS(file):
 			# Done after everything to easily skip one-liners
 			if "*/" in line: comment_flag = False
 
-	file.write(strbuffer + '\t</style>\n\n')
+	file.write(strbuffer + '\t</style>\n')
 
 
 # =======================================
@@ -487,15 +487,14 @@ generateEmbeddedCSS(fd)
 
 # Legends
 if config.legends:
-	fd.write('\t<!-- Legends -->\n\n')
+	fd.write('\n\n\t<!-- Legends -->\n\n')
 	generateLegendClasses(fd)
 	generateLegendElement(config, fd)
-	fd.write('\n\n')
 
 
 # Create the groups headers
 fd.write(
-	'\t<!-- Groups header -->\n\n'
+	'\n\n\t<!-- Groups header -->\n\n'
 	'\t<g id="groups_header">\n'
 )
 
@@ -516,13 +515,13 @@ fd.write('\t</g>\n')
 
 # Create the periods header
 fd.write(
-	'\t<!-- Periods header -->\n\n'
+	'\n\n\t<!-- Periods header -->\n\n'
 	'\t<g id="periods_header">\n'
 )
 
 for i in range(1, 8):
 	fd.write(
-		'\t<text class="headers-text" id="period{per}_header" x="{x}" y="{y}">{per}</text>\n\n'
+		'\t\t<text class="headers-text" id="period{per}_header" x="{x}" y="{y}">{per}</text>\n'
 		.format(x = 48, y = (i*96 + 58), per = i)
 	)
 

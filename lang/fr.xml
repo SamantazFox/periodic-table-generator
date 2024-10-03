@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<languagePack lang="fr">
+	<elements>
+		<!-- Period 1 -->
+		<element id="1">
+			<name>Hydrogène</name>
+			<wiki>https://fr.wikipedia.org/wiki/Hydrog%C3%A8ne</wiki>
+		</element>
+		<element id="2">
+			<name>Hélium</name>
+			<wiki>https://fr.wikipedia.org/wiki/H%C3%A9lium</wiki>
+		</element>
+		<!-- Period 2 -->
+		<element id="3">
+			<name>Lithium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Lithium</wiki>
+		</element>
+		<element id="4">
+			<name>Béryllium</name>
+			<wiki>https://fr.wikipedia.org/wiki/B%C3%A9ryllium</wiki>
+		</element>
+		<element id="5">
+			<name>Bore</name>
+			<wiki>https://fr.wikipedia.org/wiki/Bore</wiki>
+		</element>
+		<element id="6">
+			<name>Carbone</name>
+			<wiki>https://fr.wikipedia.org/wiki/Carbone</wiki>
+		</element>
+		<element id="7">
+			<name>Azote</name>
+			<wiki>https://fr.wikipedia.org/wiki/Azote</wiki>
+		</element>
+		<element id="8">
+			<name>Oxygène</name>
+			<wiki>https://fr.wikipedia.org/wiki/Oxyg%C3%A8ne</wiki>
+		</element>
+		<element id="9">
+			<name>Fluor</name>
+			<wiki>https://fr.wikipedia.org/wiki/Fluor</wiki>
+		</element>
+		<element id="10">
+			<name>Néon</name>
+			<wiki>https://fr.wikipedia.org/wiki/N%C3%A9on</wiki>
+		</element>
+		<!-- Period 3 -->
+		<element id="11">
+			<name>Sodium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Sodium</wiki>
+		</element>
+		<element id="12">
+			<name>Magnésium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Magn%C3%A9sium</wiki>
+		</element>
+		<element id="13">
+			<name>Aluminium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Aluminium</wiki>
+		</element>
+		<element id="14">
+			<name>Silicium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Silicium</wiki>
+		</element>
+		<element id="15">
+			<name>Phosphore</name>
+			<wiki>https://fr.wikipedia.org/wiki/Phosphore</wiki>
+		</element>
+		<element id="16">
+			<name>Soufre</name>
+			<wiki>https://fr.wikipedia.org/wiki/Soufre</wiki>
+		</element>
+		<element id="17">
+			<name>Chlore</name>
+			<wiki>https://fr.wikipedia.org/wiki/Chlore</wiki>
+		</element>
+		<element id="18">
+			<name>Argon</name>
+			<wiki>https://fr.wikipedia.org/wiki/Argon</wiki>
+		</element>
+		<!-- Period 4 -->
+		<element id="19">
+			<name>Potassium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Potassium</wiki>
+		</element>
+		<element id="20">
+			<name>Calcium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Calcium</wiki>
+		</element>
+		<element id="21">
+			<name>Scandium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Scandium</wiki>
+		</element>
+		<element id="22">
+			<name>Titane</name>
+			<wiki>https://fr.wikipedia.org/wiki/Titane</wiki>
+		</element>
+		<element id="23">
+			<name>Vanadium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Vanadium</wiki>
+		</element>
+		<element id="24">
+			<name>Chrome</name>
+			<wiki>https://fr.wikipedia.org/wiki/Chrome</wiki>
+		</element>
+		<element id="25">
+			<name>Manganèse</name>
+			<wiki>https://fr.wikipedia.org/wiki/Mangan%C3%A8se</wiki>
+		</element>
+		<element id="26">
+			<name>Fer</name>
+			<wiki>https://fr.wikipedia.org/wiki/Fer</wiki>
+		</element>
+		<element id="27">
+			<name>Cobalt</name>
+			<wiki>https://fr.wikipedia.org/wiki/Cobalt</wiki>
+		</element>
+		<element id="28">
+			<name>Nickel</name>
+			<wiki>https://fr.wikipedia.org/wiki/Nickel</wiki>
+		</element>
+		<element id="29">
+			<name>Cuivre</name>
+			<wiki>https://fr.wikipedia.org/wiki/Cuivre</wiki>
+		</element>
+		<element id="30">
+			<name>Zinc</name>
+			<wiki>https://fr.wikipedia.org/wiki/Zinc</wiki>
+		</element>
+		<element id="31">
+			<name>Gallium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Gallium</wiki>
+		</element>
+		<element id="32">
+			<name>Germanium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Germanium</wiki>
+		</element>
+		<element id="33">
+			<name>Arsenic</name>
+			<wiki>https://fr.wikipedia.org/wiki/Arsenic</wiki>
+		</element>
+		<element id="34">
+			<name>Sélénium</name>
+			<wiki>https://fr.wikipedia.org/wiki/S%C3%A9l%C3%A9nium</wiki>
+		</element>
+		<element id="35">
+			<name>Brome</name>
+			<wiki>https://fr.wikipedia.org/wiki/Brome</wiki>
+		</element>
+		<element id="36">
+			<name>Krypton</name>
+			<wiki>https://fr.wikipedia.org/wiki/Krypton</wiki>
+		</element>
+		<!-- Period 5 -->
+		<element id="37">
+			<name>Rubidium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Rubidium</wiki>
+		</element>
+		<element id="38">
+			<name>Strontium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Strontium</wiki>
+		</element>
+		<element id="39">
+			<name>Yttrium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Yttrium</wiki>
+		</element>
+		<element id="40">
+			<name>Zirconium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Zirconium</wiki>
+		</element>
+		<element id="41">
+			<name>Niobium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Niobium</wiki>
+		</element>
+		<element id="42">
+			<name>Molybdène</name>
+			<wiki>https://fr.wikipedia.org/wiki/Molybd%C3%A8ne</wiki>
+		</element>
+		<element id="43">
+			<name>Technétium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Techn%C3%A9tium</wiki>
+		</element>
+		<element id="44">
+			<name>Ruthénium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Ruth%C3%A9nium</wiki>
+		</element>
+		<element id="45">
+			<name>Rhodium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Rhodium</wiki>
+		</element>
+		<element id="46">
+			<name>Palladium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Palladium</wiki>
+		</element>
+		<element id="47">
+			<name>Argent</name>
+			<wiki>https://fr.wikipedia.org/wiki/Argent</wiki>
+		</element>
+		<element id="48">
+			<name>Cadmium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Cadmium</wiki>
+		</element>
+		<element id="49">
+			<name>Indium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Indium</wiki>
+		</element>
+		<element id="50">
+			<name>Étain</name>
+			<wiki>https://fr.wikipedia.org/wiki/%C3%89tain</wiki>
+		</element>
+		<element id="51">
+			<name>Antimoine</name>
+			<wiki>https://fr.wikipedia.org/wiki/Antimoine</wiki>
+		</element>
+		<element id="52">
+			<name>Tellure</name>
+			<wiki>https://fr.wikipedia.org/wiki/Tellure</wiki>
+		</element>
+		<element id="53">
+			<name>Iode</name>
+			<wiki>https://fr.wikipedia.org/wiki/Iode</wiki>
+		</element>
+		<element id="54">
+			<name>Xénon</name>
+			<wiki>https://fr.wikipedia.org/wiki/X%C3%A9non</wiki>
+		</element>
+		<!-- Period 6 -->
+		<element id="55">
+			<name>Césium</name>
+			<wiki>https://fr.wikipedia.org/wiki/C%C3%A9sium</wiki>
+		</element>
+		<element id="56">
+			<name>Baryum</name>
+			<wiki>https://fr.wikipedia.org/wiki/Baryum</wiki>
+		</element>
+		<element id="57">
+			<name>Lanthane</name>
+			<wiki>https://fr.wikipedia.org/wiki/Lanthane</wiki>
+		</element>
+		<element id="58">
+			<name>Cérium</name>
+			<wiki>https://fr.wikipedia.org/wiki/C%C3%A9rium</wiki>
+		</element>
+		<element id="59">
+			<name>Praséodyme</name>
+			<wiki>https://fr.wikipedia.org/wiki/Pras%C3%A9odyme</wiki>
+		</element>
+		<element id="60">
+			<name>Néodyme</name>
+			<wiki>https://fr.wikipedia.org/wiki/N%C3%A9odyme</wiki>
+		</element>
+		<element id="61">
+			<name>Prométhium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Prom%C3%A9thium</wiki>
+		</element>
+		<element id="62">
+			<name>Samarium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Samarium</wiki>
+		</element>
+		<element id="63">
+			<name>Europium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Europium</wiki>
+		</element>
+		<element id="64">
+			<name>Gadolinium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Gadolinium</wiki>
+		</element>
+		<element id="65">
+			<name>Terbium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Terbium</wiki>
+		</element>
+		<element id="66">
+			<name>Dysprosium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Dysprosium</wiki>
+		</element>
+		<element id="67">
+			<name>Holmium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Holmium</wiki>
+		</element>
+		<element id="68">
+			<name>Erbium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Erbium</wiki>
+		</element>
+		<element id="69">
+			<name>Thulium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Thulium</wiki>
+		</element>
+		<element id="70">
+			<name>Ytterbium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Ytterbium</wiki>
+		</element>
+		<element id="71">
+			<name>Lutécium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Lut%C3%A9cium</wiki>
+		</element>
+		<element id="72">
+			<name>Hafnium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Hafnium</wiki>
+		</element>
+		<element id="73">
+			<name>Tantale</name>
+			<wiki>https://fr.wikipedia.org/wiki/Tantale_(chimie)</wiki>
+		</element>
+		<element id="74">
+			<name>Tungstène</name>
+			<wiki>https://fr.wikipedia.org/wiki/Tungst%C3%A8ne</wiki>
+		</element>
+		<element id="75">
+			<name>Rhénium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Rh%C3%A9nium</wiki>
+		</element>
+		<element id="76">
+			<name>Osmium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Osmium</wiki>
+		</element>
+		<element id="77">
+			<name>Iridium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Iridium</wiki>
+		</element>
+		<element id="78">
+			<name>Platine</name>
+			<wiki>https://fr.wikipedia.org/wiki/Platine</wiki>
+		</element>
+		<element id="79">
+			<name>Or</name>
+			<wiki>https://fr.wikipedia.org/wiki/Or</wiki>
+		</element>
+		<element id="80">
+			<name>Mercure</name>
+			<wiki>https://fr.wikipedia.org/wiki/Mercure_(chimie)</wiki>
+		</element>
+		<element id="81">
+			<name>Thallium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Thallium</wiki>
+		</element>
+		<element id="82">
+			<name>Plomb</name>
+			<wiki>https://fr.wikipedia.org/wiki/Plomb</wiki>
+		</element>
+		<element id="83">
+			<name>Bismuth</name>
+			<wiki>https://fr.wikipedia.org/wiki/Bismuth</wiki>
+		</element>
+		<element id="84">
+			<name>Polonium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Polonium</wiki>
+		</element>
+		<element id="85">
+			<name>Astate</name>
+			<wiki>https://fr.wikipedia.org/wiki/Astate</wiki>
+		</element>
+		<element id="86">
+			<name>Radon</name>
+			<wiki>https://fr.wikipedia.org/wiki/Radon</wiki>
+		</element>
+		<!-- Period 7 -->
+		<element id="87">
+			<name>Francium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Francium</wiki>
+		</element>
+		<element id="88">
+			<name>Radium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Radium</wiki>
+		</element>
+		<element id="89">
+			<name>Actinium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Actinium</wiki>
+		</element>
+		<element id="90">
+			<name>Thorium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Thorium</wiki>
+		</element>
+		<element id="91">
+			<name>Protactinium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Protactinium</wiki>
+		</element>
+		<element id="92">
+			<name>Uranium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Uranium</wiki>
+		</element>
+		<element id="93">
+			<name>Neptunium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Neptunium</wiki>
+		</element>
+		<element id="94">
+			<name>Plutonium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Plutonium</wiki>
+		</element>
+		<element id="95">
+			<name>Américium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Am%C3%A9ricium</wiki>
+		</element>
+		<element id="96">
+			<name>Curium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Curium</wiki>
+		</element>
+		<element id="97">
+			<name>Berkélium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Berk%C3%A9lium</wiki>
+		</element>
+		<element id="98">
+			<name>Californium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Californium</wiki>
+		</element>
+		<element id="99">
+			<name>Einsteinium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Einsteinium</wiki>
+		</element>
+		<element id="100">
+			<name>Fermium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Fermium</wiki>
+		</element>
+		<element id="101">
+			<name>Mendélévium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Mend%C3%A9l%C3%A9vium</wiki>
+		</element>
+		<element id="102">
+			<name>Nobélium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Nob%C3%A9lium</wiki>
+		</element>
+		<element id="103">
+			<name>Lawrencium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Lawrencium</wiki>
+		</element>
+		<element id="104">
+			<name>Rutherfordium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Rutherfordium</wiki>
+		</element>
+		<element id="105">
+			<name>Dubnium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Dubnium</wiki>
+		</element>
+		<element id="106">
+			<name>Seaborgium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Seaborgium</wiki>
+		</element>
+		<element id="107">
+			<name>Bohrium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Bohrium</wiki>
+		</element>
+		<element id="108">
+			<name>Hassium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Hassium</wiki>
+		</element>
+		<element id="109">
+			<name>Meitnérium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Meitn%C3%A9rium</wiki>
+		</element>
+		<element id="110">
+			<name>Darmstadtium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Darmstadtium</wiki>
+		</element>
+		<element id="111">
+			<name>Roentgenium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Roentgenium</wiki>
+		</element>
+		<element id="112">
+			<name>Copernicium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Copernicium</wiki>
+		</element>
+		<element id="113">
+			<name>Nihonium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Nihonium</wiki>
+		</element>
+		<element id="114">
+			<name>Flérovium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Fl%C3%A9rovium</wiki>
+		</element>
+		<element id="115">
+			<name>Moscovium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Moscovium</wiki>
+		</element>
+		<element id="116">
+			<name>Livermorium</name>
+			<wiki>https://fr.wikipedia.org/wiki/Livermorium</wiki>
+		</element>
+		<element id="117">
+			<name>Tennesse</name>
+			<wiki>https://fr.wikipedia.org/wiki/Tennesse</wiki>
+		</element>
+		<element id="118">
+			<name>Oganesson</name>
+			<wiki>https://fr.wikipedia.org/wiki/Oganesson</wiki>
+		</element>
+	</elements>
+
+	<!-- Legend for the different background colors -->
+	<legend type="background">
+		<!-- Superclasses -->
+		<item class="metal">Métaux</item>
+		<item class="nonmetal">Non métaux</item>
+		<!-- Subclasses -->
+		<item class="alkali">Alcalins</item>
+		<item class="alkalineEM">Alcalino-\nterreux</item>
+		<item class="lanthanide">Lanthanides</item>
+		<item class="actinide">Actinides</item>
+		<item class="transitionM">Métaux de\ntransition</item>
+		<item class="post-transM">Métaux\npauvres</item>
+		<item class="metalloid">Métalloïdes</item>
+		<item class="reactiveNM">Autres\nnon-métaux</item>
+		<item class="noble-gas">Gaz nobles</item>
+		<item class="unknown">Non classés</item>
+	</legend>
+
+	<!-- Legend for the different border types -->
+	<legend type="borders">
+		<item class="primordial">Primordial</item>
+		<item class="fromdecay">Désintégration\nd'autres\néléments</item>
+		<item class="synthetic">Synthétique"</item>
+	</legend>
+
+	<!-- Legend for the element description -->
+	<legend type="element">
+		<item class="name">Nom de l'élément</item>
+		<item class="number">Numéro atomique</item>
+		<item class="symbol">Symbole chimique</item>
+		<item class="weight">Masse atomique unifiée</item>
+		<item class="econfig">Configuration électronique</item>
+	</legend>
+</languagePack>
