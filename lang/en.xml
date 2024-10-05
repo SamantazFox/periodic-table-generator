@@ -481,38 +481,4 @@
 			<wiki>https://en.wikipedia.org/wiki/Oganesson</wiki>
 		</element>
 	</elements>
-
-	<!-- Legend of the different backgorund colors -->
-	<legend type="background">
-		<!-- Superclasses -->
-		<item class="metal">Metal</item>
-		<item class="nonmetal">Nonmetal</item>
-		<!-- Subclasses -->
-		<item class="alkali">Alkali\nmetal</item>
-		<item class="alkalineEM">Alkaline\nearth\nmetal</item>
-		<item class="lanthanide">Lanthanide</item>
-		<item class="actinide">Actinide</item>
-		<item class="transitionM">Transition\nmetal</item>
-		<item class="post-transM">Post-\ntransition\nmetal</item>
-		<item class="metalloid">Metalloid</item>
-		<item class="reactiveNM">Reactive\nnonmetal</item>
-		<item class="noble-gas">Noble gas</item>
-		<item class="unknown">Unknown\nchemical\nproperties</item>
-	</legend>
-
-	<!-- Legend of the different border types -->
-	<legend type="borders">
-		<item class="primordial">Primordial</item>
-		<item class="fromdecay">From decay</item>
-		<item class="synthetic">Synthetic</item>
-	</legend>
-
-	<!-- Legend of the element description -->
-	<legend type="element">
-		<item class="name">Element name</item>
-		<item class="number">Atomic number</item>
-		<item class="symbol">Chemical symbol</item>
-		<item class="weight">Atomic standard weight</item>
-		<item class="econfig">Electronic configuration</item>
-	</legend>
 </languagePack>

@@ -481,38 +481,4 @@
 			<wiki>https://fr.wikipedia.org/wiki/Oganesson</wiki>
 		</element>
 	</elements>
-
-	<!-- Legend for the different background colors -->
-	<legend type="background">
-		<!-- Superclasses -->
-		<item class="metal">Métaux</item>
-		<item class="nonmetal">Non métaux</item>
-		<!-- Subclasses -->
-		<item class="alkali">Alcalins</item>
-		<item class="alkalineEM">Alcalino-\nterreux</item>
-		<item class="lanthanide">Lanthanides</item>
-		<item class="actinide">Actinides</item>
-		<item class="transitionM">Métaux de\ntransition</item>
-		<item class="post-transM">Métaux\npauvres</item>
-		<item class="metalloid">Métalloïdes</item>
-		<item class="reactiveNM">Autres\nnon-métaux</item>
-		<item class="noble-gas">Gaz nobles</item>
-		<item class="unknown">Non classés</item>
-	</legend>
-
-	<!-- Legend for the different border types -->
-	<legend type="borders">
-		<item class="primordial">Primordial</item>
-		<item class="fromdecay">Désintégration\nd'autres\néléments</item>
-		<item class="synthetic">Synthétique"</item>
-	</legend>
-
-	<!-- Legend for the element description -->
-	<legend type="element">
-		<item class="name">Nom de l'élément</item>
-		<item class="number">Numéro atomique</item>
-		<item class="symbol">Symbole chimique</item>
-		<item class="weight">Masse atomique unifiée</item>
-		<item class="econfig">Configuration électronique</item>
-	</legend>
 </languagePack>

@@ -481,38 +481,4 @@
 			<wiki></wiki>
 		</element>
 	</elements>
-
-	<!-- Legend of the different background colors -->
-	<legend type="background">
-		<!-- Superclasses -->
-		<item class="metal"></item>
-		<item class="nonmetal"></item>
-		<!-- Subclasses -->
-		<item class="alkali"></item>
-		<item class="alkalineEM"></item>
-		<item class="lanthanide"></item>
-		<item class="actinide"></item>
-		<item class="transitionM"></item>
-		<item class="post-transM"></item>
-		<item class="metalloid"></item>
-		<item class="reactiveNM"></item>
-		<item class="noble-gas"></item>
-		<item class="unknown"></item>
-	</legend>
-
-	<!-- Legend of the different border types -->
-	<legend type="borders">
-		<item class="primordial"></item>
-		<item class="fromdecay"></item>
-		<item class="synthetic"></item>
-	</legend>
-
-	<!-- Legend of the element description -->
-	<legend type="element">
-		<item class="name"></item>
-		<item class="number"></item>
-		<item class="symbol"></item>
-		<item class="weight"></item>
-		<item class="econfig"></item>
-	</legend>
 </languagePack>

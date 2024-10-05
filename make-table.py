@@ -6,6 +6,15 @@ import xml.etree.ElementTree as etree
 import gzip
 
 
+# List of language FILES
+LANG_FILES = os.listdir('lang')
+LANG_FILES.pop(LANG_FILES.index('template.xml'))
+LANG_FILES.sort()
+
+# List available languages
+LANG_AVAIL = [f.removesuffix('.xml') for f in LANG_FILES]
+
+
 # =======================================
 #  Config options class definition
 # =======================================
@@ -17,13 +26,42 @@ class TableConfig:
 		self.colorblind = False
 		self.legends = True
 		self.show_econfig = False
+		self.wiki_links = True
+
+		self._languages = ['en']
+
+	@property
+	def multilingual(self):
+		return len(self._languages) > 1
+
+	@property
+	def languages(self):
+		return self._languages
+
+	@languages.setter
+	def languages(self, new_values):
+		self._languages = []
+
+		for lang in new_values:
+			if lang in LANG_AVAIL:
+				self._languages.append(lang)
+			else:
+				print('Language not supported: {}')
+
+		if len(self._languages) == 0:
+			print('Error: No supported language(s) were selected. Aborting')
+			exit(1)
+
+	def all_languages(self):
+		self._languages = LANG_AVAIL
+
 
 # Init defaults
 config = TableConfig()
 
 
 # =======================================
-#  Help functiion
+#  Help functions
 # =======================================
 
 def printUsage(cfg : TableConfig):
@@ -40,29 +78,58 @@ def printUsage(cfg : TableConfig):
 		'  --narrow           Generate the 18-column version of the periodic table\n\n'
 		'  --legends          Generate the legends\n'
 		'  --no-legends       Do not generate the legends\n\n'
+		'  --wiki-links       Make element names link to the relevant wikipedia page\n'
+		'  --no-wiki-links    Make element names plain text (non-clickable)\n\n'
 		'  --econfig          Show the atom\'s electronic configuration (e.g: [Ne] 3s²)\n',
 		'  --no-econfig       Do not show the electronic configuration\n\n',
 		'  --dark             Use a dark background theme\n'
 		'  --light            Use a light background theme\n\n'
 		'  --high-contrast    Use a high contrast color scheme\n'
 		'  --colorblind       Alias for --high-contrast\n\n'
+		'  --lang=*           Include the selected language(s) in the generated file.\n'
+		'                       The list needs to be comma-separated (e.g: --lang=en,fr,de).\n'
+		'                       To include all languages, use --lang=all.\n'
+		'                       To print a list of available languages, use --lang=help.\n\n'
 	)
 
 	print(
 		'Defaults:\n'
 		'  * theme = {theme}\n'
 		'  * width = {width}\n'
+		'  * languages = {langs}'
 		'  * legends = {legends}\n'
 		'  * econfig = {econfig}\n'
+		'  * wiki-links = {wiki_links}\n'
 		'  * high-contrast = {high_contrast}\n'
 		.format(
 			theme = cfg.theme,
 			width = '32 (large)' if cfg.large_table else '18 (narrow)',
+			langs = 'all' if cfg.languages == LANG_AVAIL else cfg.languages,
 			legends = 'Yes' if cfg.legends else 'No',
 			econfig = 'Yes' if cfg.show_econfig else 'No',
+			wiki_links = 'Yes' if cfg.wiki_links else 'No',
 			high_contrast = 'Yes' if cfg.colorblind else 'No',
 		)
 	)
+
+def printLanguages():
+	buffer = '  '
+	for i in range(len(LANG_AVAIL)):
+		# Print the value, right aligned on 3 characters
+		if len(LANG_AVAIL[i]) == 2:
+			buffer += ' ' + LANG_AVAIL[i]
+		else: # len == 3
+			buffer += LANG_AVAIL[i]
+
+		# Add a comma, unless for the last one
+		if i < len(LANG_AVAIL) - 1:
+			buffer += ', '
+
+		# Wrap at ~82 columns
+		if (i+1) % 18 == 0:
+			buffer += '\n  '
+
+	print('Languages:\n' + buffer + '\n')
 
 
 # =======================================
@@ -100,6 +167,26 @@ if len(sys.argv) > 1:
 		elif arg == '--econfig':
 			config.show_econfig = True
 
+		if arg == '--no-wiki-links':
+			config.wiki_links = False
+		elif arg == '--wiki-links':
+			config.wiki_links = True
+
+		if '--lang' in arg:
+			langs = arg.split('=')[1]
+
+			if langs == 'help':
+				printLanguages()
+				quit()
+			elif langs == 'all':
+				config.all_languages()
+			else:
+				config.languages = langs.split(',')
+
+
+# =======================================
+#  Constants
+# =======================================
 
 # 32-columns
 if config.large_table:
@@ -131,6 +218,28 @@ CONST_LEG_CLASS_YPOS = (96*CONST_ROW_COUNT) + CONST_LANACT_OFFSET + 35
 #  Utility functions
 # =======================================
 
+def elements_range():
+	return range(1,119)
+
+def make_xml_id(element):
+	return "elem{:03d}".format(int(element['ID']))
+
+def make_text_id(element):
+	return "text-" + make_xml_id(element)
+
+
+def translate_element(cfg, lang, elem_id):
+	if cfg.wiki_links:
+		return (
+			'<a xlink:href="{href}" href="{href}" xlink:show="new" target="_blank">{name}</a>'
+			.format(
+				href = LANG_DATA[lang]['elements'][elem_id]['wiki'],
+				name = LANG_DATA[lang]['elements'][elem_id]['name']
+			)
+		)
+	else:
+		return LANG_DATA[lang]['elements'][elem_id]['name']
+
 def number_to_super(number):
 	table = str.maketrans('0123456789', '⁰¹²³⁴⁵⁶⁷⁸⁹')
 	return str(number).translate(table)
@@ -148,6 +257,43 @@ def format_electron_config(value):
 		new.append(part)
 
 	return ' '.join(new)
+
+
+# =======================================
+#  Load languages
+# =======================================
+
+LANG_DATA = {}
+
+def load_lang_file(lang):
+	docroot = etree.parse('lang/' + lang + '.xml').getroot()
+
+	if lang != docroot.get('lang'):
+		print("Error: corrupted language file {}.xml".format(lang))
+
+	LANG_DATA[lang] = {
+		'elements': [0], # We don't want to use element 0
+	}
+
+	# Load element name translations + wiki links
+	for elem in docroot.find('elements').findall('element'):
+		elem_id = int(elem.get('id'))
+		data = {
+			'name': elem.findtext('name'),
+			'wiki': elem.findtext('wiki')
+		}
+
+		LANG_DATA[lang]['elements'].insert(elem_id, data)
+
+
+# Always load english, as a reference (in case some translations
+# are missing in the other files) and as a fallback
+load_lang_file('en')
+
+for lang in config.languages:
+	# Obviously, don't bother re-loading english
+	if lang == 'en': continue
+	load_lang_file(lang)
 
 
 # =======================================
@@ -185,8 +331,11 @@ for elem in treelist:
 def elementDataToSVG(cfg : TableConfig, indent, element, xoff, yoff, xml_id = None):
 	# Unique identifier for the element (useful in Inkscape e.g)
 	# This is also used as a prefix for sub-nodes (like text)
-	if xml_id is None:
-		xml_id = "elem{:03d}".format(int(element['ID']))
+	if xml_id is None: xml_id = make_xml_id(element)
+
+	# Reference to the translated element name
+	# It must remain the same, even if a custom xml_id is provided
+	text_id = make_text_id(element)
 
 	strbuffer = (
 		'{tabs}<g transform="translate({x} {y})" class="element" id="{xml_id}"\n'
@@ -202,7 +351,7 @@ def elementDataToSVG(cfg : TableConfig, indent, element, xoff, yoff, xml_id = No
 		strbuffer += (
 			'{tabs}\t<text class="number"    id="{xml_id}_txt-num" x="12.5" y="20">{ID}</text>\n'
 			'{tabs}\t<text class="symbol sm" id="{xml_id}_txt-sym" x="48" y="46">{Symbol}</text>\n'
-			'{tabs}\t<text class="name"      id="{xml_id}_txt-lbl" x="48" y="63">{Name}</text>\n'
+			'{tabs}\t<use  class="name"      xlink:href="#{text_id}" x="48" y="63" />\n'
 			'{tabs}\t<text class="weight"    id="{xml_id}_txt-saw" x="48" y="73">{Weight}</text>\n'
 			'{tabs}\t<text class="econf"     id="{xml_id}_txt-ecf" x="48" y="84">{eConfig}</text>\n'
 		)
@@ -211,14 +360,15 @@ def elementDataToSVG(cfg : TableConfig, indent, element, xoff, yoff, xml_id = No
 		strbuffer += (
 			'{tabs}\t<text class="number" id="{xml_id}_txt-num" x="12.5" y="20">{ID}</text>\n'
 			'{tabs}\t<text class="symbol" id="{xml_id}_txt-sym" x="48" y="50">{Symbol}</text>\n'
-			'{tabs}\t<text class="name"   id="{xml_id}_txt-lbl" x="48" y="70">{Name}</text>\n'
+			'{tabs}\t<use  class="name"   xlink:href="#{text_id}" x="48" y="70" />\n'
 			'{tabs}\t<text class="weight" id="{xml_id}_txt-saw" x="48" y="81.5">{Weight}</text>\n'
 		)
 
 	strbuffer += '{tabs}</g>\n'
 
 	return strbuffer.format(
-		tabs = (indent * '\t'), xml_id = xml_id,
+		tabs = (indent * '\t'),
+		xml_id = xml_id, text_id = text_id,
 		x = xoff, y = yoff,
 		**element, # Use element fields directly
 	)
@@ -429,23 +579,64 @@ def generateDocTitle(file):
 	file.write('\t<title>Periodic table</title>\n\n')
 
 
-def generateDefs(file):
+def generateDefs(cfg : TableConfig, elements_list, lang_data):
+	strbuffer = (
+		'\t<defs>\n'
+		'\t\t<!-- Graphics -->\n'
+	)
+
 	# For the radioactive logo:
 	#   * scale(0.16) => border:   0
 	#   * scale(0.13) => border:  8x8
 	#   * scale(0.12) => border: 12x12
 	#
-	file.write(
-		'\t<defs>\n'
+	strbuffer += (
 		'\t\t<svg id="radioactive-logo" width="96" height="96">\n'
 		'\t\t\t<g transform="translate(12 12) scale(0.12)">\n'
 		'\t\t\t\t<circle cx="300" cy="300" r="50"  opacity="0.15" />\n'
 		'\t\t\t\t<path stroke="#000" stroke-width="175" fill="none" opacity="0.15"\n'
 		'\t\t\t\t  stroke-dasharray="171.74" d="M382,158a164,164 0 1,1-164,0" />\n'
 		'\t\t\t</g>\n'
-		'\t\t</svg>\n'
-		'\t</defs>\n\n'
+		'\t\t</svg>\n\n'
 	)
+
+	strbuffer += (
+		'\t\t<!-- Element names -->\n'
+		'\t\t<g>\n'
+	)
+
+	if cfg.multilingual:
+		for i in elements_range():
+			# Start of switch element
+			text_id = make_text_id(elements_list[i])
+			strbuffer += '\t\t\t<switch id="{}">\n'.format(text_id)
+
+			# <text><a {link}>{name}</a></text> for every language
+			for lang in cfg.languages:
+				strbuffer += (
+					'\t\t\t\t<text class="name" systemLanguage="{lang}">{text}</text>\n'
+					.format(lang = lang, text = translate_element(cfg, lang, i))
+				)
+
+			# End of switch element
+			strbuffer += '\t\t\t</switch>\n'
+
+	else:
+		for i in elements_range():
+			strbuffer += (
+				'\t\t\t<text class="name" id="{text_id}">{text}</text>\n'
+				.format(
+					text_id = make_text_id(elements_list[i]),
+					text = translate_element(cfg, cfg.languages[0], i)
+				)
+			)
+
+	# End group
+	strbuffer += '\t\t</g>\n'
+
+	# Closing tag, then return data
+	strbuffer += '\t</defs>\n\n'
+	return strbuffer
 
 
 def generateEmbeddedCSS(file):
@@ -480,7 +671,7 @@ fd = open("periodic.svg", 'w')
 # Header
 generateSVGHeader(config, fd)
 generateDocTitle(fd)
-generateDefs(fd)
+fd.write( generateDefs(config, xml_data, LANG_DATA) )
 
 generateEmbeddedCSS(fd)
 
