@@ -15,9 +15,8 @@ g.legend-class rect {
 	stroke-width: 0.8;
 }
 
-g.super-class text,
-g.sub-class text,
-g.sub-class tspan {
+g.super-class use,
+g.sub-class use {
 	font-size: 9.5pt;
 	text-align: middle;
 	text-anchor: middle;
@@ -142,5 +141,6 @@ text.legend-elem {
 	font-size: 8pt;
 }
 
-text.legend-elem.left  { text-anchor: end;  }
-text.legend-elem.right { text-anchor: start; }
+use.left   { text-anchor: end;  }
+use.right  { text-anchor: start; }
+use.center { text-anchor: middle; }

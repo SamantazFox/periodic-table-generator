@@ -481,4 +481,80 @@
 			<wiki></wiki>
 		</element>
 	</elements>
+
+	<!-- Legend for the different background colors -->
+	<legend type="background">
+		<!-- Superclasses -->
+		<item class="metal">
+			<name></name>
+			<wiki></wiki>
+		</item>
+		<item class="nonmetal">
+			<name></name>
+			<wiki></wiki>
+		</item>
+		<!-- Subclasses -->
+		<item class="alkali">
+			<name></name>
+			<wiki></wiki>
+		</item>
+		<item class="alkalineEM">
+			<name></name>
+			<wiki></wiki>
+		</item>
+		<item class="lanthanide">
+			<name></name>
+			<wiki></wiki>
+		</item>
+		<item class="actinide">
+			<name></name>
+			<wiki></wiki>
+		</item>
+		<item class="transitionM">
+			<name></name>
+			<wiki></wiki>
+		</item>
+		<item class="post-transM">
+			<name></name>
+			<wiki></wiki>
+		</item>
+		<item class="metalloid">
+			<name></name>
+			<wiki></wiki>
+		</item>
+		<item class="reactiveNM">
+			<name></name>
+			<wiki></wiki>
+		</item>
+		<item class="noble-gas">
+			<name></name>
+			<wiki></wiki>
+		</item>
+		<item class="unknown">
+			<name></name>
+		</item>
+	</legend>
+
+	<!-- Legend for the element description -->
+	<legend type="element">
+		<item class="number">
+			<name></name>
+			<wiki></wiki>
+		</item>
+		<item class="symbol">
+			<name></name>
+			<wiki></wiki>
+		</item>
+		<item class="name">
+			<name></name>
+		</item>
+		<item class="weight">
+			<name></name>
+			<wiki></wiki>
+		</item>
+		<item class="econfig">
+			<name></name>
+			<wiki></wiki>
+		</item>
+	</legend>
 </languagePack>

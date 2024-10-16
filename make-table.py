@@ -213,6 +213,21 @@ CONST_LEG_ELEMS_YPOS = 160
 CONST_LEG_CLASS_XPOS = 96
 CONST_LEG_CLASS_YPOS = (96*CONST_ROW_COUNT) + CONST_LANACT_OFFSET + 35
 
+# The different element (super)classes
+CONST_SUPERCLASS_LIST = ["metal", "nonmetal"]
+CONST_CLASS_LIST = [
+	"alkali",
+	"alkalineEM",
+	"lanthanide",
+	"actinide",
+	"transitionM",
+	"post-transM",
+	"metalloid",
+	"reactiveNM",
+	"noble-gas",
+	"unknown"
+]
+
 
 # =======================================
 #  Utility functions
@@ -221,29 +236,16 @@ CONST_LEG_CLASS_YPOS = (96*CONST_ROW_COUNT) + CONST_LANACT_OFFSET + 35
 def elements_range():
 	return range(1,119)
 
-def make_xml_id(element):
-	return "elem{:03d}".format(int(element['ID']))
+def make_xml_id_element(elem_id):
+	return "elem{:03d}".format(int(elem_id))
 
-def make_text_id(element):
-	return "text-" + make_xml_id(element)
+def make_xml_id_legend(*args):
+	return '-'.join(["legend", *args])
 
-
-def translate_element(cfg, lang, elem_id):
-	if cfg.wiki_links:
-		return (
-			'<a xlink:href="{href}" href="{href}" xlink:show="new" target="_blank">{name}</a>'
-			.format(
-				href = LANG_DATA[lang]['elements'][elem_id]['wiki'],
-				name = LANG_DATA[lang]['elements'][elem_id]['name']
-			)
-		)
-	else:
-		return LANG_DATA[lang]['elements'][elem_id]['name']
 
 def number_to_super(number):
 	table = str.maketrans('0123456789', '⁰¹²³⁴⁵⁶⁷⁸⁹')
 	return str(number).translate(table)
-
 
 def format_electron_config(value):
 	original = value.split()
@@ -259,11 +261,57 @@ def format_electron_config(value):
 	return ' '.join(new)
 
 
+def split_multiline_text(text):
+	# Split the text as needed
+	text_lines = text.split('\\n')
+	line_count = len(text_lines)
+
+	# Use one "<tspan>" per line
+	if line_count == 1:
+		split_text = text_lines[0]
+	elif line_count == 2:
+		split_text  = '<tspan x="0" dy="-0.5em">' + text_lines[0] + '</tspan>'
+		split_text += '<tspan x="0" dy="1.1em">' + text_lines[1] + '</tspan>'
+	elif line_count == 3:
+		split_text  = '<tspan x="0" dy="-1.1em">' + text_lines[0] + '</tspan>'
+		split_text += '<tspan x="0" y="0">' + text_lines[1] + '</tspan>'
+		split_text += '<tspan x="0" dy="1.1em">' + text_lines[2] + '</tspan>'
+	else:
+		print("Error: too many lines for string '{}'".format(text))
+
+	return split_text
+
+def make_text_with_link(cfg, lang_data):
+	# Split text in multiple lines if required
+	text = split_multiline_text(lang_data['name'])
+
+	if cfg.wiki_links and lang_data['wiki'] is not None:
+		return (
+			'<a xlink:href="{wiki}" href="{wiki}" xlink:show="new" target="_blank">{text}</a>'
+			.format(wiki = lang_data['wiki'], text = text)
+		)
+	else:
+		return text
+
+
 # =======================================
 #  Load languages
 # =======================================
 
-LANG_DATA = {}
+LANG_DATA = {
+	'title': {},
+	'elements': [0] + [None]*118, # We don't want to use element 0
+	'legends': {
+		'class': {},
+		'element' : {}
+	}
+}
+
+def load_translation(node):
+	return {
+		'name': node.findtext('name'),
+		'wiki': node.findtext('wiki')
+	}
 
 def load_lang_file(lang):
 	docroot = etree.parse('lang/' + lang + '.xml').getroot()
@@ -271,19 +319,26 @@ def load_lang_file(lang):
 	if lang != docroot.get('lang'):
 		print("Error: corrupted language file {}.xml".format(lang))
 
-	LANG_DATA[lang] = {
-		'elements': [0], # We don't want to use element 0
-	}
-
 	# Load element name translations + wiki links
 	for elem in docroot.find('elements').findall('element'):
 		elem_id = int(elem.get('id'))
-		data = {
-			'name': elem.findtext('name'),
-			'wiki': elem.findtext('wiki')
-		}
 
-		LANG_DATA[lang]['elements'].insert(elem_id, data)
+		if LANG_DATA['elements'][elem_id] is None:
+			LANG_DATA['elements'][elem_id] = {}
+
+		LANG_DATA['elements'][elem_id][lang] = load_translation(elem)
+
+	# Load legends translations
+	for legend in docroot.findall('legend'):
+		legend_type = legend.get('type')
+
+		for item in legend.findall('item'):
+			legend_class = item.get('class')
+
+			if legend_class not in LANG_DATA['legends'][legend_type]:
+				LANG_DATA['legends'][legend_type][legend_class] = {}
+
+			LANG_DATA['legends'][legend_type][legend_class][lang] = load_translation(item)
 
 
 # Always load english, as a reference (in case some translations
@@ -331,11 +386,11 @@ for elem in treelist:
 def elementDataToSVG(cfg : TableConfig, indent, element, xoff, yoff, xml_id = None):
 	# Unique identifier for the element (useful in Inkscape e.g)
 	# This is also used as a prefix for sub-nodes (like text)
-	if xml_id is None: xml_id = make_xml_id(element)
+	if xml_id is None: xml_id = make_xml_id_element(element['ID'])
 
 	# Reference to the translated element name
 	# It must remain the same, even if a custom xml_id is provided
-	text_id = make_text_id(element)
+	text_id = 'text-' + make_xml_id_element(element['ID'])
 
 	strbuffer = (
 		'{tabs}<g transform="translate({x} {y})" class="element" id="{xml_id}"\n'
@@ -415,12 +470,12 @@ def generateActinides(cfg : TableConfig, file, row):
 #  Legends
 # =======================================
 
-def generateLegendElement(cfg : TableConfig, file):
+def generateLegendElement(cfg : TableConfig):
 	# Based on Oxygen (aka element 8)
 	strbuffer = (
 		'\t<g transform="translate({x} {y}) scale(1.2)" id="legend_elem">\n'
 		'\t\t<rect fill="#ADADAD" stroke="#424242" stroke-width="1.2"\n'
-		'\t\t  width="380" height="116" x="0" y="0" rx="4" ry="4"/>\n'
+		'\t\t  width="410" height="116" x="0" y="0" rx="4" ry="4"/>\n'
 		'\t\t<g transform="translate(30 0)">\n'
 		'{element}'
 		.format(
@@ -432,52 +487,38 @@ def generateLegendElement(cfg : TableConfig, file):
 
 	# The atomic number never moves
 	strbuffer += (
-		'\t\t\t<text class="legend-elem left" x="110" y="27">Atomic number</text>\n'
+		'\t\t\t<use xlink:href="#text-legend-element-number" class="left" x="110" y="27" />\n'
 		'\t\t\t<path stroke="#000" d="M113 27 l8 0"/>\n'
 	)
 
 	if cfg.show_econfig:
 		strbuffer += (
-			'\t\t\t<text class="legend-elem right" x="205" y="45">Symbol</text>\n'
+			'\t\t\t<use xlink:href="#text-legend-element-symbol" class="right" x="205" y="45" />\n'
 			'\t\t\t<path stroke="#000" d="M202 45 l-29 0"/>\n'
-			'\t\t\t<text class="legend-elem left" x="110" y="80">Atomic standard weight</text>\n'
+			'\t\t\t<use xlink:href="#text-legend-element-weight" class="left" x="110" y="80" />\n'
 			'\t\t\t<path stroke="#000" d="M113 80 l26 0"/>\n'
-			'\t\t\t<text class="legend-elem right" x="205" y="70">Element name</text>\n'
-			'\t\t\t<path stroke="#000" d="M202 70 l-21 0"/>\n'
-			'\t\t\t<text class="legend-elem right" x="205" y="92">Electronic configuration</text>\n'
+			'\t\t\t<use xlink:href="#text-legend-element-name" class="right" x="205" y="70" />\n'
+			'\t\t\t<path stroke="#000" d="M202 70 l-16 0"/>\n'
+			'\t\t\t<use xlink:href="#text-legend-element-econfig" class="right" x="205" y="92" />\n'
 			'\t\t\t<path stroke="#000" d="M202 92 l-22 0"/>\n'
 		)
 	else:
-			strbuffer += (
-			'\t\t\t<text class="legend-elem right" x="205" y="48.8">Symbol</text>\n'
+		strbuffer += (
+			'\t\t\t<use xlink:href="#text-legend-element-symbol" class="right" x="205" y="48.8" />\n'
 			'\t\t\t<path stroke="#000" d="M202 48.8 l-29 0"/>\n'
-			'\t\t\t<text class="legend-elem left" x="110" y="88.5">Atomic standard weight</text>\n'
+			'\t\t\t<use xlink:href="#text-legend-element-weight" class="left" x="110" y="88.5" />\n'
 			'\t\t\t<path stroke="#000" d="M113 88.5 l26 0"/>\n'
-			'\t\t\t<text class="legend-elem right" x="205" y="76.6">Element name</text>\n'
-			'\t\t\t<path stroke="#000" d="M202 76.6 l-21 0"/>\n'
+			'\t\t\t<use xlink:href="#text-legend-element-name" class="right" x="205" y="76.6" />\n'
+			'\t\t\t<path stroke="#000" d="M202 76.6 l-16 0"/>\n'
 		)
 
 	# End of group & write to file
 	strbuffer += '\t\t</g>\n'
 	strbuffer += '\t</g>\n'
-	file.write(strbuffer)
+	return strbuffer
 
 
-def generateLegendClasses(file):
-	# List of classes, and their corresponding display text
-	classes_list = [
-		("alkali",      "Alkali|metal"                ),
-		("alkalineEM",  "Alkaline|earth|metal"        ),
-		("lanthanide",  "Lanthanide"                  ),
-		("actinide",    "Actinide"                    ),
-		("transitionM", "Transition|metal"            ),
-		("post-transM", "Post-|transition|metal"      ),
-		("metalloid",   "Metalloid"                   ),
-		("reactiveNM",  "Reactive|nonmetal"           ),
-		("noble-gas",   "Noble gas"                   ),
-		("unknown",     "Unknown|chemical|properties" )
-	]
-
+def generateLegendClasses():
 	# Group start
 	# NB: Position of this legend depends on the "large table" option
 	strbuffer = (
@@ -491,7 +532,7 @@ def generateLegendClasses(file):
 	strbuffer += (
 		'\t\t<g class="super-class" id="legend_superclass_Metals" transform="translate(10 10)">\n'
 		'\t\t\t<rect width="540" height="90" x="0" y="0"/>\n'
-		'\t\t\t<text x="270" y="13.5">Metals</text>\n'
+		'\t\t\t<use xlink:href="#text-legend-class-metal" class="center" x="270" y="13.5" />\n'
 		'\t\t\t<path d="M5 18 L535 18"/>\n'
 		'\t\t</g>\n'
 	)
@@ -500,46 +541,26 @@ def generateLegendClasses(file):
 	strbuffer += (
 		'\t\t<g class="super-class" id="legend_superclass_Nonmetals" transform="translate(640 10)">\n'
 		'\t\t\t<rect width="180" height="90" x="0" y="0"/>\n'
-		'\t\t\t<text x="90" y="13.5">Nonmetals</text>\n'
+		'\t\t\t<use xlink:href="#text-legend-class-nonmetal" class="center" x="90" y="13.5" />\n'
 		'\t\t\t<path d="M5 18 L175 18"/>\n'
 		'\t\t</g>\n'
 	)
 
 
 	# Display each class, with it's associated background
-	for i in range(0,len(classes_list)):
-
-		# Split the text as needed
-		text_lines = classes_list[i][1].split('|')
-		line_count = len(text_lines)
-
-		# Use one "<tspan>" per line
-		if line_count == 1:
-			outText = text_lines[0]
-		elif line_count == 2:
-			outText  = '<tspan x="40" dy="-0.5em">' + text_lines[0] + '</tspan>'
-			outText += '<tspan x="40" dy="1.1em">' + text_lines[1] + '</tspan>'
-		elif line_count == 3:
-			outText  = '<tspan x="40" dy="-1.1em">' + text_lines[0] + '</tspan>'
-			outText += '<tspan x="40" y="35">' + text_lines[1] + '</tspan>'
-			outText += '<tspan x="40" dy="1.1em">' + text_lines[2] + '</tspan>'
-
+	for i in range(len(CONST_CLASS_LIST)):
 		# Append formatted data to buffer
 		strbuffer += (
 			'\t\t<g class="sub-class" transform="translate({pos_X} {pos_Y})">\n'
 			'\t\t\t<rect id="legend_class_{css}" class="{css}" width="80" height="60" x="0" y="0"/>\n'
-			'\t\t\t<text x="40" y="35">{text}</text>\n'
+			'\t\t\t<use xlink:href="#text-legend-class-{css}" class="center" x="40" y="35" />\n'
 			'\t\t</g>\n'
-			.format(
-				pos_X = (i*90) + 15, pos_Y = 35,
-				css = classes_list[i][0],
-				text = outText
-			)
+			.format(pos_X = (i*90) + 15, pos_Y = 35, css = CONST_CLASS_LIST[i])
 		)
 
-	# End of group & write to file
+	# End of group
 	strbuffer += '\t</g>\n'
-	file.write(strbuffer)
+	return strbuffer
 
 
 # =======================================
@@ -579,7 +600,35 @@ def generateDocTitle(file):
 	file.write('\t<title>Periodic table</title>\n\n')
 
 
-def generateDefs(cfg : TableConfig, elements_list, lang_data):
+def generateDefMonolingualText(cfg, lang_data, xml_id, css_classes = ""):
+	return (
+		'\t\t\t<text class="{css}" id="text-{xml_id}">{text}</text>\n'
+		.format(
+			css = css_classes, xml_id = xml_id,
+			text = make_text_with_link(cfg, lang_data[cfg.languages[0]])
+		)
+	)
+
+def generateDefMultilingualText(cfg, lang_data, xml_id, css_classes = ""):
+	# Start of switch element
+	strbuffer = '\t\t\t<switch id="text-{}">\n'.format(xml_id)
+
+	# <text><a {link}>{name}</a></text> for every language
+	for lang in cfg.languages:
+		strbuffer += (
+			'\t\t\t\t<text class="{css}" systemLanguage="{lang}">{text}</text>\n'
+			.format(
+				css = css_classes, lang = lang,
+				text = make_text_with_link(cfg, lang_data[lang])
+			)
+		)
+
+	# End of switch element
+	strbuffer += '\t\t\t</switch>\n'
+	return strbuffer
+
+
+def generateDefs(cfg : TableConfig, lang_data):
 	strbuffer = (
 		'\t<defs>\n'
 		'\t\t<!-- Graphics -->\n'
@@ -600,6 +649,9 @@ def generateDefs(cfg : TableConfig, elements_list, lang_data):
 		'\t\t</svg>\n\n'
 	)
 
+	lang_elements = lang_data['elements']
+	lang_legends  = lang_data['legends']
+
 	strbuffer += (
 		'\t\t<!-- Element names -->\n'
 		'\t\t<g>\n'
@@ -607,28 +659,58 @@ def generateDefs(cfg : TableConfig, elements_list, lang_data):
 
 	if cfg.multilingual:
 		for i in elements_range():
-			# Start of switch element
-			text_id = make_text_id(elements_list[i])
-			strbuffer += '\t\t\t<switch id="{}">\n'.format(text_id)
-
-			# <text><a {link}>{name}</a></text> for every language
-			for lang in cfg.languages:
-				strbuffer += (
-					'\t\t\t\t<text class="name" systemLanguage="{lang}">{text}</text>\n'
-					.format(lang = lang, text = translate_element(cfg, lang, i))
-				)
-
-			# End of switch element
-			strbuffer += '\t\t\t</switch>\n'
+			strbuffer += generateDefMultilingualText(
+				cfg, lang_elements[i], make_xml_id_element(i), "name"
+			)
 
 	else:
 		for i in elements_range():
-			strbuffer += (
-				'\t\t\t<text class="name" id="{text_id}">{text}</text>\n'
-				.format(
-					text_id = make_text_id(elements_list[i]),
-					text = translate_element(cfg, cfg.languages[0], i)
-				)
+			strbuffer += generateDefMonolingualText(
+				cfg, lang_elements[i], make_xml_id_element(i), "name"
+			)
+
+	# End previous group, start new one
+	strbuffer += (
+		'\t\t</g>\n\n'
+		'\t\t<!-- Classes legend text -->\n'
+		'\t\t<g>\n'
+	)
+
+	# Translation of legends
+	if cfg.multilingual:
+		for klass in lang_legends['class']:
+			strbuffer += generateDefMultilingualText(
+				cfg, lang_legends['class'][klass],
+				make_xml_id_legend('class', klass), klass
+			)
+
+	else:
+		for klass in lang_legends['class']:
+			strbuffer += generateDefMonolingualText(
+				cfg, lang_legends['class'][klass],
+				make_xml_id_legend('class', klass), klass
+			)
+
+	# End previous group, start new one
+	strbuffer += (
+		'\t\t</g>\n\n'
+		'\t\t<!-- Element legend text -->\n'
+		'\t\t<g>\n'
+	)
+
+	# Translation of legends
+	if cfg.multilingual:
+		for item in lang_legends['element']:
+			strbuffer += generateDefMultilingualText(
+				cfg, lang_legends['element'][item],
+				make_xml_id_legend('element', item), "legend-elem"
+			)
+
+	else:
+		for item in lang_legends['element']:
+			strbuffer += generateDefMonolingualText(
+				cfg, lang_legends['element'][item],
+				make_xml_id_legend('element', item), "legend-elem"
 			)
 
 	# End group
@@ -671,7 +753,7 @@ fd = open("periodic.svg", 'w')
 # Header
 generateSVGHeader(config, fd)
 generateDocTitle(fd)
-fd.write( generateDefs(config, xml_data, LANG_DATA) )
+fd.write( generateDefs(config, LANG_DATA) )
 
 generateEmbeddedCSS(fd)
 
@@ -679,8 +761,8 @@ generateEmbeddedCSS(fd)
 # Legends
 if config.legends:
 	fd.write('\n\n\t<!-- Legends -->\n\n')
-	generateLegendClasses(fd)
-	generateLegendElement(config, fd)
+	fd.write( generateLegendClasses() )
+	fd.write( generateLegendElement(config) )
 
 
 # Create the groups headers

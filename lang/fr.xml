@@ -481,4 +481,80 @@
 			<wiki>https://fr.wikipedia.org/wiki/Oganesson</wiki>
 		</element>
 	</elements>
+
+	<!-- Legend for the different background colors -->
+	<legend type="class">
+		<!-- Superclasses -->
+		<item class="metal">
+			<name>Métaux</name>
+			<wiki>https://fr.wikipedia.org/wiki/M%C3%A9tal</wiki>
+		</item>
+		<item class="nonmetal">
+			<name>Non métaux</name>
+			<wiki>https://fr.wikipedia.org/wiki/Non-m%C3%A9tal</wiki>
+		</item>
+		<!-- Subclasses -->
+		<item class="alkali">
+			<name>Alcalins</name>
+			<wiki>https://fr.wikipedia.org/wiki/Alcalins</wiki>
+		</item>
+		<item class="alkalineEM">
+			<name>Alcalino-\nterreux</name>
+			<wiki>https://fr.wikipedia.org/wiki/M%C3%A9tal_alcalino-terreux</wiki>
+		</item>
+		<item class="lanthanide">
+			<name>Lan-\nthanides</name>
+			<wiki>https://fr.wikipedia.org/wiki/Lanthanide</wiki>
+		</item>
+		<item class="actinide">
+			<name>Actinides</name>
+			<wiki>https://fr.wikipedia.org/wiki/Actinide</wiki>
+		</item>
+		<item class="transitionM">
+			<name>Métaux\nde\ntransition</name>
+			<wiki>https://fr.wikipedia.org/wiki/M%C3%A9tal_de_transition</wiki>
+		</item>
+		<item class="post-transM">
+			<name>Métaux\npauvres</name>
+			<wiki>https://fr.wikipedia.org/wiki/M%C3%A9tal_pauvre</wiki>
+		</item>
+		<item class="metalloid">
+			<name>Métal-\nloïdes</name>
+			<wiki>https://fr.wikipedia.org/wiki/M%C3%A9tallo%C3%AFde</wiki>
+		</item>
+		<item class="reactiveNM">
+			<name>Autres\nnon-\nmétaux</name>
+		</item>
+		<item class="noble-gas">
+			<name>Gaz\nnobles</name>
+			<wiki>https://fr.wikipedia.org/wiki/Gaz_noble</wiki>
+		</item>
+		<item class="unknown">
+			<name>Nature\nchimique\ninconnue</name>
+		</item>
+	</legend>
+
+	<!-- Legend for the element description -->
+	<legend type="element">
+		<item class="number">
+			<name>Numéro atomique</name>
+			<wiki>https://fr.wikipedia.org/wiki/Num%C3%A9ro_atomique</wiki>
+		</item>
+		<item class="symbol">
+			<name>Symbole chimique</name>
+			<wiki>https://fr.wikipedia.org/wiki/Symbole_chimique</wiki>
+		</item>
+		<item class="name">
+			<name>Nom de l'élément</name>
+			<wiki>https://fr.wikipedia.org/wiki/Nom_des_%C3%A9l%C3%A9ments_chimiques</wiki>
+		</item>
+		<item class="weight">
+			<name>Masse atomique</name>
+			<wiki>https://fr.wikipedia.org/wiki/Masse_atomique</wiki>
+		</item>
+		<item class="econfig">
+			<name>Configuration électronique</name>
+			<wiki>https://fr.wikipedia.org/wiki/Configuration_%C3%A9lectronique</wiki>
+		</item>
+	</legend>
 </languagePack>

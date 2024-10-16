@@ -481,4 +481,81 @@
 			<wiki>https://en.wikipedia.org/wiki/Oganesson</wiki>
 		</element>
 	</elements>
+
+	<!-- Legend for the different background colors -->
+	<legend type="class">
+		<!-- Superclasses -->
+		<item class="metal">
+			<name>Metals</name>
+			<wiki>https://en.wikipedia.org/wiki/Metal</wiki>
+		</item>
+		<item class="nonmetal">
+			<name>Nonmetals</name>
+			<wiki>https://en.wikipedia.org/wiki/Nonmetal</wiki>
+		</item>
+		<!-- Subclasses -->
+		<item class="alkali">
+			<name>Alkali\nmetal</name>
+			<wiki>https://en.wikipedia.org/wiki/Alkali_metal</wiki>
+		</item>
+		<item class="alkalineEM">
+			<name>Alkaline\nearth\nmetal</name>
+			<wiki>https://en.wikipedia.org/wiki/Alkaline_earth_metal</wiki>
+		</item>
+		<item class="lanthanide">
+			<name>Lanthanide</name>
+			<wiki>https://en.wikipedia.org/wiki/Lanthanide</wiki>
+		</item>
+		<item class="actinide">
+			<name>Actinide</name>
+			<wiki>https://en.wikipedia.org/wiki/Actinide</wiki>
+		</item>
+		<item class="transitionM">
+			<name>Transition\nmetal</name>
+			<wiki>https://en.wikipedia.org/wiki/Transition_metal</wiki>
+		</item>
+		<item class="post-transM">
+			<name>Post-\ntransition\nmetal</name>
+			<wiki>https://en.wikipedia.org/wiki/Post-transition_metal</wiki>
+		</item>
+		<item class="metalloid">
+			<name>Metalloid</name>
+			<wiki>https://en.wikipedia.org/wiki/Metalloid</wiki>
+		</item>
+		<item class="reactiveNM">
+			<name>Reactive\nnonmetal</name>
+			<wiki>https://en.wikipedia.org/wiki/Reactive_nonmetal</wiki>
+		</item>
+		<item class="noble-gas">
+			<name>Noble gas</name>
+			<wiki>https://en.wikipedia.org/wiki/Noble_gas</wiki>
+		</item>
+		<item class="unknown">
+			<name>Unknown\nchemical\nproperties</name>
+		</item>
+	</legend>
+
+	<!-- Legend for the element description -->
+	<legend type="element">
+		<item class="number">
+			<name>Atomic number</name>
+			<wiki>https://en.wikipedia.org/wiki/Atomic_number</wiki>
+		</item>
+		<item class="symbol">
+			<name>Symbol</name>
+			<wiki>https://en.wikipedia.org/wiki/Chemical_symbol</wiki>
+		</item>
+		<item class="name">
+			<name>Element name</name>
+			<wiki>https://en.wikipedia.org/wiki/Naming_of_chemical_elements</wiki>
+		</item>
+		<item class="weight">
+			<name>Standard atomic weight</name>
+			<wiki>https://en.wikipedia.org/wiki/Standard_atomic_weight</wiki>
+		</item>
+		<item class="econfig">
+			<name>Electron configuration</name>
+			<wiki>https://en.wikipedia.org/wiki/Electron_configuration</wiki>
+		</item>
+	</legend>
 </languagePack>
