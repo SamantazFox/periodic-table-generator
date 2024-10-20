@@ -1,4 +1,15 @@
 /*
+ * Base rules
+*/
+
+svg {
+	text-anchor: middle;
+	text-align: center;
+	font-family: sans-serif;
+}
+
+
+/*
  * Background
 */
 
@@ -18,14 +29,11 @@ g.legend-class rect {
 g.super-class use,
 g.sub-class use {
 	font-size: 9.5pt;
-	text-align: middle;
-	text-anchor: middle;
 }
 
 g.super-class rect {
 	fill: #CCCCCC;
 	stroke: 0.5;
-	/*stroke: none;*/
 }
 
 g.super-class path {
@@ -39,8 +47,6 @@ g.super-class path {
 */
 
 text.headers-text {
-	text-anchor: middle;
-	text-align: center;
 	font-size: 22pt;
 	font-family: monospace;
 }
@@ -106,41 +112,40 @@ rect.unknown     { fill: #e8e8e8; }
  * Elements - text
 */
 
-text {
+.number, .symbol, .name, .weight, .econf {
 	fill: black;
-	font-family: sans-serif;
 }
 
-text.number {
+.number {
 	font-size:  7pt;
 	text-anchor: start;
 	text-align: start;
 }
 
-text.symbol, text.name, text.weight, text.econf {
-	text-anchor: middle;
-	text-align: center;
-}
-
-text.symbol {
+.symbol {
 	font-size: 24pt;
 	font-family: serif;
 }
-text.symbol.sm { font-size: 21pt; }
-text.name   { font-size: 8pt; }
-text.weight { font-size: 6pt; }
-text.econf  { font-size: 4.5pt; }
+.symbol.sm { font-size: 21pt; }
+.name   { font-size: 8pt; }
+.weight { font-size: 6pt; }
+.econf  { font-size: 4.5pt; }
 
 
 /*
  * Legends - text
 */
 
-text.legend-elem {
+.legend-elem {
 	dominant-baseline: middle;
 	font-size: 8pt;
 }
 
-use.left   { text-anchor: end;  }
-use.right  { text-anchor: start; }
-use.center { text-anchor: middle; }
+.left {
+	text-anchor: end;
+	text-align: right;
+}
+.right {
+	text-anchor: start;
+	text-align: left;
+}

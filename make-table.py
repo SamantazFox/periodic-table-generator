@@ -198,8 +198,8 @@ if config.large_table:
 
 # 18-columns
 else:
-	CONST_GROUP4_OFFSET = 20
-	CONST_LANACT_OFFSET = 20
+	CONST_GROUP4_OFFSET = 30
+	CONST_LANACT_OFFSET = 25
 
 	CONST_COL_COUNT = 19
 	CONST_ROW_COUNT = 10
@@ -524,25 +524,25 @@ def generateLegendClasses():
 	strbuffer = (
 		'\t<g transform="translate({x} {y})" class="legend-class" id="legend_classes">\n'
 		'\t\t<rect fill="#ADADAD" stroke="#424242" stroke-width="1.2"\n'
-		'\t\t  width="915" height="110" x="0" y="0" rx="4" ry="4"/>\n'
+		'\t\t  width="915" height="115" x="0" y="0" rx="4" ry="4"/>\n'
 		.format(x = CONST_LEG_CLASS_XPOS, y = CONST_LEG_CLASS_YPOS)
 	)
 
 	# Main class: metals
 	strbuffer += (
 		'\t\t<g class="super-class" id="legend_superclass_Metals" transform="translate(10 10)">\n'
-		'\t\t\t<rect width="540" height="90" x="0" y="0"/>\n'
-		'\t\t\t<use xlink:href="#text-legend-class-metal" class="center" x="270" y="13.5" />\n'
-		'\t\t\t<path d="M5 18 L535 18"/>\n'
+		'\t\t\t<rect width="540" height="95" x="0" y="0"/>\n'
+		'\t\t\t<use xlink:href="#text-legend-class-metal" class="center" x="270" y="16" />\n'
+		'\t\t\t<path d="M5 23 L535 23"/>\n'
 		'\t\t</g>\n'
 	)
 
 	# Main class: nonmetals
 	strbuffer += (
 		'\t\t<g class="super-class" id="legend_superclass_Nonmetals" transform="translate(640 10)">\n'
-		'\t\t\t<rect width="180" height="90" x="0" y="0"/>\n'
-		'\t\t\t<use xlink:href="#text-legend-class-nonmetal" class="center" x="90" y="13.5" />\n'
-		'\t\t\t<path d="M5 18 L175 18"/>\n'
+		'\t\t\t<rect width="180" height="95" x="0" y="0"/>\n'
+		'\t\t\t<use xlink:href="#text-legend-class-nonmetal" class="center" x="90" y="16" />\n'
+		'\t\t\t<path d="M5 23 L175 23"/>\n'
 		'\t\t</g>\n'
 	)
 
@@ -555,7 +555,7 @@ def generateLegendClasses():
 			'\t\t\t<rect id="legend_class_{css}" class="{css}" width="80" height="60" x="0" y="0"/>\n'
 			'\t\t\t<use xlink:href="#text-legend-class-{css}" class="center" x="40" y="35" />\n'
 			'\t\t</g>\n'
-			.format(pos_X = (i*90) + 15, pos_Y = 35, css = CONST_CLASS_LIST[i])
+			.format(pos_X = (i*90) + 15, pos_Y = 40, css = CONST_CLASS_LIST[i])
 		)
 
 	# End of group
@@ -586,8 +586,8 @@ def generateSVGHeader(cfg : TableConfig, file):
 		'  xmlns:xlink="http://www.w3.org/1999/xlink"\n'
 		'>\n\n'
 		.format(
-			w = (CONST_COL_COUNT * 96) + CONST_GROUP4_OFFSET + 10,
-			h = (CONST_ROW_COUNT * 96) + CONST_LANACT_OFFSET + 10 + legend_H,
+			w = (CONST_COL_COUNT * 96) + CONST_GROUP4_OFFSET + 35,
+			h = (CONST_ROW_COUNT * 96) + CONST_LANACT_OFFSET + 20 + legend_H,
 			classes = classes,
 		)
 	)
@@ -641,9 +641,9 @@ def generateDefs(cfg : TableConfig, lang_data):
 	#
 	strbuffer += (
 		'\t\t<svg id="radioactive-logo" width="96" height="96">\n'
-		'\t\t\t<g transform="translate(12 12) scale(0.12)">\n'
-		'\t\t\t\t<circle cx="300" cy="300" r="50"  opacity="0.15" />\n'
-		'\t\t\t\t<path stroke="#000" stroke-width="175" fill="none" opacity="0.15"\n'
+		'\t\t\t<g transform="translate(12 12) scale(0.12)" opacity="0.2">\n'
+		'\t\t\t\t<circle cx="300" cy="300" r="50" />\n'
+		'\t\t\t\t<path stroke="#000" stroke-width="175" fill="none"\n'
 		'\t\t\t\t  stroke-dasharray="171.74" d="M382,158a164,164 0 1,1-164,0" />\n'
 		'\t\t\t</g>\n'
 		'\t\t</svg>\n\n'
@@ -722,7 +722,7 @@ def generateDefs(cfg : TableConfig, lang_data):
 
 
 def generateEmbeddedCSS(file):
-	strbuffer = '\t<style>\n'
+	strbuffer = '\t<style type="text/css">\n'
 
 	# We have to remove comments, as Inkscape doesn't seem to like them.
 	comment_flag = False
